@@ -1,11 +1,23 @@
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
-import { ENV } from './_core/env';
+import {
+  chatConversations,
+  InsertChatMessageRow,
+  InsertLead,
+  InsertListing,
+  InsertPost,
+  InsertTestimonial,
+  InsertUser,
+  leads,
+  listings,
+  posts,
+  testimonials,
+  users,
+} from "../drizzle/schema";
+import { ENV } from "./_core/env";
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
-// Lazily create the drizzle instance so local tooling can run without a DB.
 export async function getDb() {
   if (!_db && process.env.DATABASE_URL) {
     try {
@@ -56,8 +68,8 @@ export async function upsertUser(user: InsertUser): Promise<void> {
       values.role = user.role;
       updateSet.role = user.role;
     } else if (user.openId === ENV.ownerOpenId) {
-      values.role = 'admin';
-      updateSet.role = 'admin';
+      values.role = "admin";
+      updateSet.role = "admin";
     }
 
     if (!values.lastSignedIn) {
@@ -79,14 +91,173 @@ export async function upsertUser(user: InsertUser): Promise<void> {
 
 export async function getUserByOpenId(openId: string) {
   const db = await getDb();
-  if (!db) {
-    console.warn("[Database] Cannot get user: database not available");
-    return undefined;
-  }
-
-  const result = await db.select().from(users).where(eq(users.openId, openId)).limit(1);
-
+  if (!db) return undefined;
+  const result = await db
+    .select()
+    .from(users)
+    .where(eq(users.openId, openId))
+    .limit(1);
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+/* ----------------------------- LEADS ----------------------------- */
+
+export async function createLead(lead: InsertLead) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const result = await db.insert(leads).values(lead);
+  return result;
+}
+
+export async function listLeads() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(leads).orderBy(desc(leads.createdAt));
+}
+
+export async function updateLeadStatus(
+  id: number,
+  status: "new" | "contacted" | "archived",
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.update(leads).set({ status }).where(eq(leads.id, id));
+}
+
+/* ------------------------- CHAT LOGGING -------------------------- */
+
+export async function logChatMessage(msg: InsertChatMessageRow) {
+  const db = await getDb();
+  if (!db) return;
+  try {
+    await db.insert(chatConversations).values(msg);
+  } catch (e) {
+    console.warn("[Database] Failed to log chat message:", e);
+  }
+}
+
+export async function listChatConversations() {
+  const db = await getDb();
+  if (!db) return [];
+  return db
+    .select()
+    .from(chatConversations)
+    .orderBy(desc(chatConversations.createdAt))
+    .limit(500);
+}
+
+/* ----------------------------- LISTINGS -------------------------- */
+
+export async function listListings() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(listings).orderBy(desc(listings.createdAt));
+}
+
+export async function listFeaturedListings() {
+  const db = await getDb();
+  if (!db) return [];
+  return db
+    .select()
+    .from(listings)
+    .where(eq(listings.featured, true))
+    .orderBy(desc(listings.createdAt));
+}
+
+export async function createListing(listing: InsertListing) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.insert(listings).values(listing);
+}
+
+export async function updateListing(id: number, patch: Partial<InsertListing>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.update(listings).set(patch).where(eq(listings.id, id));
+}
+
+export async function deleteListing(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.delete(listings).where(eq(listings.id, id));
+}
+
+/* ------------------------------ POSTS ---------------------------- */
+
+export async function listPosts(onlyPublished = false) {
+  const db = await getDb();
+  if (!db) return [];
+  if (onlyPublished) {
+    return db
+      .select()
+      .from(posts)
+      .where(eq(posts.published, true))
+      .orderBy(desc(posts.createdAt));
+  }
+  return db.select().from(posts).orderBy(desc(posts.createdAt));
+}
+
+export async function getPostBySlug(slug: string) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db
+    .select()
+    .from(posts)
+    .where(eq(posts.slug, slug))
+    .limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function createPost(post: InsertPost) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.insert(posts).values(post);
+}
+
+export async function updatePost(id: number, patch: Partial<InsertPost>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.update(posts).set(patch).where(eq(posts.id, id));
+}
+
+export async function deletePost(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.delete(posts).where(eq(posts.id, id));
+}
+
+/* -------------------------- TESTIMONIALS ------------------------- */
+
+export async function listTestimonials(onlyPublished = false) {
+  const db = await getDb();
+  if (!db) return [];
+  if (onlyPublished) {
+    return db
+      .select()
+      .from(testimonials)
+      .where(eq(testimonials.published, true))
+      .orderBy(desc(testimonials.createdAt));
+  }
+  return db.select().from(testimonials).orderBy(desc(testimonials.createdAt));
+}
+
+export async function createTestimonial(t: InsertTestimonial) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.insert(testimonials).values(t);
+}
+
+export async function updateTestimonial(
+  id: number,
+  patch: Partial<InsertTestimonial>,
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.update(testimonials).set(patch).where(eq(testimonials.id, id));
+}
+
+export async function deleteTestimonial(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.delete(testimonials).where(eq(testimonials.id, id));
+}
