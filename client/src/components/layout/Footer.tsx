@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { SITE, COMPLIANCE } from "@/config/site";
+import { SITE, COMPLIANCE, ASSETS } from "@/config/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -68,15 +68,28 @@ export function Footer() {
         </div>
       </div>
 
+      {/* KW Elite Branding */}
+      <div className="border-t border-border bg-foreground/5 py-4">
+        <div className="container flex items-center justify-between">
+          <img
+            src={ASSETS.kwEliteLogo}
+            alt="Keller Williams Elite Realty"
+            className="h-12 w-auto"
+          />
+          <p className="text-xs text-muted-foreground">
+            Proudly affiliated with Keller Williams Elite Realty
+          </p>
+        </div>
+      </div>
+
       {/* Legal / compliance */}
       <div className="border-t border-border">
         <div className="container space-y-2 py-6 text-xs leading-relaxed text-muted-foreground">
           <p>{COMPLIANCE.equalHousing}</p>
           <p>{COMPLIANCE.idxDisclaimer}</p>
-          <p>{SITE.brokerageDisclaimer} &middot; License {SITE.licenseNumber}</p>
+          <p>{SITE.brokerageDisclaimer}</p>
           <p className="pt-2">
-            &copy; {year} {SITE.agentName}, {SITE.brokerage}. All rights
-            reserved. &middot;{" "}
+            &copy; {year} {SITE.agentName}. All rights reserved. &middot;{" "}
             <Link href="/privacy" className="hover:text-primary">Privacy Policy</Link>{" "}
             &middot;{" "}
             <Link href="/terms" className="hover:text-primary">Terms of Use</Link>

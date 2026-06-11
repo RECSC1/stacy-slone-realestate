@@ -8,13 +8,12 @@
  */
 
 export const ASSETS = {
-  // Headshot: replace the URL below the moment the real photo is uploaded.
-  // SEO-friendly filename target: stacy-wilson-slone-triangle-realtor-headshot.jpg
-  headshot:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/stacy-wilson-slone-triangle-realtor-headshot-FP7SypEpxdanmyUKJQCaye.webp",
-  headshotIsPlaceholder: true,
+  // Headshot: Stacy Wilson Slone's professional editorial headshot
+  headshot: "/manus-storage/stacy-wilson-slone-triangle-realtor-headshot_98ed2832.jpg",
+  headshotIsPlaceholder: false,
   logoMonogram:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/sws-monogram-jmaARJMnpKpwkAW4v57s9F.webp",
+  kwEliteLogo: "/manus-storage/kw-elite-realty-logo_945978cb.jpg",
   heroHome:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/hero-southern-home_9ff96c9e.jpg",
   creamBrickLantern:
@@ -64,20 +63,20 @@ export const SITE = {
   subTagline:
     "Trusted real estate guidance across the Triangle — from your first showing to closing day and every milestone in between.",
   brokerage: "KW Elite Realty",
-  brokerageLegalName: "Keller Williams / KW Elite Realty",
+  brokerageLegalName: "Keller Williams Elite Realty",
   region: "Triangle, North Carolina",
 
   // Contact details
   phone: "919-332-8889",
   phoneHref: "tel:+19193328889",
-  email: "[Stacy's email]",
-  emailHref: "mailto:[Stacy's email]",
+  email: "stacy@stacyslonerealty.com",
+  emailHref: "mailto:stacy@stacyslonerealty.com",
 
   // Placeholders that are easy to find and replace
-  officeAddress: "[Office address]",
-  licenseNumber: "[NC Real Estate License number]",
+  officeAddress: "Raleigh, NC",
+  licenseNumber: "Broker/Realtor®",
   brokerageDisclaimer:
-    "[Brokerage legal disclaimer — add KW Elite Realty required language here]",
+    "Each office is independently owned and operated by a Keller Williams franchisee.",
 
   // SEO
   baseUrl: "https://stacyslonerealestate.com",
@@ -86,7 +85,7 @@ export const SITE = {
   seoDescription:
     "Stacy Wilson Slone is a Triangle North Carolina Realtor with KW Elite Realty serving Raleigh, Durham, Chapel Hill, Cary and surrounding areas. Buy, sell, and relocate with a trusted local expert.",
   headshotAlt:
-    "Stacy Wilson Slone, Triangle North Carolina Realtor with KW Elite Realty",
+    "Stacy Wilson Slone, Triangle North Carolina Realtor with Keller Williams Elite Realty",
 
   // Social links (add when available)
   social: {
