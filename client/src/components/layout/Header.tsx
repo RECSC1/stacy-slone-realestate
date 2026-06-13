@@ -10,7 +10,7 @@ interface NavItem {
 }
 
 const NAV: NavItem[] = [
-  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   {
     label: "Buy",
     href: "/buy",
@@ -39,19 +39,7 @@ const NAV: NavItem[] = [
       { label: "Local Landmarks", href: "/local-landmarks" },
     ],
   },
-  {
-    label: "Tools",
-    href: "/tools",
-    children: [
-      { label: "All Tools", href: "/tools" },
-      { label: "AI Home Search", href: "/ai-home-search" },
-      { label: "AI Concierge", href: "/concierge" },
-      { label: "House Direction Finder", href: "/house-direction-finder" },
-      { label: "Mortgage Calculator", href: "/mortgage-calculator" },
-    ],
-  },
   { label: "Resources", href: "/resources" },
-  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -63,29 +51,28 @@ export function Header() {
   const isActive = (href: string) => location === href;
 
   return (
-    <header className="sticky top-0 z-50 bg-accent">
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="container mx-auto px-4">
-        {/* Main Toolbar */}
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/">
-            <div className="flex items-center gap-2 cursor-pointer">
-              <span className="text-lg font-serif font-semibold text-primary-dark">
+            <div className="flex items-center cursor-pointer">
+              <span className="text-xl font-serif font-bold text-gray-900">
                 {SITE.agentName}
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-8">
             {NAV.map((item) => (
               <div key={item.href} className="relative group">
                 <Link href={item.href}>
                   <button
-                    className={`px-4 py-2 text-sm font-medium transition-colors ${
+                    className={`text-sm font-medium transition-colors py-2 ${
                       isActive(item.href)
-                        ? "text-primary-dark bg-accent-light"
-                        : "text-primary-dark hover:bg-accent-light/50"
+                        ? "text-gray-900 border-b-2 border-gray-900"
+                        : "text-gray-700 hover:text-gray-900"
                     }`}
                   >
                     <span className="flex items-center gap-1">
@@ -99,14 +86,14 @@ export function Header() {
 
                 {/* Dropdown Menu */}
                 {item.children && (
-                  <div className="absolute left-0 mt-0 w-48 bg-white border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="absolute left-0 mt-0 w-56 bg-white border border-gray-200 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
                     {item.children.map((child) => (
                       <Link key={child.href} href={child.href}>
                         <button
-                          className={`w-full text-left px-4 py-2 text-sm transition-colors first:rounded-t-lg last:rounded-b-lg ${
+                          className={`w-full text-left px-4 py-2 text-sm transition-colors ${
                             isActive(child.href)
-                              ? "bg-accent/10 text-accent font-medium"
-                              : "text-primary-dark hover:bg-primary/50"
+                              ? "bg-gray-50 text-gray-900 font-medium"
+                              : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                           }`}
                         >
                           {child.label}
@@ -121,7 +108,7 @@ export function Header() {
 
           {/* CTA Button */}
           <Link href="/contact">
-            <button className="hidden lg:block px-4 py-2 text-sm font-medium text-accent bg-primary-dark rounded-lg hover:bg-primary-dark/90 transition-colors">
+            <button className="hidden lg:block px-6 py-2 text-sm font-semibold text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors">
               Schedule
             </button>
           </Link>
@@ -129,7 +116,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-primary-dark p-2"
+            className="lg:hidden text-gray-900 p-2"
           >
             {mobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -141,7 +128,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="lg:hidden pb-4 border-t border-accent-light">
+          <nav className="lg:hidden pb-4 border-t border-gray-200">
             {NAV.map((item) => (
               <div key={item.href}>
                 <button
@@ -150,10 +137,10 @@ export function Header() {
                       openDropdown === item.href ? null : item.href
                     )
                   }
-                  className={`w-full text-left px-4 py-2 text-sm font-medium transition-colors flex items-center justify-between ${
+                  className={`w-full text-left px-4 py-3 text-sm font-medium transition-colors flex items-center justify-between ${
                     isActive(item.href)
-                      ? "text-primary-dark bg-accent-light"
-                      : "text-primary-dark hover:bg-accent-light/50"
+                      ? "text-gray-900 bg-gray-50"
+                      : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                   }`}
                 >
                   <span>{item.label}</span>
@@ -168,12 +155,12 @@ export function Header() {
 
                 {/* Mobile Dropdown */}
                 {item.children && openDropdown === item.href && (
-                  <div className="bg-accent-light/30">
+                  <div className="bg-gray-50">
                     {item.children.map((child) => (
                       <Link key={child.href} href={child.href}>
                         <button
                           onClick={() => setMobileMenuOpen(false)}
-                          className="w-full text-left px-8 py-2 text-sm text-primary-dark hover:bg-accent-light/50 transition-colors"
+                          className="w-full text-left px-8 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                         >
                           {child.label}
                         </button>
