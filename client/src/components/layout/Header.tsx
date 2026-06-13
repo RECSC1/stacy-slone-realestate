@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { SITE } from "@/config/site";
-import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 interface NavItem {
   label: string;
@@ -57,136 +56,136 @@ const NAV: NavItem[] = [
 ];
 
 export function Header() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [location] = useLocation();
 
+  const isActive = (href: string) => location === href;
+
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-accent/20 bg-primary/98 backdrop-blur supports-[backdrop-filter]:bg-primary/95">
-      <div className="container flex h-20 items-center justify-between">
-        {/* Brand */}
-        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div className="flex flex-col">
-            <span className="font-serif text-xl leading-tight tracking-wide text-white sm:text-2xl font-bold">
-              {SITE.agentName}
-            </span>
-            <span className="text-xs font-semibold uppercase tracking-widest text-accent/90">
-              {SITE.brokerage}
-            </span>
-          </div>
-        </Link>
-
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 lg:flex">
-          {NAV.map((item) => (
-            <div
-              key={item.label}
-              className="relative"
-              onMouseEnter={() => item.children && setOpenDropdown(item.label)}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <Link
-                href={item.href}
-                className={cn(
-                  "flex items-center gap-1 px-3 py-2 text-sm font-medium tracking-wide text-foreground/80 transition-colors hover:text-primary",
-                  location === item.href && "text-primary",
-                )}
-              >
-                {item.label}
-                {item.children && <ChevronDown className="h-3.5 w-3.5" />}
-              </Link>
-              {item.children && openDropdown === item.label && (
-                <div className="absolute left-0 top-full w-56 animate-fade-up border border-border bg-card p-2 shadow-lg">
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      className="block px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground"
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+    <header className="sticky top-0 z-50 bg-accent">
+      <div className="container mx-auto px-4">
+        {/* Main Toolbar */}
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/">
+            <div className="flex items-center gap-2 cursor-pointer">
+              <span className="text-lg font-serif font-semibold text-primary-dark">
+                {SITE.agentName}
+              </span>
             </div>
-          ))}
-        </nav>
-
-        {/* Desktop CTA */}
-        <div className="hidden items-center gap-4 lg:flex">
-          <a
-            href={SITE.phoneHref}
-            className="flex items-center gap-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
-          >
-            <Phone className="h-4 w-4" />
-            {SITE.phone}
-          </a>
-          <Link
-            href="/home-valuation"
-            className="bg-primary px-5 py-2.5 text-sm font-medium tracking-wide text-primary-foreground transition-transform hover:opacity-95 active:scale-[0.97]"
-          >
-            Home Value
           </Link>
-        </div>
 
-        {/* Mobile toggle */}
-        <button
-          className="lg:hidden"
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="border-t border-border bg-background lg:hidden">
-          <nav className="container flex flex-col py-4">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-1">
             {NAV.map((item) => (
-              <div key={item.label} className="border-b border-border/50 py-1">
-                <Link
-                  href={item.href}
-                  className="block py-2 text-base font-medium text-foreground"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {item.label}
+              <div key={item.href} className="relative group">
+                <Link href={item.href}>
+                  <button
+                    className={`px-4 py-2 text-sm font-medium transition-colors ${
+                      isActive(item.href)
+                        ? "text-primary-dark bg-accent-light"
+                        : "text-primary-dark hover:bg-accent-light/50"
+                    }`}
+                  >
+                    <span className="flex items-center gap-1">
+                      {item.label}
+                      {item.children && (
+                        <ChevronDown className="w-3 h-3" />
+                      )}
+                    </span>
+                  </button>
                 </Link>
+
+                {/* Dropdown Menu */}
                 {item.children && (
-                  <div className="ml-4 flex flex-col">
+                  <div className="absolute left-0 mt-0 w-48 bg-white border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="py-1.5 text-sm text-muted-foreground"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {child.label}
+                      <Link key={child.href} href={child.href}>
+                        <button
+                          className={`w-full text-left px-4 py-2 text-sm transition-colors first:rounded-t-lg last:rounded-b-lg ${
+                            isActive(child.href)
+                              ? "bg-accent/10 text-accent font-medium"
+                              : "text-primary-dark hover:bg-primary/50"
+                          }`}
+                        >
+                          {child.label}
+                        </button>
                       </Link>
                     ))}
                   </div>
                 )}
               </div>
             ))}
-            <div className="mt-4 flex flex-col gap-3">
-              <a
-                href={SITE.phoneHref}
-                className="flex items-center gap-2 text-sm font-medium text-foreground"
-              >
-                <Phone className="h-4 w-4" />
-                {SITE.phone}
-              </a>
-              <Link
-                href="/home-valuation"
-                className="bg-primary px-5 py-3 text-center text-sm font-medium text-primary-foreground"
-                onClick={() => setMobileOpen(false)}
-              >
-                Get My Home Value
-              </Link>
-            </div>
           </nav>
+
+          {/* CTA Button */}
+          <Link href="/contact">
+            <button className="hidden lg:block px-4 py-2 text-sm font-medium text-accent bg-primary-dark rounded-lg hover:bg-primary-dark/90 transition-colors">
+              Schedule
+            </button>
+          </Link>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden text-primary-dark p-2"
+          >
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
         </div>
-      )}
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <nav className="lg:hidden pb-4 border-t border-accent-light">
+            {NAV.map((item) => (
+              <div key={item.href}>
+                <button
+                  onClick={() =>
+                    setOpenDropdown(
+                      openDropdown === item.href ? null : item.href
+                    )
+                  }
+                  className={`w-full text-left px-4 py-2 text-sm font-medium transition-colors flex items-center justify-between ${
+                    isActive(item.href)
+                      ? "text-primary-dark bg-accent-light"
+                      : "text-primary-dark hover:bg-accent-light/50"
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {item.children && (
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${
+                        openDropdown === item.href ? "rotate-180" : ""
+                      }`}
+                    />
+                  )}
+                </button>
+
+                {/* Mobile Dropdown */}
+                {item.children && openDropdown === item.href && (
+                  <div className="bg-accent-light/30">
+                    {item.children.map((child) => (
+                      <Link key={child.href} href={child.href}>
+                        <button
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="w-full text-left px-8 py-2 text-sm text-primary-dark hover:bg-accent-light/50 transition-colors"
+                        >
+                          {child.label}
+                        </button>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
+        )}
+      </div>
     </header>
   );
 }
