@@ -57,12 +57,12 @@
 - [x] About page (editorial frame)
 - [x] Contact page
 - [x] SEO alt text everywhere
-- [ ] Swap placeholder for real upload when received
+- [x] Swap placeholder for real upload when received
 
 ## QA / Delivery
 - [x] Remove all Paula references (verify none exist)
 - [x] Vitest coverage for lead + AI procedures
-- [ ] Responsive checks (desktop/tablet/mobile)
-- [ ] Accessibility/contrast checks
-- [ ] Deployment notes
-- [ ] Final QA report
+- [x] Responsive checks (desktop/tablet/mobile)
+- [x] Accessibility/contrast checks
+- [x] Deployment notes
+- [x] Final QA report

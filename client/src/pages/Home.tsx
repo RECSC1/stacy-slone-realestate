@@ -43,41 +43,45 @@ export default function Home() {
     <>
       <Seo />
 
-      {/* HERO */}
-      <section className="relative isolate overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <img
-            src={ASSETS.heroHome}
-            alt="Charleston-inspired Triangle North Carolina home with classic architecture"
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/75 via-foreground/45 to-transparent" />
-        </div>
+      {/* HERO - Bold Two-Column Layout */}
+      <section className="relative isolate">
+        <div className="grid min-h-[90vh] grid-cols-1 lg:grid-cols-2">
+          {/* Left: Text Content on Solid Charcoal */}
+          <div className="flex flex-col justify-center bg-foreground px-8 py-20 sm:px-12 sm:py-24 lg:px-16">
+            <div className="animate-fade-up space-y-8">
+              <div>
+                <p className="eyebrow text-background/70 tracking-widest">
+                  {SITE.brokerage} · {SITE.region}
+                </p>
+                <h1 className="mt-6 font-serif text-5xl leading-[1.15] text-background sm:text-6xl lg:text-7xl">
+                  {SITE.tagline}
+                </h1>
+              </div>
+              <p className="max-w-lg text-lg leading-relaxed text-background/80">
+                {SITE.subTagline}
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Link
+                  href="/home-valuation"
+                  className="inline-flex items-center justify-center gap-2 bg-primary px-8 py-4 text-sm font-semibold tracking-wide text-primary-foreground transition-all duration-200 hover:shadow-lg hover:scale-105 active:scale-95"
+                >
+                  What's My Home Worth?
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/buy"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-background/40 px-8 py-4 text-sm font-semibold tracking-wide text-background transition-all duration-200 hover:border-background/70 hover:bg-background/10"
+                >
+                  Browse Homes
+                </Link>
+              </div>
+            </div>
+          </div>
 
-        <div className="container flex min-h-[78vh] flex-col justify-center py-24">
-          <div className="max-w-2xl animate-fade-up">
-            <p className="eyebrow text-background/90">
-              {SITE.brokerage} &middot; {SITE.region}
-            </p>
-            <h1 className="mt-5 font-serif text-4xl leading-[1.1] text-background sm:text-5xl lg:text-6xl">
-              {SITE.tagline}
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-background/90">
-              {SITE.subTagline}
-            </p>
-            <div className="mt-9 flex flex-wrap gap-4">
-              <Link
-                href="/home-valuation"
-                className="bg-primary px-7 py-3.5 text-sm font-medium tracking-wide text-primary-foreground transition-transform hover:opacity-95 active:scale-[0.97]"
-              >
-                What's My Home Worth?
-              </Link>
-              <Link
-                href="/buy"
-                className="border border-background/40 bg-background/10 px-7 py-3.5 text-sm font-medium tracking-wide text-background backdrop-blur transition-colors hover:bg-background/20"
-              >
-                Browse Homes
-              </Link>
+          {/* Right: Stacy's Headshot */}
+          <div className="relative hidden flex-col items-center justify-center bg-secondary p-8 lg:flex">
+            <div className="w-full max-w-sm">
+              <Headshot />
             </div>
           </div>
         </div>
@@ -99,189 +103,128 @@ export default function Home() {
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                 {vp.body}
               </p>
-              <span className="mt-5 flex items-center gap-2 text-sm font-medium text-primary">
+              <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary transition-transform group-hover:translate-x-1">
                 {vp.cta}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
-            </Link>
-          ))}
-        </div>
-      </Section>
-
-      {/* ABOUT / CREDIBILITY PREVIEW with headshot */}
-      <Section className="bg-secondary/50">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <div className="order-2 lg:order-1">
-            <SectionHeading
-              eyebrow="Meet Stacy"
-              title="A trusted Triangle Realtor who puts your goals first"
-            />
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
-              <p>
-                {SITE.agentName} is a dedicated real estate professional with{" "}
-                {SITE.brokerage}, serving buyers and sellers across Raleigh,
-                Durham, Chapel Hill, Cary, and the surrounding Triangle
-                communities.
-              </p>
-              <p>
-                Her approach is simple: listen closely, communicate clearly, and
-                advocate relentlessly. Whether you're buying your first home,
-                selling a long-time residence, or relocating to the area, Stacy
-                brings local insight and a steady hand to every step.
-              </p>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/about"
-                className="bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform active:scale-[0.97]"
-              >
-                More About Stacy
-              </Link>
-              <a
-                href={SITE.phoneHref}
-                className="flex items-center gap-2 border border-border bg-background px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary"
-              >
-                <Phone className="h-4 w-4" /> {SITE.phone}
-              </a>
-            </div>
-          </div>
-          <div className="order-1 mx-auto w-full max-w-sm lg:order-2">
-            <Headshot withPanel />
-          </div>
-        </div>
-      </Section>
-
-      {/* FEATURED LISTINGS */}
-      <FeaturedListings />
-
-      {/* COMMUNITIES */}
-      <Section className="bg-secondary/50">
-        <SectionHeading
-          align="center"
-          eyebrow="Explore the Triangle"
-          title="Communities Stacy serves"
-          description="Get to know the distinct character of each Triangle market and find where you belong."
-          className="mb-12"
-        />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {COMMUNITIES.slice(0, 4).map((c) => (
-            <Link
-              key={c.slug}
-              href={`/communities/${c.slug}`}
-              className="group relative aspect-[3/4] overflow-hidden"
-            >
-              <img
-                src={c.image}
-                alt={`${c.name}, North Carolina real estate with Stacy Wilson Slone`}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/10 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-5">
-                <p className="flex items-center gap-1.5 text-xs text-background/80">
-                  <MapPin className="h-3.5 w-3.5" /> Triangle, NC
-                </p>
-                <p className="mt-1 font-serif text-2xl text-background">
-                  {c.name}
-                </p>
+                <ArrowRight className="h-4 w-4" />
               </div>
             </Link>
           ))}
         </div>
-        <div className="mt-10 text-center">
-          <Link
-            href="/communities"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary"
-          >
-            View all communities
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+      </Section>
+
+      {/* FEATURED LISTINGS */}
+      <Section className="bg-secondary/40">
+        <div className="space-y-8">
+          <div>
+            <SectionHeading
+              title="Featured Listings"
+              description="Handpicked homes across the Triangle, curated for quality and opportunity."
+            />
+          </div>
+          <FeaturedListings />
+        </div>
+      </Section>
+
+      {/* COMMUNITIES PREVIEW */}
+      <Section className="bg-background">
+        <div className="space-y-8">
+          <div>
+            <SectionHeading
+              title="Explore the Triangle"
+              description="From established Raleigh neighborhoods to emerging markets in Cary and beyond."
+            />
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {COMMUNITIES.slice(0, 4).map((community) => (
+              <Link
+                key={community.slug}
+                href={`/communities/${community.slug}`}
+                className="group flex flex-col border border-border bg-card p-6 transition-all hover:shadow-lg hover:border-primary/50"
+              >
+                <h3 className="font-serif text-xl text-foreground group-hover:text-primary transition-colors">
+                  {community.name}
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">{community.tagline}</p>
+                <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                  Explore
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="flex justify-center pt-4">
+            <Link
+              href="/communities"
+              className="inline-flex items-center gap-2 border-b-2 border-primary pb-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+            >
+              View all communities
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </Section>
 
       {/* AI TOOLS TEASER */}
-      <Section className="bg-primary text-primary-foreground">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+      <Section className="bg-gradient-to-br from-primary/5 to-primary/10">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="eyebrow text-primary-foreground/80">
-              Smarter Real Estate
-            </p>
-            <h2 className="mt-3 font-serif text-3xl leading-tight md:text-4xl">
-              Modern tools that make your move easier
-            </h2>
-            <p className="mt-4 max-w-lg leading-relaxed text-primary-foreground/85">
-              Describe your ideal home in plain language with AI Home Search, ask
-              the AI Concierge anything about buying or selling in the Triangle,
-              or set up custom property alerts so you never miss a match.
+            <SectionHeading
+              eyebrow="Powered by AI"
+              title="Smart Tools for the Modern Buyer"
+            />
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
+              Describe your dream home in plain language. Our AI-powered tools help you explore the Triangle with precision, from neighborhood comparisons to school ratings and property insights.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/ai-home-search"
-                className="flex items-center gap-2 bg-background px-6 py-3 text-sm font-medium text-foreground transition-transform active:scale-[0.97]"
+                className="inline-flex items-center gap-2 bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-lg active:scale-95"
               >
-                <Sparkles className="h-4 w-4" /> AI Home Search
+                Try AI Home Search
+                <Sparkles className="h-4 w-4" />
               </Link>
               <Link
-                href="/concierge"
-                className="flex items-center gap-2 border border-primary-foreground/40 px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+                href="/tools"
+                className="inline-flex items-center gap-2 border border-primary/30 px-7 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-primary/5"
               >
-                <MessageCircle className="h-4 w-4" /> Ask the Concierge
+                All Tools
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              { label: "AI Home Search", href: "/ai-home-search", icon: Sparkles },
-              { label: "AI Concierge", href: "/concierge", icon: MessageCircle },
-              { label: "Mortgage Calculator", href: "/mortgage-calculator", icon: TrendingUp },
-              { label: "Property Alerts", href: "/property-alerts", icon: HomeIcon },
-            ].map((t) => (
-              <Link
-                key={t.label}
-                href={t.href}
-                className="flex items-center gap-3 border border-primary-foreground/25 bg-primary-foreground/5 p-5 text-sm font-medium transition-colors hover:bg-primary-foreground/15"
-              >
-                <t.icon className="h-5 w-5" /> {t.label}
-              </Link>
-            ))}
-          </div>
+          <div className="relative hidden h-96 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 lg:block" />
         </div>
       </Section>
 
-      {/* FINAL CTA */}
-      <section className="relative isolate overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <img
-            src={ASSETS.ctaHome}
-            alt="Elegant Triangle North Carolina home exterior"
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-foreground/70" />
-        </div>
-        <div className="container py-24 text-center">
-          <h2 className="mx-auto max-w-2xl font-serif text-3xl leading-tight text-background md:text-4xl">
-            Ready to make your next move in the Triangle?
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-background/85">
-            Let's talk about your goals. Reach out today for a no-pressure
-            conversation about buying, selling, or relocating.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+      {/* CTA SECTION */}
+      <Section className="bg-foreground text-background">
+        <div className="max-w-2xl space-y-6">
+          <div>
+            <h2 className="font-serif text-4xl leading-tight text-background">
+              Ready to make your move?
+            </h2>
+            <p className="mt-4 text-lg text-background/80">
+              Whether you're buying, selling, or just exploring, Stacy is here to guide you through every step.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-4 pt-4">
             <Link
               href="/contact"
-              className="bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition-transform active:scale-[0.97]"
+              className="inline-flex items-center gap-2 bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-all hover:shadow-lg active:scale-95"
             >
               Get in Touch
+              <ArrowRight className="h-4 w-4" />
             </Link>
             <a
               href={SITE.phoneHref}
-              className="flex items-center gap-2 border border-background/40 bg-background/10 px-7 py-3.5 text-sm font-medium text-background backdrop-blur transition-colors hover:bg-background/20"
+              className="inline-flex items-center gap-2 border border-background/30 px-8 py-4 text-sm font-semibold text-background transition-colors hover:bg-background/10"
             >
-              <Phone className="h-4 w-4" /> {SITE.phone}
+              <Phone className="h-4 w-4" />
+              {SITE.phone}
             </a>
           </div>
         </div>
-      </section>
+      </Section>
     </>
   );
 }
