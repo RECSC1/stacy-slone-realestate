@@ -4,52 +4,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  --color-primary: #1a3a52;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f5f1ed;
+  --color-secondary-foreground: #1a3a52;
+  --color-accent: #d4af37;
+  --color-accent-foreground: #1a3a52;
+  --color-background: #fdfbf9;
+  --color-foreground: #1a1a1a;
+  --color-card: #ffffff;
+  --color-card-foreground: #1a1a1a;
+  --color-muted: #9ca3af;
+  --color-muted-foreground: #6b7280;
+  --color-border: #e5e7eb;
+  --color-input: #ffffff;
+  --color-ring: #d4af37;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+}
+
 @layer base {
-  :root {
-    --background: 0 0% 99%;
-    --foreground: 30 20% 12%;
-    --card: 0 0% 100%;
-    --card-foreground: 30 20% 12%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 30 20% 12%;
-    --muted: 30 10% 60%;
-    --muted-foreground: 30 10% 40%;
-    --accent: 45 100% 50%;
-    --accent-foreground: 30 20% 12%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 30 20% 90%;
-    --input: 0 0% 100%;
-    --ring: 45 100% 50%;
-    --radius: 0.5rem;
-    --primary: 210 100% 25%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 30 20% 95%;
-    --secondary-foreground: 30 20% 12%;
-  }
-
-  .dark {
-    --background: 210 40% 8%;
-    --foreground: 0 0% 98%;
-    --card: 210 30% 12%;
-    --card-foreground: 0 0% 98%;
-    --popover: 210 30% 12%;
-    --popover-foreground: 0 0% 98%;
-    --muted: 210 10% 40%;
-    --muted-foreground: 210 10% 70%;
-    --accent: 45 100% 60%;
-    --accent-foreground: 30 20% 12%;
-    --border: 210 20% 25%;
-    --input: 210 30% 12%;
-    --ring: 45 100% 60%;
-  }
-
-  * {
-    border-color: rgb(var(--border) / var(--tw-border-opacity, 1));
-  }
-
   body {
     @apply bg-background text-foreground;
+    font-family: "Lora", serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
@@ -60,136 +38,211 @@
   h4,
   h5,
   h6 {
-    @apply font-serif font-bold tracking-tight;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   h1 {
-    @apply text-5xl md:text-6xl lg:text-7xl;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.1;
   }
 
   h2 {
-    @apply text-4xl md:text-5xl;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    line-height: 1.2;
   }
 
   h3 {
-    @apply text-3xl md:text-4xl;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.3;
   }
 
   h4 {
-    @apply text-2xl md:text-3xl;
+    font-size: clamp(1.25rem, 2.5vw, 1.875rem);
   }
 
   h5 {
-    @apply text-xl md:text-2xl;
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
   }
 
   h6 {
-    @apply text-lg md:text-xl;
-  }
-
-  /* Serif font for headings */
-  .font-serif {
-    font-family: "Playfair Display", serif;
-  }
-
-  /* Body font */
-  .font-sans {
-    font-family: "Lora", serif;
-  }
-
-  body {
-    font-family: "Lora", serif;
-  }
-
-  /* Luxury spacing and sizing */
-  .container {
-    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
-  }
-
-  /* Flex defaults */
-  .flex {
-    @apply min-h-0 min-w-0;
-  }
-
-  /* Luxury button styling */
-  button {
-    @apply transition-all duration-200;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
   }
 
   /* Links */
   a {
-    @apply text-accent transition-colors hover:text-accent/80;
+    color: rgb(var(--color-accent));
+    transition: color 0.2s ease;
   }
 
-  /* Luxury spacing utilities */
-  .space-luxury {
-    @apply space-y-12 md:space-y-16 lg:space-y-20;
+  a:hover {
+    color: rgb(var(--color-accent) / 0.8);
   }
 
-  /* Luxury shadows */
-  .shadow-luxury {
-    @apply shadow-lg;
+  /* Flex defaults */
+  .flex {
+    min-height: 0;
+    min-width: 0;
   }
 
-  /* Luxury borders */
-  .border-luxury {
-    @apply border border-accent/20;
-  }
-
-  /* Gold accent text */
-  .text-gold {
-    @apply text-accent;
-  }
-
-  /* Navy text */
-  .text-navy {
-    @apply text-primary;
-  }
-
-  /* Cream background */
-  .bg-cream {
-    @apply bg-secondary;
-  }
-
-  /* Luxury gradient backgrounds */
-  .gradient-luxury {
-    @apply bg-gradient-to-br from-primary via-primary/95 to-primary/90;
-  }
-
-  /* Luxury card styling */
-  .card-luxury {
-    @apply rounded-lg border border-accent/10 bg-card p-8 shadow-sm transition-all hover:shadow-lg hover:border-accent/20;
+  /* Button defaults */
+  button {
+    transition: all 0.2s ease;
   }
 }
 
 @layer components {
+  /* Container */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
   /* Luxury section spacing */
   .section-luxury {
-    @apply space-y-8 py-16 md:py-24 lg:py-32;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-luxury {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-luxury {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
   }
 
   /* Luxury heading with underline */
   .heading-luxury {
-    @apply relative pb-4 font-serif text-4xl font-bold text-foreground;
+    position: relative;
+    padding-bottom: 1rem;
+    font-family: "Playfair Display", serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: rgb(var(--color-foreground));
   }
 
   .heading-luxury::after {
-    @apply absolute bottom-0 left-0 h-1 w-16 bg-accent;
     content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0.25rem;
+    width: 4rem;
+    background-color: rgb(var(--color-accent));
   }
 
   /* Luxury CTA button */
   .btn-luxury {
-    @apply inline-flex items-center justify-center rounded-none border-2 border-accent bg-accent px-8 py-3 font-serif text-sm font-bold uppercase tracking-wider text-accent-foreground transition-all hover:bg-accent/90 hover:shadow-lg;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(var(--color-accent));
+    background-color: rgb(var(--color-accent));
+    padding: 0.75rem 2rem;
+    font-family: "Playfair Display", serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgb(var(--color-accent-foreground));
+    transition: all 0.2s ease;
+  }
+
+  .btn-luxury:hover {
+    background-color: rgb(var(--color-accent) / 0.9);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
   }
 
   .btn-luxury-outline {
-    @apply inline-flex items-center justify-center rounded-none border-2 border-accent bg-transparent px-8 py-3 font-serif text-sm font-bold uppercase tracking-wider text-accent transition-all hover:bg-accent hover:text-accent-foreground;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(var(--color-accent));
+    background-color: transparent;
+    padding: 0.75rem 2rem;
+    font-family: "Playfair Display", serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgb(var(--color-accent));
+    transition: all 0.2s ease;
+  }
+
+  .btn-luxury-outline:hover {
+    background-color: rgb(var(--color-accent));
+    color: rgb(var(--color-accent-foreground));
   }
 
   /* Luxury divider */
   .divider-luxury {
-    @apply my-12 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgb(var(--color-accent) / 0.3),
+      transparent
+    );
+  }
+
+  /* Luxury card styling */
+  .card-luxury {
+    border-radius: 0.5rem;
+    border: 1px solid rgb(var(--color-accent) / 0.1);
+    background-color: rgb(var(--color-card));
+    padding: 2rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+  }
+
+  .card-luxury:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: rgb(var(--color-accent) / 0.2);
+  }
+
+  /* Eyebrow text */
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Font utilities */
+  .font-serif {
+    font-family: "Playfair Display", serif;
+  }
+
+  .font-sans {
+    font-family: "Lora", serif;
   }
 }
 
