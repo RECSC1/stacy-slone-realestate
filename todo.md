@@ -66,3 +66,18 @@
 - [x] Accessibility/contrast checks
 - [x] Deployment notes
 - [x] Final QA report
+
+## Missing Pages & Forms (PRIORITY BUILD)
+- [ ] Dedicated Buyer Inquiry page with stacy-buyer-inquiry form
+- [ ] Dedicated Seller Inquiry page with stacy-seller-inquiry form
+- [ ] Dedicated Relocation Guide page with stacy-relocation-inquiry form
+- [ ] Dedicated Land/Lots & Investment page with stacy-land-investment-inquiry form
+- [ ] Polished starter blog content (3-5 posts)
+- [ ] Guide download sections (Buyer, Seller, Relocation, Land/Investment)
+- [ ] Clean up all placeholders (make them intentional, not unfinished)
+- [ ] Verify no fake listings, reviews, school ratings, lorem ipsum, TODO text
+- [ ] Verify all forms log with lead_type, page_source, page_url, submitted_at
+- [ ] Verify owner notifications fire on all form submissions
+
+## Final Delivery
+- [ ] Final completion report (after missing pages built)

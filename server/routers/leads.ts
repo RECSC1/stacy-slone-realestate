@@ -227,4 +227,160 @@ export const leadsRouter = router({
       );
       return { success: true };
     }),
+
+  // Dedicated buyer inquiry — form name: stacy-buyer-inquiry
+  buyerInquiry: publicProcedure
+    .input(
+      z.object({
+        ...baseContact,
+        timeline: z.string().max(120).optional().default(""),
+        priceRange: z.string().max(120).optional().default(""),
+        interests: z.string().max(2000).optional().default(""),
+        message: z.string().max(4000).optional().default(""),
+      }),
+    )
+    .mutation(async ({ input }) => {
+      await createLead({
+        formName: "stacy-buyer-inquiry",
+        name: input.name,
+        email: input.email,
+        phone: input.phone,
+        message: input.message,
+        details: {
+          timeline: input.timeline,
+          priceRange: input.priceRange,
+          interests: input.interests,
+        },
+      });
+      await safeNotify(
+        "New Buyer Inquiry",
+        `${input.name} submitted a buyer inquiry.\n\n` +
+          formatDetails({
+            Email: input.email,
+            Phone: input.phone,
+            Timeline: input.timeline,
+            "Price range": input.priceRange,
+            "Areas of interest": input.interests,
+            Message: input.message,
+          }),
+      );
+      return { success: true };
+    }),
+
+  // Dedicated seller inquiry — form name: stacy-seller-inquiry
+  sellerInquiry: publicProcedure
+    .input(
+      z.object({
+        ...baseContact,
+        propertyAddress: z.string().max(400).optional().default(""),
+        timeline: z.string().max(120).optional().default(""),
+        sellingReason: z.string().max(500).optional().default(""),
+        message: z.string().max(4000).optional().default(""),
+      }),
+    )
+    .mutation(async ({ input }) => {
+      await createLead({
+        formName: "stacy-seller-inquiry",
+        name: input.name,
+        email: input.email,
+        phone: input.phone,
+        propertyAddress: input.propertyAddress,
+        message: input.message,
+        details: {
+          timeline: input.timeline,
+          sellingReason: input.sellingReason,
+        },
+      });
+      await safeNotify(
+        "New Seller Inquiry",
+        `${input.name} submitted a seller inquiry.\n\n` +
+          formatDetails({
+            Email: input.email,
+            Phone: input.phone,
+            "Property address": input.propertyAddress,
+            Timeline: input.timeline,
+            "Reason for selling": input.sellingReason,
+            Message: input.message,
+          }),
+      );
+      return { success: true };
+    }),
+
+  // Relocation inquiry — form name: stacy-relocation-inquiry
+  relocationInquiry: publicProcedure
+    .input(
+      z.object({
+        ...baseContact,
+        currentLocation: z.string().max(200).optional().default(""),
+        timeline: z.string().max(120).optional().default(""),
+        relocatingReason: z.string().max(500).optional().default(""),
+        message: z.string().max(4000).optional().default(""),
+      }),
+    )
+    .mutation(async ({ input }) => {
+      await createLead({
+        formName: "stacy-relocation-inquiry",
+        name: input.name,
+        email: input.email,
+        phone: input.phone,
+        message: input.message,
+        details: {
+          currentLocation: input.currentLocation,
+          timeline: input.timeline,
+          relocatingReason: input.relocatingReason,
+        },
+      });
+      await safeNotify(
+        "New Relocation Inquiry",
+        `${input.name} submitted a relocation inquiry.\n\n` +
+          formatDetails({
+            Email: input.email,
+            Phone: input.phone,
+            "Current location": input.currentLocation,
+            Timeline: input.timeline,
+            "Reason for relocating": input.relocatingReason,
+            Message: input.message,
+          }),
+      );
+      return { success: true };
+    }),
+
+  // Land/Investment inquiry — form name: stacy-land-investment-inquiry
+  landInvestmentInquiry: publicProcedure
+    .input(
+      z.object({
+        ...baseContact,
+        investmentType: z.string().max(200).optional().default(""),
+        budget: z.string().max(120).optional().default(""),
+        timeline: z.string().max(120).optional().default(""),
+        message: z.string().max(4000).optional().default(""),
+      }),
+    )
+    .mutation(async ({ input }) => {
+      await createLead({
+        formName: "stacy-land-investment-inquiry",
+        name: input.name,
+        email: input.email,
+        phone: input.phone,
+        message: input.message,
+        details: {
+          investmentType: input.investmentType,
+          budget: input.budget,
+          timeline: input.timeline,
+        },
+      });
+      await safeNotify(
+        "New Land/Investment Inquiry",
+        `${input.name} submitted a land/investment inquiry.\n\n` +
+          formatDetails({
+            Email: input.email,
+            Phone: input.phone,
+            "Investment type": input.investmentType,
+            Budget: input.budget,
+            Timeline: input.timeline,
+            Message: input.message,
+          }),
+      );
+      return { success: true };
+    }),
 });
