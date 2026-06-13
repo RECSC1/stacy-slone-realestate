@@ -62,15 +62,15 @@ export function Header() {
   const [location] = useLocation();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header className="sticky top-0 z-50 border-b-2 border-accent/20 bg-primary/98 backdrop-blur supports-[backdrop-filter]:bg-primary/95">
       <div className="container flex h-20 items-center justify-between">
         {/* Brand */}
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <div className="flex flex-col">
-            <span className="font-serif text-xl leading-tight tracking-wide text-foreground sm:text-2xl">
+            <span className="font-serif text-xl leading-tight tracking-wide text-white sm:text-2xl font-bold">
               {SITE.agentName}
             </span>
-            <span className="eyebrow mt-1 text-muted-foreground">
+            <span className="text-xs font-semibold uppercase tracking-widest text-accent/90">
               {SITE.brokerage}
             </span>
           </div>

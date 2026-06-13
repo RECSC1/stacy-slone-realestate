@@ -31,10 +31,15 @@ export function Privacy() {
             <strong className="text-foreground">Contact.</strong> Questions about
             this policy? Call {SITE.phone} or email {SITE.email}.
           </p>
-          <p className="border-t border-border pt-5 text-xs">
-            [This is a general placeholder privacy policy. Replace with your
-            finalized policy, including any required brokerage, cookie, and
-            data-retention language, before launch.]
+          <p>
+            <strong className="text-foreground">Data security.</strong> We take
+            reasonable measures to protect your information from unauthorized
+            access or disclosure.
+          </p>
+          <p>
+            <strong className="text-foreground">Updates.</strong> We may update
+            this policy periodically. Your continued use of the site constitutes
+            acceptance of any changes.
           </p>
         </div>
       </Section>
@@ -64,10 +69,15 @@ export function Terms() {
             <strong className="text-foreground">Equal Housing.</strong> We support
             Equal Housing Opportunity and adhere to Fair Housing principles.
           </p>
-          <p className="border-t border-border pt-5 text-xs">
-            [This is a general placeholder terms of use. Replace with your
-            finalized terms, including brokerage and IDX/MLS language, before
-            launch.]
+          <p>
+            <strong className="text-foreground">Limitation of liability.</strong>{" "}
+            To the fullest extent permitted by law, we are not liable for any
+            indirect, incidental, or consequential damages arising from your use
+            of this site.
+          </p>
+          <p>
+            <strong className="text-foreground">Governing law.</strong> These
+            terms are governed by the laws of North Carolina.
           </p>
         </div>
       </Section>

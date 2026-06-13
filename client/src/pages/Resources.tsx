@@ -1,8 +1,11 @@
 import { Link } from "wouter";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen, Download } from "lucide-react";
 import { Seo } from "@/components/Seo";
+import { SiteLayout } from "@/components/layout/SiteLayout";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section } from "@/components/ui-blocks/Section";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { trpc } from "@/lib/trpc";
 
 const GUIDES = [
@@ -11,11 +14,38 @@ const GUIDES = [
   { t: "Relocation to the Triangle", b: "Getting to know Raleigh, Durham, Chapel Hill, Cary and beyond.", href: "/communities" },
 ];
 
+const DOWNLOADABLE_GUIDES = [
+  {
+    title: "Buyer's Guide",
+    description: "Complete guide to buying your first home in the Triangle, from pre-approval to closing.",
+    cta: "Get Buyer's Guide",
+    href: "/buyer-inquiry",
+  },
+  {
+    title: "Seller's Guide",
+    description: "Strategic tips for pricing, marketing, and selling your Triangle home for top dollar.",
+    cta: "Get Seller's Guide",
+    href: "/seller-inquiry",
+  },
+  {
+    title: "Relocation Guide",
+    description: "Everything you need to know about relocating to Raleigh, Durham, Chapel Hill, Cary, and beyond.",
+    cta: "Get Relocation Guide",
+    href: "/relocation-guide",
+  },
+  {
+    title: "Investment Guide",
+    description: "Strategic insights for building wealth through real estate investment in the Triangle.",
+    cta: "Get Investment Guide",
+    href: "/land-investment",
+  },
+];
+
 export default function Resources() {
   const { data: posts, isLoading } = trpc.content.publishedPosts.useQuery();
 
   return (
-    <>
+    <SiteLayout>
       <Seo
         title="Triangle NC Real Estate Resources & Guides"
         description="Real estate guides, tips, and resources for buying and selling in the Triangle NC from Stacy Wilson Slone, KW Elite Realty."
@@ -46,6 +76,36 @@ export default function Resources() {
               </span>
             </Link>
           ))}
+        </div>
+      </Section>
+
+      {/* Downloadable Guides Section */}
+      <Section className="bg-cream py-16">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl text-charcoal mb-3">Downloadable Guides</h2>
+            <p className="text-lg text-charcoal/70">Get expert guidance tailored to your real estate goals. Request your free guide today.</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {DOWNLOADABLE_GUIDES.map((guide) => (
+              <Card key={guide.title} className="p-6 border-0 bg-white shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <Download className="h-6 w-6 text-sage" strokeWidth={1.5} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-serif text-xl text-charcoal mb-2">{guide.title}</h3>
+                    <p className="text-charcoal/70 text-sm mb-4">{guide.description}</p>
+                    <Link href={guide.href}>
+                      <Button variant="default" size="sm">
+                        {guide.cta}
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
       </Section>
 
@@ -112,6 +172,6 @@ export default function Resources() {
           )}
         </div>
       </Section>
-    </>
+    </SiteLayout>
   );
 }
