@@ -27,6 +27,10 @@ import Resources from "./pages/Resources";
 import ResourceDetail from "./pages/ResourceDetail";
 import LocalLandmarks from "./pages/LocalLandmarks";
 import { Privacy, Terms } from "./pages/Legal";
+import BuyerInquiry from "./pages/BuyerInquiry";
+import SellerInquiry from "./pages/SellerInquiry";
+import RelocationGuide from "./pages/RelocationGuide";
+import LandInvestment from "./pages/LandInvestment";
 
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -43,6 +47,10 @@ function PublicSite() {
         <Route path="/buy" component={Buy} />
         <Route path="/sell" component={Sell} />
         <Route path="/home-valuation" component={HomeValuation} />
+        <Route path="/buyer-inquiry" component={BuyerInquiry} />
+        <Route path="/seller-inquiry" component={SellerInquiry} />
+        <Route path="/relocation-guide" component={RelocationGuide} />
+        <Route path="/land-investment" component={LandInvestment} />
         <Route path="/ai-home-search" component={AIHomeSearch} />
         <Route path="/concierge" component={Concierge} />
         <Route path="/property-alerts" component={PropertyAlerts} />
