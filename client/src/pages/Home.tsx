@@ -50,7 +50,7 @@ export default function Home() {
                   </span>
                 </h1>
                 <p className="text-lg text-text-light leading-relaxed max-w-xl">
-                  Elegant, people-first real estate guidance for {SITE.serviceAreas.slice(0, 2).join(" and ")} and the Triangle, rooted in local insight, calm confidence, and genuine care.
+                  Trusted, people-first real estate guidance for {SITE.serviceAreas.slice(0, 2).join(" and ")} and the Triangle, rooted in local insight, calm confidence, and genuine care.
                 </p>
               </div>
 

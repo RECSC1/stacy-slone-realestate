@@ -9,7 +9,7 @@
 
 export const ASSETS = {
   // Headshot: Stacy Wilson Slone's professional editorial headshot
-  headshot: "/manus-storage/stacy-wilson-slone-triangle-realtor-headshot_83e51d7e.jpg",
+  headshot: "/manus-storage/stacy-headshot_b2585bda.jpg",
   headshotIsPlaceholder: false,
   logoMonogram:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/sws-monogram-jmaARJMnpKpwkAW4v57s9F.webp",
