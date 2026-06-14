@@ -20,18 +20,19 @@ export default function About() {
       />
 
       <Section className="py-16">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 items-start">
-          {/* Headshot */}
-          <div className="md:col-span-1">
-            <img
-              src={ASSETS.headshot}
-              alt="Stacy Wilson Slone"
-              className="w-full rounded-lg shadow-lg"
-            />
-          </div>
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 items-start">
+            {/* Headshot */}
+            <div className="md:col-span-1">
+              <img
+                src={ASSETS.headshot}
+                alt="Stacy Wilson Slone"
+                className="w-full rounded-lg shadow-lg max-w-xs"
+              />
+            </div>
 
-          {/* Bio */}
-          <div className="md:col-span-2 space-y-6">
+            {/* Bio */}
+            <div className="md:col-span-3 space-y-6">
             <div>
               <h2 className="text-3xl font-serif font-bold text-foreground mb-4">
                 Stacy Wilson Slone
@@ -92,6 +93,7 @@ export default function About() {
               >
                 Get a Home Valuation
               </Link>
+            </div>
             </div>
           </div>
         </div>
