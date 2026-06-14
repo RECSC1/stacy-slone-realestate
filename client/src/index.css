@@ -39,41 +39,55 @@
   }
 
   h1 {
-    font-size: 3rem;
-    line-height: 1.2;
+    font-size: 2.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    font-weight: 600;
   }
 
   @media (min-width: 640px) {
     h1 {
-      font-size: 3.75rem;
+      font-size: 3.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     h1 {
-      font-size: 4.5rem;
+      font-size: 4.25rem;
+      letter-spacing: -0.015em;
     }
   }
 
   h2 {
-    font-size: 2.25rem;
-    line-height: 1.2;
+    font-size: 1.875rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    font-weight: 600;
   }
 
   @media (min-width: 640px) {
     h2 {
-      font-size: 3rem;
+      font-size: 2.75rem;
+      letter-spacing: -0.015em;
     }
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    font-weight: 600;
   }
 
   @media (min-width: 640px) {
     h3 {
-      font-size: 1.875rem;
+      font-size: 1.75rem;
     }
+  }
+
+  p {
+    line-height: 1.7;
+    letter-spacing: 0.3px;
   }
 
   a {
@@ -122,55 +136,69 @@
   }
 
   .btn-primary {
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    padding: 0.875rem 2rem;
+    border-radius: 0.25rem;
     background-color: var(--color-primary-dark);
-    color: white;
+    color: #f5f3f0;
     font-weight: var(--font-weight-medium);
-    transition: all 0.2s;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    border: 1px solid var(--color-primary-dark);
+    transition: all 0.3s ease;
   }
 
   .btn-primary:hover {
-    background-color: rgba(45, 45, 45, 0.9);
+    background-color: transparent;
+    color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
   }
 
   .btn-secondary {
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    border: 2px solid var(--color-primary-dark);
+    padding: 0.875rem 2rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-primary-dark);
+    background-color: transparent;
     color: var(--color-primary-dark);
     font-weight: var(--font-weight-medium);
-    transition: all 0.2s;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
   }
 
   .btn-secondary:hover {
-    background-color: rgba(45, 45, 45, 0.05);
+    background-color: var(--color-primary-dark);
+    color: #f5f3f0;
   }
 
   .btn-outline {
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    border: 2px solid var(--color-accent);
+    padding: 0.875rem 2rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-accent);
+    background-color: transparent;
     color: var(--color-accent);
     font-weight: var(--font-weight-medium);
-    transition: all 0.2s;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
   }
 
   .btn-outline:hover {
-    background-color: rgba(184, 149, 106, 0.05);
+    background-color: var(--color-accent);
+    color: white;
   }
 
   .card {
-    border-radius: 0.75rem;
-    border: 1px solid var(--color-border);
-    background-color: white;
-    padding: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.2s;
+    border-radius: 0;
+    border: 1px solid #d4c5b9;
+    background-color: #faf8f5;
+    padding: 2.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
   }
 
   .card:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    border-color: var(--color-accent);
   }
 
   .headshot-frame {
@@ -254,5 +282,109 @@
 
   .font-light {
     font-weight: var(--font-weight-light);
+  }
+}
+
+@layer utilities {
+  /* Luxury spacing utilities */
+  .section-lg {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .section-lg {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+
+  .section-md {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .section-md {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  /* Architectural dividers */
+  .divider-top {
+    border-top: 1px solid #d4c5b9;
+    padding-top: 3rem;
+  }
+
+  .divider-bottom {
+    border-bottom: 1px solid #d4c5b9;
+    padding-bottom: 3rem;
+  }
+
+  .divider-accent {
+    border-top: 2px solid var(--color-accent);
+    padding-top: 2rem;
+    margin-top: 2rem;
+  }
+
+  /* Refined input styling */
+  input, textarea, select {
+    border: 1px solid #d4c5b9;
+    border-radius: 0;
+    padding: 0.875rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    background-color: #faf8f5;
+    transition: all 0.3s ease;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background-color: white;
+    box-shadow: 0 0 0 2px rgba(184, 149, 106, 0.1);
+  }
+
+  /* Label styling */
+  label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    color: var(--color-primary-dark);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Form section spacing */
+  .form-group {
+    margin-bottom: 1.75rem;
+  }
+
+  .form-section {
+    padding: 2rem;
+    background-color: #faf8f5;
+    border: 1px solid #d4c5b9;
+    margin-bottom: 2rem;
+  }
+
+  /* Enhanced link styling */
+  a {
+    position: relative;
+  }
+
+  a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+  }
+
+  a:hover::after {
+    width: 100%;
   }
 }

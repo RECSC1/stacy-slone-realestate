@@ -33,36 +33,36 @@ const VALUE_PROPS = [
 export default function Home() {
   return (
     <>
-      {/* ELEGANT HERO - Cream background, clean layout, right headshot */}
-      <section className="relative overflow-hidden bg-primary py-12 sm:py-20 lg:py-32">
+      {/* LUXURY HERO - Editorial, refined, Charleston-inspired */}
+      <section className="relative overflow-hidden bg-primary section-lg border-b border-border">
         <div className="container">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24 items-center">
             {/* Left: Text Content */}
-            <div className="flex flex-col justify-center space-y-8">
-              <div>
-                <p className="section-eyebrow mb-4">
+            <div className="flex flex-col justify-center space-y-10">
+              <div className="space-y-6">
+                <p className="section-eyebrow mb-2">
                   {SITE.serviceAreas.join(" · ")}
                 </p>
-                <h1 className="text-primary-dark leading-tight mb-6">
+                <h1 className="text-primary-dark leading-tight">
                   Choosing The RIGHT Realtor
-                  <span className="block text-accent font-light italic mt-2">
+                  <span className="block text-accent font-light italic mt-3">
                     DOES Make A Difference.
                   </span>
                 </h1>
-                <p className="text-lg text-text-light leading-relaxed max-w-xl">
+                <div className="h-px bg-accent w-16 my-4"></div>
+                <p className="text-lg text-text-light leading-relaxed max-w-2xl font-light">
                   Trusted, people-first real estate guidance for {SITE.serviceAreas.slice(0, 2).join(" and ")} and the Triangle, rooted in local insight, calm confidence, and genuine care.
                 </p>
               </div>
 
               {/* Credentials */}
-              <div className="flex flex-wrap gap-6 text-sm font-medium text-text-light">
-                <span>Realtor®</span>
-                <span>KW Elite Realty</span>
-                <span>{SITE.serviceAreas[0]} & Triangle Real Estate</span>
+              <div className="flex flex-wrap gap-8 text-sm font-semibold text-text-light border-t border-accent pt-6 mt-6">
+                <span className="uppercase tracking-widest">Realtor®</span>
+                <span className="uppercase tracking-widest">KW Elite Realty</span>
               </div>
 
               {/* CTAs */}
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap gap-4 pt-6">
                 <Link href="/buyer-inquiry">
                   <button className="btn-primary flex items-center gap-2">
                     Schedule a Consultation <ArrowRight className="w-4 h-4" />
@@ -78,13 +78,13 @@ export default function Home() {
 
             {/* Right: Headshot */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-xs">
+              <div className="relative w-full max-w-sm">
                 <Headshot />
-                <div className="mt-6 text-center lg:text-right">
+                <div className="mt-8 text-center lg:text-right border-t border-accent pt-6">
                   <p className="text-sm font-semibold text-primary-dark">
                     {SITE.agentName}
                   </p>
-                  <p className="text-xs text-accent uppercase tracking-widest">
+                  <p className="text-xs text-accent uppercase tracking-widest font-semibold">
                     Realtor® · {SITE.brokerage}
                   </p>
                 </div>
@@ -95,11 +95,11 @@ export default function Home() {
       </section>
 
       {/* About Preview */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-white border-t border-border">
+      <section className="section-lg bg-white border-t border-border">
         <div className="container">
           <div className="max-w-3xl">
-            <p className="section-eyebrow mb-4">About Stacy</p>
-            <h2 className="text-primary-dark mb-8">
+            <p className="section-eyebrow mb-6">About Stacy</p>
+            <h2 className="text-primary-dark mb-10">
               From social work to real estate — the same heart, a new chapter.
             </h2>
             <p className="text-lg text-text-light leading-relaxed mb-8">
@@ -121,24 +121,24 @@ export default function Home() {
       </section>
 
       {/* Value Props */}
-      <section className="py-16 sm:py-24 lg:py-32">
+      <section className="section-lg bg-primary border-t border-border">
         <div className="container">
-          <div className="mb-16">
-            <p className="section-eyebrow mb-4">How Stacy Helps</p>
+          <div className="mb-16 pb-8 border-b border-accent">
+            <p className="section-eyebrow mb-6">How Stacy Helps</p>
             <h2 className="text-primary-dark">Service tailored to your next chapter</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {VALUE_PROPS.map((prop) => {
               const Icon = prop.icon;
               return (
-                <div key={prop.title} className="card group">
-                  <Icon className="w-8 h-8 text-accent mb-4" />
-                  <h3 className="text-primary-dark mb-3">{prop.title}</h3>
-                  <p className="text-text-light text-sm leading-relaxed mb-6">
+                <div key={prop.title} className="card group bg-white">
+                  <Icon className="w-6 h-6 text-accent mb-6" />
+                  <h3 className="text-primary-dark mb-4 font-semibold">{prop.title}</h3>
+                  <p className="text-text-light text-sm leading-relaxed mb-8 font-light">
                     {prop.body}
                   </p>
                   <Link href={prop.href}>
-                    <button className="text-accent font-medium text-sm hover:text-accent-light flex items-center gap-2">
+                    <button className="text-accent font-semibold text-sm hover:text-accent-light flex items-center gap-2 uppercase tracking-widest">
                       {prop.cta} <ArrowRight className="w-3 h-3" />
                     </button>
                   </Link>
@@ -150,11 +150,11 @@ export default function Home() {
       </section>
 
       {/* Featured Listings */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-white border-t border-border">
+      <section className="section-lg bg-white border-t border-border">
         <div className="container">
-          <div className="mb-16">
-            <p className="section-eyebrow mb-4">Properties</p>
-            <h2 className="text-primary-dark mb-4">Listing previews & client stories</h2>
+          <div className="mb-16 pb-8 border-b border-accent">
+            <p className="section-eyebrow mb-6">Properties</p>
+            <h2 className="text-primary-dark mb-6">Listing previews & client stories</h2>
             <p className="text-text-light max-w-2xl">
               The property cards below are placeholders only and do not represent live MLS or IDX data. Listings will be updated once approved property data is available.
             </p>
@@ -164,23 +164,23 @@ export default function Home() {
       </section>
 
       {/* Communities */}
-      <section className="py-16 sm:py-24 lg:py-32">
+      <section className="section-lg bg-primary border-t border-border">
         <div className="container">
-          <div className="mb-16">
-            <p className="section-eyebrow mb-4">Service Areas</p>
-            <h2 className="text-primary-dark mb-4">Local expertise across the Triangle</h2>
+          <div className="mb-16 pb-8 border-b border-accent">
+            <p className="section-eyebrow mb-6">Service Areas</p>
+            <h2 className="text-primary-dark mb-6">Local expertise across the Triangle</h2>
             <p className="text-text-light max-w-2xl">
               From the historic streets of Chapel Hill to Cary's family neighborhoods, Stacy represents buyers and sellers across North Carolina's most loved communities.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {COMMUNITIES.map((community) => (
               <Link key={community.slug} href={`/communities/${community.slug}`}>
-                <div className="card group cursor-pointer">
-                  <h3 className="text-primary-dark mb-2 group-hover:text-accent transition-colors">
+                <div className="card group cursor-pointer bg-white hover:border-accent">
+                  <h3 className="text-primary-dark mb-3 group-hover:text-accent transition-colors font-semibold">
                     {community.name}
                   </h3>
-                  <p className="text-sm text-text-light">{community.tagline}</p>
+                  <p className="text-sm text-text-light font-light">{community.tagline}</p>
                 </div>
               </Link>
             ))}
@@ -189,11 +189,11 @@ export default function Home() {
       </section>
 
       {/* AI Tools Teaser */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-white border-t border-border">
+      <section className="section-lg bg-white border-t border-border">
         <div className="container">
-          <div className="mb-16">
-            <p className="section-eyebrow mb-4">Exclusive Tools</p>
-            <h2 className="text-primary-dark mb-4">Interactive buyer tools, designed for Triangle buyers</h2>
+          <div className="mb-16 pb-8 border-b border-accent">
+            <p className="section-eyebrow mb-6">Exclusive Tools</p>
+            <h2 className="text-primary-dark mb-6">Interactive buyer tools, designed for Triangle buyers</h2>
             <p className="text-text-light max-w-2xl">
               Search schools, study commutes, compare neighborhoods, and run financial scenarios — all in one calm, polished workspace.
             </p>

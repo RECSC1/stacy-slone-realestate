@@ -51,41 +51,42 @@ export function Header() {
   const isActive = (href: string) => location === href;
 
   return (
-    <header style={{ backgroundColor: "white", borderBottom: "1px solid #f0f0f0", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }} className="sticky top-0 z-50">
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 16px" }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "80px" }}>
+    <header style={{ backgroundColor: "white", borderBottom: "1px solid #d4c5b9", boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }} className="sticky top-0 z-50">
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "88px" }}>
           {/* Logo */}
           <Link href="/">
             <div style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
-              <span style={{ fontSize: "20px", fontWeight: "bold", color: "#1a1a1a", fontFamily: "serif" }}>
+              <span style={{ fontSize: "18px", fontWeight: "600", color: "#2d2d2d", fontFamily: "serif", letterSpacing: "-0.5px" }}>
                 {SITE.agentName}
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav style={{ display: "flex", alignItems: "center", gap: "32px" }}>
+          <nav style={{ display: "flex", alignItems: "center", gap: "40px" }}>
             {NAV.map((item) => (
               <div key={item.href} style={{ position: "relative" }} className="group">
                 <Link href={item.href}>
                   <button
                     style={{
-                      fontSize: "14px",
+                      fontSize: "13px",
                       fontWeight: "500",
-                      color: isActive(item.href) ? "#1a1a1a" : "#666",
-                      padding: "8px 0",
-                      borderBottom: isActive(item.href) ? "2px solid #1a1a1a" : "none",
+                      color: isActive(item.href) ? "#2d2d2d" : "#666",
+                      padding: "4px 0",
+                      borderBottom: isActive(item.href) ? "2px solid #b8956a" : "none",
                       background: "none",
                       border: "none",
                       cursor: "pointer",
-                      transition: "color 0.2s",
+                      transition: "all 0.3s ease",
                       display: "flex",
                       alignItems: "center",
-                      gap: "4px",
+                      gap: "6px",
+                      letterSpacing: "0.3px",
                     }}
                     onMouseEnter={(e) => {
                       if (item.children) {
-                        e.currentTarget.style.color = "#1a1a1a";
+                        e.currentTarget.style.color = "#2d2d2d";
                       }
                     }}
                     onMouseLeave={(e) => {
@@ -109,14 +110,15 @@ export function Header() {
                       left: 0,
                       top: "100%",
                       width: "224px",
-                      backgroundColor: "white",
-                      border: "1px solid #e0e0e0",
-                      borderRadius: "8px",
-                      boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+                      backgroundColor: "#faf8f5",
+                      border: "1px solid #d4c5b9",
+                      borderRadius: "0",
+                      boxShadow: "0 8px 16px rgba(0,0,0,0.08)",
                       opacity: 0,
                       visibility: "hidden",
-                      transition: "all 0.2s",
-                      padding: "8px 0",
+                      transition: "all 0.3s ease",
+                      padding: "12px 0",
+                      marginTop: "8px",
                     }}
                     className="group-hover:opacity-100 group-hover:visible"
                   >
@@ -126,22 +128,23 @@ export function Header() {
                           style={{
                             width: "100%",
                             textAlign: "left",
-                            padding: "8px 16px",
-                            fontSize: "14px",
-                            backgroundColor: isActive(child.href) ? "#f5f5f5" : "transparent",
-                            color: isActive(child.href) ? "#1a1a1a" : "#666",
+                            padding: "10px 20px",
+                            fontSize: "13px",
+                            backgroundColor: isActive(child.href) ? "#f5f3f0" : "transparent",
+                            color: isActive(child.href) ? "#2d2d2d" : "#666",
                             fontWeight: isActive(child.href) ? "500" : "400",
                             border: "none",
                             cursor: "pointer",
-                            transition: "background-color 0.2s",
+                            transition: "all 0.3s ease",
+                            letterSpacing: "0.3px",
                           }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.backgroundColor = "#f5f5f5";
-                            e.currentTarget.style.color = "#1a1a1a";
+                            e.currentTarget.style.backgroundColor = "#f5f3f0";
+                            e.currentTarget.style.color = "#2d2d2d";
                           }}
                           onMouseLeave={(e) => {
-                            e.currentTarget.style.backgroundColor = isActive(child.href) ? "#f5f5f5" : "transparent";
-                            e.currentTarget.style.color = isActive(child.href) ? "#1a1a1a" : "#666";
+                            e.currentTarget.style.backgroundColor = isActive(child.href) ? "#f5f3f0" : "transparent";
+                            e.currentTarget.style.color = isActive(child.href) ? "#2d2d2d" : "#666";
                           }}
                         >
                           {child.label}
@@ -158,21 +161,24 @@ export function Header() {
           <Link href="/contact">
             <button
               style={{
-                padding: "8px 24px",
-                fontSize: "14px",
+                padding: "10px 28px",
+                fontSize: "13px",
                 fontWeight: "600",
-                color: "white",
-                backgroundColor: "#1a1a1a",
-                border: "none",
-                borderRadius: "8px",
+                color: "#f5f3f0",
+                backgroundColor: "#2d2d2d",
+                border: "1px solid #2d2d2d",
+                borderRadius: "0",
                 cursor: "pointer",
-                transition: "background-color 0.2s",
+                transition: "all 0.3s ease",
+                letterSpacing: "0.5px",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#333";
+                e.currentTarget.style.backgroundColor = "transparent";
+                e.currentTarget.style.color = "#2d2d2d";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#1a1a1a";
+                e.currentTarget.style.backgroundColor = "#2d2d2d";
+                e.currentTarget.style.color = "#f5f3f0";
               }}
             >
               Schedule

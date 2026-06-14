@@ -5,17 +5,17 @@ import { SITE, COMPLIANCE, ASSETS } from "@/config/site";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-border bg-secondary/60">
-      <div className="container grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="border-t border-border bg-white">
+      <div className="container grid gap-16 py-20 md:grid-cols-2 lg:grid-cols-4">
         {/* Brand */}
         <div>
-          <p className="font-serif text-2xl text-foreground">
+          <p className="font-serif text-xl text-primary-dark font-semibold">
             {SITE.agentName}
           </p>
-          <p className="eyebrow mt-2 text-muted-foreground">
+          <p className="section-eyebrow mt-3 mb-4">
             {SITE.brokerage}
           </p>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-text-light font-light">
             Trusted real estate guidance across the Triangle — Raleigh, Durham,
             Chapel Hill, Cary, and the communities in between.
           </p>
@@ -23,8 +23,8 @@ export function Footer() {
 
         {/* Explore */}
         <div>
-          <p className="eyebrow mb-4 text-foreground">Explore</p>
-          <ul className="space-y-2 text-sm text-muted-foreground">
+          <p className="section-eyebrow mb-6 text-primary-dark">Explore</p>
+          <ul className="space-y-3 text-sm text-text-light font-light">
             <li><Link href="/buy" className="hover:text-primary">Search Homes</Link></li>
             <li><Link href="/home-valuation" className="hover:text-primary">Home Valuation</Link></li>
             <li><Link href="/communities" className="hover:text-primary">Communities</Link></li>
@@ -36,8 +36,8 @@ export function Footer() {
 
         {/* Tools */}
         <div>
-          <p className="eyebrow mb-4 text-foreground">Tools</p>
-          <ul className="space-y-2 text-sm text-muted-foreground">
+          <p className="section-eyebrow mb-6 text-primary-dark">Tools</p>
+          <ul className="space-y-3 text-sm text-text-light font-light">
             <li><Link href="/tools" className="hover:text-primary">All Tools</Link></li>
             <li><Link href="/concierge" className="hover:text-primary">AI Concierge</Link></li>
             <li><Link href="/mortgage-calculator" className="hover:text-primary">Mortgage Calculator</Link></li>
@@ -49,8 +49,8 @@ export function Footer() {
 
         {/* Contact */}
         <div>
-          <p className="eyebrow mb-4 text-foreground">Connect</p>
-          <ul className="space-y-3 text-sm text-muted-foreground">
+          <p className="section-eyebrow mb-6 text-primary-dark">Connect</p>
+          <ul className="space-y-4 text-sm text-text-light font-light">
             <li>
               <a href={SITE.phoneHref} className="flex items-center gap-2 hover:text-primary">
                 <Phone className="h-4 w-4" /> {SITE.phone}
@@ -69,30 +69,30 @@ export function Footer() {
       </div>
 
       {/* KW Elite Branding */}
-      <div className="border-t border-border bg-foreground/5 py-4">
+      <div className="border-t border-accent bg-primary py-6">
         <div className="container flex items-center justify-between">
           <img
             src={ASSETS.kwEliteLogo}
             alt="Keller Williams Elite Realty"
-            className="h-12 w-auto"
+            className="h-10 w-auto"
           />
-          <p className="text-xs text-muted-foreground">
+          <p className="text-xs text-text-light font-light">
             Proudly affiliated with Keller Williams Elite Realty
           </p>
         </div>
       </div>
 
       {/* Legal / compliance */}
-      <div className="border-t border-border">
-        <div className="container space-y-2 py-6 text-xs leading-relaxed text-muted-foreground">
+      <div className="border-t border-border bg-white">
+        <div className="container space-y-3 py-8 text-xs leading-relaxed text-text-light font-light">
           <p>{COMPLIANCE.equalHousing}</p>
           <p>{COMPLIANCE.idxDisclaimer}</p>
           <p>{SITE.brokerageDisclaimer}</p>
-          <p className="pt-2">
+          <p className="pt-4 border-t border-accent">
             &copy; {year} {SITE.agentName}. All rights reserved. &middot;{" "}
-            <Link href="/privacy" className="hover:text-primary">Privacy Policy</Link>{" "}
+            <Link href="/privacy" className="hover:text-accent">Privacy Policy</Link>{" "}
             &middot;{" "}
-            <Link href="/terms" className="hover:text-primary">Terms of Use</Link>
+            <Link href="/terms" className="hover:text-accent">Terms of Use</Link>
           </p>
         </div>
       </div>
