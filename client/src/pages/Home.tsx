@@ -44,9 +44,9 @@ export default function Home() {
                   {SITE.serviceAreas.join(" · ")}
                 </p>
                 <h1 className="text-primary-dark leading-tight mb-6">
-                  Luxury-level guidance.
+                  Your home.
                   <span className="block text-accent font-light italic mt-2">
-                    Neighborly care.
+                    Your way.
                   </span>
                 </h1>
                 <p className="text-lg text-text-light leading-relaxed max-w-xl">
