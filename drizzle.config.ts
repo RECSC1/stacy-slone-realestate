@@ -1,17 +1,13 @@
 import { defineConfig } from "drizzle-kit";
 
 // `drizzle-kit generate` only diffs the schema to produce migration files and
-// does not open a database connection, so it must succeed even when no
-// DATABASE_URL is available (e.g. during the Netlify build). When the variable
-// is set (runtime, `drizzle-kit migrate`), the real connection string is used.
-const connectionString =
-  process.env.DATABASE_URL ?? "mysql://placeholder:placeholder@localhost:3306/placeholder";
-
+// does not open a database connection. Migrations MUST be written to
+// `netlify/database/migrations` so the Netlify platform applies them
+// automatically during deploys. The connection string is only used by
+// connection-opening commands (which we never run here — Netlify owns
+// migration application).
 export default defineConfig({
   schema: "./drizzle/schema.ts",
-  out: "./drizzle",
-  dialect: "mysql",
-  dbCredentials: {
-    url: connectionString,
-  },
+  out: "./netlify/database/migrations",
+  dialect: "postgresql",
 });

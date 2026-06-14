@@ -18,14 +18,18 @@ export default function AIHomeSearch() {
   const chat = trpc.ai.chat.useMutation({
     onSuccess: (data) =>
       setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]),
-    onError: () =>
+    onError: (error) => {
+      console.error("[AIHomeSearch] chat error:", error);
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          content: `I'm having trouble right now. Please call Stacy at ${SITE.phone}.`,
+          content: `Live MLS/IDX results aren't connected to this site yet, so I can't show active listings here — but I can still help. Tell me the city or area (anywhere in North Carolina), your price range, timeline, and must-haves, and Stacy will review current options with access to live inventory.
+
+You can set up **Property Alerts** below so Stacy can flag matching homes, or reach her directly at ${SITE.phone}.`,
         },
-      ]),
+      ]);
+    },
   });
 
   const handleSend = (content: string) => {
@@ -37,22 +41,22 @@ export default function AIHomeSearch() {
   return (
     <>
       <Seo
-        title="AI Home Search — Describe Your Dream Triangle Home"
-        description="Use AI Home Search to describe your ideal Triangle NC home in plain language and get personalized guidance from Stacy Wilson Slone, KW Elite Realty."
+        title="AI Home Search — Describe Your Dream North Carolina Home"
+        description="Use AI Home Search to describe your ideal North Carolina home in plain language and get personalized guidance from Stacy Wilson Slone, KW Elite Realty."
       />
       <PageHero
         eyebrow="AI-Powered"
         title="Describe your dream home"
-        description="Tell the AI what you're looking for in plain language — neighborhood feel, must-haves, lifestyle — and get thoughtful, Triangle-specific guidance."
+        description="Tell the AI what you're looking for in plain language — any North Carolina city or area, neighborhood feel, must-haves, lifestyle — and get thoughtful guidance."
       />
 
       <Section className="bg-background" containerClassName="max-w-4xl">
         <div className="mb-6 flex items-center gap-3 rounded-none border border-border bg-secondary/50 p-4">
           <Sparkles className="h-5 w-5 shrink-0 text-primary" />
           <p className="text-sm leading-relaxed text-muted-foreground">
-            This AI assistant offers general, qualitative guidance about the
-            Triangle and isn't a live MLS feed. For real listings and pricing,
-            Stacy will personally curate matches for you.
+            This AI assistant offers general, qualitative guidance about any
+            North Carolina city or area — it isn't a live MLS feed. For real
+            listings and pricing, Stacy will personally curate matches for you.
           </p>
         </div>
 
@@ -62,12 +66,13 @@ export default function AIHomeSearch() {
             onSendMessage={handleSend}
             isLoading={chat.isPending}
             height="560px"
-            placeholder="e.g. A 3-bed near good parks in Cary with a home office..."
-            emptyStateMessage="Describe your ideal Triangle home and lifestyle to get started."
+            placeholder="e.g. A waterfront home in Morehead City under $800k, or a 3-bed near parks in Cary..."
+            emptyStateMessage="Describe your ideal North Carolina home and lifestyle to get started."
             suggestedPrompts={[
-              "I want a walkable neighborhood near downtown Durham under a tight budget",
-              "Looking for a quiet family-friendly area in Cary or Apex with parks",
-              "First-time buyer wanting a starter home near Raleigh — where should I look?",
+              "I want a waterfront home in Morehead City under $800k",
+              "Compare Cary and Apex for my home search",
+              "I'm looking in Wilmington, NC near the coast",
+              "I want investment property in Charlotte",
             ]}
           />
         </div>

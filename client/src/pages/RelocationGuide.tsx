@@ -5,8 +5,10 @@ import { Section, SectionHeading } from "@/components/ui-blocks/Section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "wouter";
+import { trpc } from "@/lib/trpc";
 
 export default function RelocationGuide() {
+  const mutation = trpc.leads.relocationInquiry.useMutation();
   return (
     <>
       <Seo
@@ -72,13 +74,18 @@ export default function RelocationGuide() {
               },
             ]}
             submitLabel="Get Relocation Support"
+            isSubmitting={mutation.isPending}
+            isSuccess={mutation.isSuccess}
             onSubmit={async (values) => {
-              const res = await fetch("/api/trpc/leads.relocationInquiry", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(values),
+              await mutation.mutateAsync({
+                name: values.name,
+                email: values.email,
+                phone: values.phone ?? "",
+                currentLocation: values.currentLocation ?? "",
+                timeline: values.timeline ?? "",
+                relocatingReason: values.relocatingReason ?? "",
+                message: values.message ?? "",
               });
-              if (!res.ok) throw new Error("Failed to submit inquiry");
             }}
             successMessage="Thank you! Stacy will reach out with personalized relocation guidance and neighborhood recommendations."
           />

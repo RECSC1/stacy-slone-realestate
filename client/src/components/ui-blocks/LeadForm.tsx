@@ -1,5 +1,5 @@
 import { useState, ReactNode } from "react";
-import { CheckCircle2, Loader2 } from "lucide-react";
+import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 
 export interface FieldDef {
   name: string;
@@ -34,6 +34,7 @@ export function LeadForm({
 }: LeadFormProps) {
   const [values, setValues] = useState<Record<string, string>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const setField = (name: string, value: string) => {
     setValues((v) => ({ ...v, [name]: value }));
@@ -42,6 +43,7 @@ export function LeadForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
     const nextErrors: Record<string, string> = {};
     for (const f of fields) {
       if (f.required && !values[f.name]?.trim()) {
@@ -59,7 +61,16 @@ export function LeadForm({
       setErrors(nextErrors);
       return;
     }
-    await onSubmit(values);
+    try {
+      await onSubmit(values);
+    } catch (err) {
+      // Surface a friendly message to the visitor and log the real error so it
+      // never silently fails.
+      console.error("[LeadForm] Submission failed:", err);
+      setSubmitError(
+        "Something went wrong sending your request. Please try again, or call Stacy directly at 919-332-8889.",
+      );
+    }
   };
 
   if (isSuccess) {
@@ -129,6 +140,16 @@ export function LeadForm({
       {disclaimer && (
         <div className="text-xs leading-relaxed text-muted-foreground sm:col-span-2">
           {disclaimer}
+        </div>
+      )}
+
+      {submitError && (
+        <div
+          role="alert"
+          className="flex items-start gap-2 border border-destructive/40 bg-destructive/5 p-3 text-sm text-destructive sm:col-span-2"
+        >
+          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+          <span>{submitError}</span>
         </div>
       )}
 

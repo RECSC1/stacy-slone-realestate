@@ -5,8 +5,10 @@ import { Section, SectionHeading } from "@/components/ui-blocks/Section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "wouter";
+import { trpc } from "@/lib/trpc";
 
 export default function LandInvestment() {
+  const mutation = trpc.leads.landInvestmentInquiry.useMutation();
   return (
     <>
       <Seo
@@ -80,13 +82,18 @@ export default function LandInvestment() {
               },
             ]}
             submitLabel="Get Investment Guidance"
+            isSubmitting={mutation.isPending}
+            isSuccess={mutation.isSuccess}
             onSubmit={async (values) => {
-              const res = await fetch("/api/trpc/leads.landInvestmentInquiry", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(values),
+              await mutation.mutateAsync({
+                name: values.name,
+                email: values.email,
+                phone: values.phone ?? "",
+                investmentType: values.investmentType ?? "",
+                budget: values.budget ?? "",
+                timeline: values.timeline ?? "",
+                message: values.message ?? "",
               });
-              if (!res.ok) throw new Error("Failed to submit inquiry");
             }}
             successMessage="Thank you! Stacy will review your investment goals and reach out with market opportunities and guidance."
           />

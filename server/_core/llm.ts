@@ -212,16 +212,73 @@ const normalizeToolChoice = (
   return toolChoice;
 };
 
-const resolveApiUrl = () =>
-  ENV.forgeApiUrl && ENV.forgeApiUrl.trim().length > 0
-    ? `${ENV.forgeApiUrl.replace(/\/$/, "")}/v1/chat/completions`
-    : "https://forge.manus.im/v1/chat/completions";
+/**
+ * Resolves which inference endpoint to use. Priority:
+ *   1. Netlify-injected OpenAI vars (OpenAI via Netlify AI Gateway — zero config)
+ *   2. Explicit Netlify AI Gateway key + base URL
+ *   3. Legacy Manus Forge API (kept for backwards compatibility)
+ *
+ * Returns `null` when no provider is configured so callers can fall back to a
+ * graceful, non-AI response instead of surfacing a raw error to visitors.
+ */
+type LLMEndpoint = { url: string; apiKey: string; defaultModel: string };
 
-const assertApiKey = () => {
-  if (!ENV.forgeApiKey) {
-    throw new Error("OPENAI_API_KEY is not configured");
+const DEFAULT_MODEL = "gpt-4o-mini";
+
+const trimSlash = (value: string) => value.replace(/\/+$/, "");
+
+export function resolveLLMEndpoint(): LLMEndpoint | null {
+  const openAiKey = process.env.OPENAI_API_KEY;
+  if (openAiKey) {
+    const base = process.env.OPENAI_BASE_URL
+      ? trimSlash(process.env.OPENAI_BASE_URL)
+      : "https://api.openai.com/v1";
+    return {
+      url: `${base}/chat/completions`,
+      apiKey: openAiKey,
+      defaultModel: DEFAULT_MODEL,
+    };
   }
-};
+
+  const gatewayKey = process.env.NETLIFY_AI_GATEWAY_KEY;
+  const gatewayBase = process.env.NETLIFY_AI_GATEWAY_BASE_URL;
+  if (gatewayKey && gatewayBase) {
+    return {
+      url: `${trimSlash(gatewayBase)}/openai/v1/chat/completions`,
+      apiKey: gatewayKey,
+      defaultModel: DEFAULT_MODEL,
+    };
+  }
+
+  if (ENV.forgeApiKey) {
+    const base =
+      ENV.forgeApiUrl && ENV.forgeApiUrl.trim().length > 0
+        ? trimSlash(ENV.forgeApiUrl)
+        : "https://forge.manus.im";
+    return {
+      url: `${base}/v1/chat/completions`,
+      apiKey: ENV.forgeApiKey,
+      defaultModel: DEFAULT_MODEL,
+    };
+  }
+
+  return null;
+}
+
+export function isLLMConfigured(): boolean {
+  return resolveLLMEndpoint() !== null;
+}
+
+/** Thrown when no inference provider is configured. Callers should catch and
+ * fall back to a helpful, non-AI response. */
+export class LLMNotConfiguredError extends Error {
+  constructor() {
+    super(
+      "No AI provider configured. Set OPENAI_API_KEY / Netlify AI Gateway, or BUILT_IN_FORGE_API_KEY.",
+    );
+    this.name = "LLMNotConfiguredError";
+  }
+}
 
 const normalizeResponseFormat = ({
   responseFormat,
@@ -312,6 +369,16 @@ const fetchWithBackoff = async (
         return response;
       }
 
+      // Don't waste time retrying non-recoverable client errors (4xx) other
+      // than 429 — they won't succeed on retry, and callers fall back faster.
+      if (
+        response.status >= 400 &&
+        response.status < 500 &&
+        response.status !== 429
+      ) {
+        return response;
+      }
+
       const retryAfterMs = parseRetryAfter(
         response.headers.get("retry-after")
       );
@@ -340,7 +407,10 @@ const fetchWithBackoff = async (
 };
 
 export async function invokeLLM(params: InvokeParams): Promise<InvokeResult> {
-  assertApiKey();
+  const endpoint = resolveLLMEndpoint();
+  if (!endpoint) {
+    throw new LLMNotConfiguredError();
+  }
 
   const {
     messages,
@@ -360,11 +430,8 @@ export async function invokeLLM(params: InvokeParams): Promise<InvokeResult> {
 
   const payload: Record<string, unknown> = {
     messages: messages.map(normalizeMessage),
+    model: model ?? endpoint.defaultModel,
   };
-
-  if (model) {
-    payload.model = model;
-  }
 
   if (tools && tools.length > 0) {
     payload.tools = tools;
@@ -401,11 +468,11 @@ export async function invokeLLM(params: InvokeParams): Promise<InvokeResult> {
     payload.response_format = normalizedResponseFormat;
   }
 
-  const response = await fetchWithBackoff(resolveApiUrl(), {
+  const response = await fetchWithBackoff(endpoint.url, {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      authorization: `Bearer ${ENV.forgeApiKey}`,
+      authorization: `Bearer ${endpoint.apiKey}`,
     },
     body: JSON.stringify(payload),
   });
@@ -433,14 +500,15 @@ export type ModelsResponse = {
 };
 
 export async function listLLMModels(): Promise<ModelsResponse> {
-  assertApiKey();
+  const endpoint = resolveLLMEndpoint();
+  if (!endpoint) {
+    throw new LLMNotConfiguredError();
+  }
 
-  const url = ENV.forgeApiUrl && ENV.forgeApiUrl.trim().length > 0
-    ? `${ENV.forgeApiUrl.replace(/\/$/, "")}/v1/models`
-    : "https://forge.manus.im/v1/models";
+  const url = endpoint.url.replace(/\/chat\/completions$/, "/models");
 
   const response = await fetchWithBackoff(url, {
-    headers: { authorization: `Bearer ${ENV.forgeApiKey}` },
+    headers: { authorization: `Bearer ${endpoint.apiKey}` },
   });
 
   if (!response.ok) {

@@ -18,11 +18,16 @@ export default function Concierge() {
   const chat = trpc.ai.chat.useMutation({
     onSuccess: (data) =>
       setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]),
-    onError: () =>
+    onError: (error) => {
+      console.error("[Concierge] chat error:", error);
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: `I'm having trouble right now. Please call Stacy at ${SITE.phone}.` },
-      ]),
+        {
+          role: "assistant",
+          content: `I can still help. Share what you're working on — buying, selling, or relocating anywhere in North Carolina, plus your timeline — and Stacy will follow up. You can also reach her directly at ${SITE.phone}.`,
+        },
+      ]);
+    },
   });
 
   const handleSend = (content: string) => {

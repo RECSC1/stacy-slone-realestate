@@ -21,12 +21,13 @@ export function ConciergeWidget() {
         { role: "assistant", content: data.reply },
       ]);
     },
-    onError: () => {
+    onError: (error) => {
+      console.error("[ConciergeWidget] chat error:", error);
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          content: `I'm sorry, I'm having trouble responding right now. Please call Stacy at ${SITE.phone} and she'll be glad to help.`,
+          content: `I can still help point you in the right direction. Share what you're looking for — a city or area anywhere in North Carolina, your timeline, and budget — and Stacy will follow up. You can also reach her directly at ${SITE.phone}.`,
         },
       ]);
     },
@@ -61,7 +62,7 @@ export function ConciergeWidget() {
           <div className="bg-primary px-5 py-4 text-primary-foreground">
             <p className="font-serif text-lg">AI Concierge</p>
             <p className="text-xs opacity-90">
-              Ask about buying or selling in the Triangle
+              Ask about buying or selling anywhere in North Carolina
             </p>
           </div>
           <AIChatBox
@@ -70,11 +71,11 @@ export function ConciergeWidget() {
             isLoading={chat.isPending}
             height="420px"
             placeholder="Ask a question..."
-            emptyStateMessage={`Hi! I'm ${SITE.agentFirstName}'s AI concierge. How can I help with your Triangle NC real estate questions?`}
+            emptyStateMessage={`Hi! I'm ${SITE.agentFirstName}'s AI concierge. How can I help with your North Carolina real estate questions?`}
             suggestedPrompts={[
-              "How's the home buying process work?",
+              "How does the home buying process work?",
               "What should I do to prep my home to sell?",
-              "Tell me about living in Cary vs Apex",
+              "Tell me about living in Wilmington vs Raleigh",
             ]}
           />
         </div>

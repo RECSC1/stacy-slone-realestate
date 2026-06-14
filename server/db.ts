@@ -1,5 +1,5 @@
 import { desc, eq } from "drizzle-orm";
-import { drizzle } from "drizzle-orm/mysql2";
+import { drizzle } from "drizzle-orm/netlify-db";
 import {
   chatConversations,
   InsertChatMessageRow,
@@ -16,12 +16,28 @@ import {
 } from "../drizzle/schema";
 import { ENV } from "./_core/env";
 
-let _db: ReturnType<typeof drizzle> | null = null;
+// Netlify Database (managed Postgres) connects automatically using the
+// NETLIFY_DATABASE_URL that Netlify injects at runtime. We only initialize the
+// client when a connection string is present so local/dev environments without
+// a provisioned database fail with a handled error instead of crashing.
+function createDb() {
+  return drizzle();
+}
+
+let _db: ReturnType<typeof createDb> | null = null;
+
+function hasDatabaseConfig(): boolean {
+  return Boolean(
+    process.env.NETLIFY_DATABASE_URL ||
+      process.env.NETLIFY_DATABASE_URL_UNPOOLED ||
+      process.env.DATABASE_URL,
+  );
+}
 
 export async function getDb() {
-  if (!_db && process.env.DATABASE_URL) {
+  if (!_db && hasDatabaseConfig()) {
     try {
-      _db = drizzle(process.env.DATABASE_URL);
+      _db = createDb();
     } catch (error) {
       console.warn("[Database] Failed to connect:", error);
       _db = null;
@@ -80,7 +96,8 @@ export async function upsertUser(user: InsertUser): Promise<void> {
       updateSet.lastSignedIn = new Date();
     }
 
-    await db.insert(users).values(values).onDuplicateKeyUpdate({
+    await db.insert(users).values(values).onConflictDoUpdate({
+      target: users.openId,
       set: updateSet,
     });
   } catch (error) {

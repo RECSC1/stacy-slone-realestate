@@ -17,15 +17,21 @@ export default function VirtualStaging() {
       <PageHero
         eyebrow="For Sellers"
         title="Help buyers picture home"
-        description="Thoughtful staging helps buyers emotionally connect with a space. Drag the slider to see the difference presentation makes."
+        description="Thoughtful staging helps buyers emotionally connect with a space. The preview below is a conceptual example of how a staging comparison can be presented."
       />
 
       <Section className="bg-background" containerClassName="max-w-4xl">
-        {/* Before/after comparison */}
+        <div className="mb-6 border border-dashed border-border bg-secondary/40 p-4 text-center text-xs leading-relaxed text-muted-foreground">
+          Conceptual staging example shown for layout demonstration only. These
+          are illustrative visuals, not real before/after photos of a specific
+          property.
+        </div>
+
+        {/* Before/after comparison — conceptual illustration */}
         <div className="relative aspect-[3/2] select-none overflow-hidden border border-border">
           <img
             src={ASSETS.stagingAfter}
-            alt="Virtually staged living room in a Triangle NC home"
+            alt="Conceptual illustration of a staged living room layout"
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div
@@ -34,16 +40,16 @@ export default function VirtualStaging() {
           >
             <img
               src={ASSETS.stagingBefore}
-              alt="Empty living room before virtual staging"
+              alt="Conceptual illustration of an empty living room layout"
               className="absolute inset-0 h-full w-full object-cover"
               style={{ width: "100vw", maxWidth: "896px" }}
             />
             <span className="absolute left-3 top-3 bg-foreground/80 px-3 py-1 text-xs font-medium text-background">
-              Before
+              Empty (concept)
             </span>
           </div>
           <span className="absolute right-3 top-3 bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">
-            After
+            Staged (concept)
           </span>
           <div
             className="absolute bottom-0 top-0 w-0.5 bg-background"
@@ -77,8 +83,11 @@ export default function VirtualStaging() {
         </div>
 
         <div className="mt-12 border border-dashed border-border bg-secondary/40 p-6 text-center text-sm leading-relaxed text-muted-foreground">
-          The example above is for illustration. Ask Stacy how staging and
-          presentation can be part of your home's marketing plan.
+          These visuals are conceptual examples used to show how a staging
+          preview can be presented on the site. Real before-and-after property
+          examples can be added once approved listing photos are available. Ask
+          Stacy how staging and presentation can be part of your home's
+          marketing plan.
         </div>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -86,7 +95,7 @@ export default function VirtualStaging() {
             href="/home-valuation"
             className="bg-primary px-6 py-3 text-sm font-medium text-primary-foreground"
           >
-            Start With a Home Valuation
+            Request a Listing Prep Conversation
           </a>
           <a
             href={SITE.phoneHref}

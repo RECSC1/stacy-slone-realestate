@@ -15,12 +15,12 @@ import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section } from "@/components/ui-blocks/Section";
 
 const TOOLS = [
-  { icon: Sparkles, t: "AI Home Search", b: "Describe your dream home in plain language and get Triangle-specific guidance.", href: "/ai-home-search" },
-  { icon: MessageCircle, t: "AI Concierge", b: "Ask any buyer or seller question about the Triangle market, anytime.", href: "/concierge" },
+  { icon: Sparkles, t: "AI Home Search", b: "Describe your dream home in plain language and get guidance for any North Carolina area.", href: "/ai-home-search" },
+  { icon: MessageCircle, t: "AI Concierge", b: "Ask any buyer or seller question about North Carolina real estate, anytime.", href: "/concierge" },
   { icon: Calculator, t: "Mortgage Calculator", b: "Estimate your monthly payment to plan your home search.", href: "/mortgage-calculator" },
   { icon: Bell, t: "Property Alerts", b: "Be first to know when matching homes hit the market.", href: "/property-alerts" },
-  { icon: Scale, t: "Compare Neighborhoods", b: "Weigh two Triangle areas side by side on what matters to you.", href: "/compare-neighborhoods" },
-  { icon: GraduationCap, t: "School Search", b: "Research schools and family-friendly areas across the Triangle.", href: "/school-search" },
+  { icon: Scale, t: "Compare Neighborhoods", b: "Weigh two North Carolina areas side by side on what matters to you.", href: "/compare-neighborhoods" },
+  { icon: GraduationCap, t: "School Search", b: "Research schools and districts across North Carolina.", href: "/school-search" },
   { icon: Compass, t: "House Direction Finder", b: "See how a home's orientation shapes its natural light.", href: "/house-direction-finder" },
   { icon: Wand2, t: "Virtual Staging", b: "See how presentation helps buyers connect with a home.", href: "/virtual-staging" },
 ];

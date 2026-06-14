@@ -5,8 +5,10 @@ import { Section, SectionHeading } from "@/components/ui-blocks/Section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "wouter";
+import { trpc } from "@/lib/trpc";
 
 export default function SellerInquiry() {
+  const mutation = trpc.leads.sellerInquiry.useMutation();
   return (
     <>
       <Seo
@@ -72,13 +74,18 @@ export default function SellerInquiry() {
               },
             ]}
             submitLabel="Send My Seller Inquiry"
+            isSubmitting={mutation.isPending}
+            isSuccess={mutation.isSuccess}
             onSubmit={async (values) => {
-              const res = await fetch("/api/trpc/leads.sellerInquiry", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(values),
+              await mutation.mutateAsync({
+                name: values.name,
+                email: values.email,
+                phone: values.phone ?? "",
+                propertyAddress: values.propertyAddress ?? "",
+                timeline: values.timeline ?? "",
+                sellingReason: values.sellingReason ?? "",
+                message: values.message ?? "",
               });
-              if (!res.ok) throw new Error("Failed to submit inquiry");
             }}
             successMessage="Thank you! Stacy will review your property and reach out with a personalized market analysis."
           />
