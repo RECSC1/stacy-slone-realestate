@@ -44,9 +44,9 @@ export default function Home() {
                   {SITE.serviceAreas.join(" · ")}
                 </p>
                 <h1 className="text-primary-dark leading-tight mb-6">
-                  Your home.
+                  Choosing The RIGHT Realtor
                   <span className="block text-accent font-light italic mt-2">
-                    Your way.
+                    DOES Make A Difference.
                   </span>
                 </h1>
                 <p className="text-lg text-text-light leading-relaxed max-w-xl">
