@@ -18,7 +18,7 @@ export function Section({
 }
 
 export function Eyebrow({ children }: { children: ReactNode }) {
-  return <p className="eyebrow text-primary">{children}</p>;
+  return <p className="eyebrow text-accent">{children}</p>;
 }
 
 export function SectionHeading({

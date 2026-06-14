@@ -1,7 +1,6 @@
 import { Link } from "wouter";
 import { ArrowRight, BookOpen, Download } from "lucide-react";
 import { Seo } from "@/components/Seo";
-import { SiteLayout } from "@/components/layout/SiteLayout";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section } from "@/components/ui-blocks/Section";
 import { Button } from "@/components/ui/button";

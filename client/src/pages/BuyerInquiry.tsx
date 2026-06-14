@@ -1,5 +1,4 @@
 import { Seo } from "@/components/Seo";
-import { SiteLayout } from "@/components/layout/SiteLayout";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section, SectionHeading } from "@/components/ui-blocks/Section";
 import { Button } from "@/components/ui/button";
@@ -112,7 +111,7 @@ function BuyerInquiryForm() {
 
 export default function BuyerInquiry() {
   return (
-    <SiteLayout>
+    <>
       <Seo
         title="Buyer Inquiry | Stacy Wilson Slone | Triangle NC Realtor"
         description="Start your Triangle NC home search with Stacy Wilson Slone. Get personalized buyer guidance, neighborhood insights, and expert market knowledge."
@@ -178,6 +177,6 @@ export default function BuyerInquiry() {
           </div>
         </div>
       </Section>
-    </SiteLayout>
+    </>
   );
 }

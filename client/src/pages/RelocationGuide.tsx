@@ -1,5 +1,4 @@
 import { Seo } from "@/components/Seo";
-import { SiteLayout } from "@/components/layout/SiteLayout";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { LeadForm } from "@/components/ui-blocks/LeadForm";
 import { Section, SectionHeading } from "@/components/ui-blocks/Section";
@@ -9,7 +8,7 @@ import { Link } from "wouter";
 
 export default function RelocationGuide() {
   return (
-    <SiteLayout>
+    <>
       <Seo
         title="Relocation Guide | Stacy Wilson Slone | Triangle NC Realtor"
         description="Moving to the Triangle? Get expert relocation guidance, neighborhood insights, and personalized support from Stacy Wilson Slone."
@@ -121,6 +120,6 @@ export default function RelocationGuide() {
           </Link>
         </div>
       </Section>
-    </SiteLayout>
+    </>
   );
 }

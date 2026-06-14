@@ -1,5 +1,4 @@
 import { Seo } from "@/components/Seo";
-import { SiteLayout } from "@/components/layout/SiteLayout";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { LeadForm } from "@/components/ui-blocks/LeadForm";
 import { Section, SectionHeading } from "@/components/ui-blocks/Section";
@@ -9,7 +8,7 @@ import { Link } from "wouter";
 
 export default function LandInvestment() {
   return (
-    <SiteLayout>
+    <>
       <Seo
         title="Land & Investment Properties | Stacy Wilson Slone | Triangle NC Realtor"
         description="Explore land, lots, and investment opportunities in the Triangle NC. Get expert guidance on development, investment, and commercial properties."
@@ -125,6 +124,6 @@ export default function LandInvestment() {
           </Link>
         </div>
       </Section>
-    </SiteLayout>
+    </>
   );
 }
