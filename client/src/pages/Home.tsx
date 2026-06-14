@@ -65,6 +65,8 @@ export default function Home() {
               <div className="flex flex-wrap gap-10 text-sm font-semibold text-text-light border-t border-accent pt-8 mt-4">
                 <span className="uppercase tracking-widest text-xs">Realtor®</span>
                 <span className="uppercase tracking-widest text-xs">KW Elite Realty</span>
+                <span className="uppercase tracking-widest text-xs">28 Years of Experience</span>
+                <span className="uppercase tracking-widest text-xs">Award-Winning</span>
               </div>
 
               {/* CTAs */}
@@ -117,7 +119,7 @@ export default function Home() {
               Your trusted guide through every step of the Triangle real estate journey.
             </h2>
             <p className="text-lg text-text-light leading-relaxed mb-8">
-              Stacy Wilson Slone is a Realtor® at KW Elite Realty, specializing in helping buyers, sellers, and investors navigate the Raleigh, Durham, Chapel Hill, and Cary markets with confidence and clarity.
+              With 28 years of experience, Stacy Wilson Slone is a consistent, award-winning Realtor® in the greater Durham area and across the Triangle. At KW Elite Realty, she specializes in helping buyers, sellers, and investors navigate the Raleigh, Durham, Chapel Hill, and Cary markets with confidence and clarity.
             </p>
             <p className="text-lg text-text-light leading-relaxed mb-8">
               With a people-first approach and deep local knowledge, she combines strategic market expertise with genuine care for her clients' goals — whether you're buying your first home, selling a property, or building wealth through real estate investment.

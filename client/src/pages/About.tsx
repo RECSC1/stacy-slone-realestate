@@ -2,7 +2,8 @@ import { Seo } from "@/components/Seo";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section, SectionHeading } from "@/components/ui-blocks/Section";
-import { Headshot } from "@/components/Headshot";
+import { SmartImage } from "@/components/SmartImage";
+import { ASSETS } from "@/config/site";
 import { Link } from "wouter";
 
 export default function About() {
@@ -21,61 +22,66 @@ export default function About() {
 
       <Section className="py-16">
         <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 items-start">
-            {/* Headshot */}
-            <div className="md:col-span-1">
-              <Headshot className="max-w-[240px]" />
+          {/* Editorial portrait — Stacy recognized as a Top 10% KW Elite Realtor */}
+          <figure className="relative mx-auto mb-12 w-full max-w-2xl overflow-hidden border border-primary-dark bg-[#faf8f5] p-2 shadow-[0_10px_30px_rgba(45,45,45,0.12)]">
+            <div className="relative border border-accent/40">
+              <SmartImage
+                src={ASSETS.aboutPortrait}
+                alt={ASSETS.aboutPortraitAlt}
+                loading="eager"
+                fallbackLabel="Stacy Wilson Slone · KW Elite Realty"
+                className="block h-auto min-h-[260px] w-full object-cover"
+              />
+            </div>
+          </figure>
+
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-2">
+                Stacy Wilson Slone
+              </h2>
+              <p className="text-lg text-foreground/70 leading-relaxed font-medium mb-6">
+                Realtor® | KW Elite Realty
+              </p>
             </div>
 
-            {/* Bio */}
-            <div className="md:col-span-3 space-y-6">
-              <div>
-                <h2 className="text-3xl font-serif font-bold text-foreground mb-2">
-                  Stacy Wilson Slone
-                </h2>
-                <p className="text-lg text-foreground/70 leading-relaxed font-medium mb-6">
-                  Realtor® | KW Elite Realty
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-serif font-bold text-foreground mb-3">
-                  Her Journey
-                </h3>
-                <p className="text-foreground/80 leading-relaxed mb-4">
-                  Originally from Pennsylvania, Stacy moved to Durham, North Carolina in 1988 when her mother was transferred with Verizon. After nearly a decade working in interior design, she discovered her true passion in real estate. She spent nine years as an Executive Assistant to two top-producing agents in the Triangle, gaining invaluable insights into the market and developing the skills that would define her career.
-                </p>
-                <p className="text-foreground/80 leading-relaxed mb-4">
-                  For the past nine years, Stacy has worked directly with buyers and sellers, building a reputation for hard work, market expertise, and unwavering commitment to her clients' best interests. She's grown tremendously in this career and loves it more with each passing year, with plans to serve the Triangle real estate community for many years to come.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-serif font-bold text-foreground mb-3">
-                  What Stacy Brings
-                </h3>
-                <p className="text-foreground/80 leading-relaxed">
-                  Whether you're buying your first home, selling a property, relocating to the Triangle, or exploring investment opportunities, Stacy combines deep local market knowledge with professional expertise and genuine care for your success. Her clients know they can count on her to work tirelessly and always advocate for their best interests.
-                </p>
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/contact"
-                  className="bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform active:scale-[0.97]"
-                >
-                  Get in Touch
-                </Link>
-                <Link
-                  href="/buyer-inquiry"
-                  className="border border-border bg-background px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary"
-                >
-                  Start Your Search
-                </Link>
-              </div>
+            <div>
+              <h3 className="text-xl font-serif font-bold text-foreground mb-3">
+                Her Journey
+              </h3>
+              <p className="text-foreground/80 leading-relaxed mb-4">
+                Originally from Pennsylvania, Stacy moved to Durham, North Carolina in 1988 when her mother was transferred with Verizon. After nearly a decade working in interior design, she discovered her true passion in real estate. She spent nine years as an Executive Assistant to two top-producing agents in the Triangle, gaining invaluable insights into the market and developing the skills that would define her career.
+              </p>
+              <p className="text-foreground/80 leading-relaxed mb-4">
+                For the past nine years, Stacy has worked directly with buyers and sellers, building a reputation for hard work, market expertise, and unwavering commitment to her clients' best interests. She's grown tremendously in this career and loves it more with each passing year, with plans to serve the Triangle real estate community for many years to come.
+              </p>
             </div>
+
+            <div>
+              <h3 className="text-xl font-serif font-bold text-foreground mb-3">
+                What Stacy Brings
+              </h3>
+              <p className="text-foreground/80 leading-relaxed">
+                Whether you're buying your first home, selling a property, relocating to the Triangle, or exploring investment opportunities, Stacy combines deep local market knowledge with professional expertise and genuine care for your success. Her clients know they can count on her to work tirelessly and always advocate for their best interests.
+              </p>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform active:scale-[0.97]"
+              >
+                Get in Touch
+              </Link>
+              <Link
+                href="/buyer-inquiry"
+                className="border border-border bg-background px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary"
+              >
+                Start Your Search
+              </Link>
             </div>
           </div>
+        </div>
       </Section>
 
       {/* Contact CTA */}

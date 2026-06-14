@@ -8,19 +8,24 @@
  */
 
 export const ASSETS = {
-  // Headshot: Stacy Wilson Slone's professional editorial headshot.
-  // NOTE: The previous upload path was not present in the deployed build, so the
-  // Headshot component currently renders an elegant monogram brand panel instead
-  // of a broken image. Replace this with a real, deploy-verified asset to restore
-  // the photo, then flip headshotIsPlaceholder to false.
-  headshot: "/manus-storage/stacy-headshot_b2585bda.jpg",
-  headshotIsPlaceholder: true,
+  // Headshot: Stacy Wilson Slone's real professional editorial headshot.
+  // Served from the deploy-safe public folder (client/public/images), so it is
+  // bundled into the production build. The Headshot component renders this photo
+  // inside the cream/taupe/black editorial frame and only falls back to the
+  // elegant monogram panel if the asset ever fails to load.
+  headshot: "/images/stacy-wilson-slone-triangle-realtor-headshot.jpg",
+  headshotIsPlaceholder: false,
+  // Stacy pictured with her KW Elite Realty "Top 10%" recognition sign. Used as
+  // the editorial portrait on the About page.
+  aboutPortrait: "/images/stacy-wilson-slone-top-10-percent-kw-elite.jpg",
+  aboutPortraitAlt:
+    "Stacy Wilson Slone being recognized as a Top 10% Realtor with Keller Williams Elite Realty",
   logoMonogram:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/sws-monogram-jmaARJMnpKpwkAW4v57s9F.webp",
-  // KW Elite logo: the prior path was not present in the deployed build. The
-  // footer now renders a compliant styled-text treatment instead of a broken
-  // logo. Replace with a real asset to restore an image-based logo.
-  kwEliteLogo: "/manus-storage/kw-elite-realty-logo_945978cb.jpg",
+  // KW Elite Realty logo, served from the deploy-safe public folder. Rendered on
+  // a dark plaque in the footer; if the asset ever fails to load, the footer
+  // falls back to the elegant styled-text treatment instead of a broken image.
+  kwEliteLogo: "/images/kw-elite-realty-logo.jpg",
   heroHome:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/hero-southern-home_9ff96c9e.jpg",
   creamBrickLantern:

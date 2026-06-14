@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Link } from "wouter";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { SITE, COMPLIANCE } from "@/config/site";
+import { SITE, COMPLIANCE, ASSETS } from "@/config/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const [logoFailed, setLogoFailed] = useState(false);
+  const showLogo = Boolean(ASSETS.kwEliteLogo) && !logoFailed;
   return (
     <footer className="border-t border-border bg-white">
       <div className="container grid gap-16 py-20 md:grid-cols-2 lg:grid-cols-4">
@@ -71,14 +74,25 @@ export function Footer() {
       {/* KW Elite Branding */}
       <div className="border-t border-accent bg-primary py-7">
         <div className="container flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
-          <div className="flex flex-col gap-1">
-            <span className="font-serif text-lg tracking-wide text-primary-dark">
-              Keller Williams Elite Realty
-            </span>
-            <span className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-accent">
-              KW Elite Realty
-            </span>
-          </div>
+          {showLogo ? (
+            <div className="flex items-center justify-center rounded-sm bg-black px-5 py-3">
+              <img
+                src={ASSETS.kwEliteLogo}
+                alt="Keller Williams Elite Realty"
+                onError={() => setLogoFailed(true)}
+                className="h-10 w-auto object-contain sm:h-12"
+              />
+            </div>
+          ) : (
+            <div className="flex flex-col gap-1">
+              <span className="font-serif text-lg tracking-wide text-primary-dark">
+                Keller Williams Elite Realty
+              </span>
+              <span className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-accent">
+                KW Elite Realty
+              </span>
+            </div>
+          )}
           <p className="max-w-xs text-xs leading-relaxed text-text-light font-light">
             Proudly affiliated with Keller Williams Elite Realty
           </p>
