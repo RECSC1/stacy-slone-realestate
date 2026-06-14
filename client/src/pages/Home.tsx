@@ -37,7 +37,7 @@ export default function Home() {
         keywords="real estate agent Raleigh, Durham real estate, Chapel Hill homes, Triangle NC realtor, Cary real estate"
       />
       {/* LUXURY HERO - Editorial, refined, Charleston-inspired */}
-      <section className="relative overflow-hidden bg-primary section-lg border-b border-border">
+      <section className="relative overflow-hidden bg-background section-lg border-b border-border">
         <div className="container">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-20 items-stretch">
             {/* Left: Text Content (2 columns) */}
@@ -111,7 +111,7 @@ export default function Home() {
       </section>
 
       {/* About Preview */}
-      <section className="section-lg bg-white border-t border-border">
+      <section className="section-lg bg-background border-t border-border">
         <div className="container">
           <div className="max-w-3xl">
             <p className="section-eyebrow mb-6">About Stacy</p>
@@ -137,11 +137,11 @@ export default function Home() {
       </section>
 
       {/* Value Props */}
-      <section className="section-lg bg-primary border-t border-border">
+      <section className="section-lg section-dark">
         <div className="container">
-          <div className="mb-16 pb-8 border-b border-accent">
+          <div className="mb-16 pb-8 border-b border-accent/40">
             <p className="section-eyebrow mb-6">How Stacy Helps</p>
-            <h2 className="text-primary-dark">Service tailored to your next chapter</h2>
+            <h2>Service tailored to your next chapter</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {VALUE_PROPS.map((prop) => {
@@ -166,7 +166,7 @@ export default function Home() {
       </section>
 
       {/* The Right Realtor Changes The Whole Experience */}
-      <section className="section-lg bg-white border-t border-border">
+      <section className="section-lg bg-background border-t border-border">
         <div className="container">
           <div className="mb-16 pb-8 border-b border-accent max-w-3xl">
             <p className="section-eyebrow mb-6">Strategy Before The Search</p>
@@ -223,12 +223,12 @@ export default function Home() {
       </section>
 
       {/* Communities */}
-      <section className="section-lg bg-primary border-t border-border">
+      <section className="section-lg section-dark">
         <div className="container">
-          <div className="mb-16 pb-8 border-b border-accent">
+          <div className="mb-16 pb-8 border-b border-accent/40">
             <p className="section-eyebrow mb-6">Service Areas</p>
-            <h2 className="text-primary-dark mb-6">Local expertise across the Triangle</h2>
-            <p className="text-text-light max-w-2xl">
+            <h2 className="mb-6">Local expertise across the Triangle</h2>
+            <p className="text-background/70 max-w-2xl">
               From the historic streets of Chapel Hill to Cary's family neighborhoods, Stacy represents buyers and sellers across North Carolina's most loved communities.
             </p>
           </div>
@@ -248,7 +248,7 @@ export default function Home() {
       </section>
 
       {/* AI Tools Teaser */}
-      <section className="section-lg bg-white border-t border-border">
+      <section className="section-lg bg-secondary/40 border-t border-border">
         <div className="container">
           <div className="mb-16 pb-8 border-b border-accent">
             <p className="section-eyebrow mb-6">Exclusive Tools</p>

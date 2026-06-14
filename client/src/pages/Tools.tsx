@@ -38,7 +38,7 @@ export default function Tools() {
         description="A suite of modern, AI-powered tools to help you research, plan, and decide with confidence."
       />
 
-      <Section className="section-lg bg-primary border-t border-border">
+      <Section className="section-lg section-dark">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {TOOLS.map((t) => (
             <Link

@@ -1,5 +1,4 @@
 import { Seo } from "@/components/Seo";
-import { SiteLayout } from "@/components/layout/SiteLayout";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section, SectionHeading } from "@/components/ui-blocks/Section";
 import { SmartImage } from "@/components/SmartImage";
@@ -8,7 +7,7 @@ import { Link } from "wouter";
 
 export default function About() {
   return (
-    <SiteLayout>
+    <>
       <Seo
         title="About Stacy Wilson Slone | Triangle Real Estate"
         description="Meet Stacy Wilson Slone, a real estate agent at KW Elite Realty serving the Triangle NC market."
@@ -85,22 +84,20 @@ export default function About() {
       </Section>
 
       {/* Contact CTA */}
-      <Section className="py-16 bg-primary/5">
+      <Section className="section-md section-dark">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-serif font-bold text-foreground mb-4">
+          <p className="eyebrow text-accent-light mb-4">Let's Talk</p>
+          <h2 className="text-3xl font-serif font-bold mb-4">
             Ready to Get Started?
           </h2>
-          <p className="text-lg text-foreground/80 mb-6">
+          <p className="text-lg text-background/80 mb-8">
             Whether you're buying, selling, or relocating to the Triangle, reach out to discuss your real estate goals.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-primary px-8 py-3 text-base font-medium text-primary-foreground rounded-lg transition-transform active:scale-[0.97]"
-          >
+          <Link href="/contact" className="btn-on-dark inline-block">
             Contact Stacy
           </Link>
         </div>
       </Section>
-    </SiteLayout>
+    </>
   );
 }

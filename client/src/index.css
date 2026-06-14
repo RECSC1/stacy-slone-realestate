@@ -2,19 +2,53 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap");
 
 @theme {
-  --color-primary: #f5f3f0;
-  --color-primary-dark: #2d2d2d;
-  --color-accent: #b8956a;
-  --color-accent-light: #d4af37;
-  --color-border: #e8e6e3;
-  --color-text: #3a3a3a;
-  --color-text-light: #666666;
-  --color-success: #4caf50;
-  --color-error: #e74c3c;
+  /* ------------------------------------------------------------------
+   * DARK-LUXURY COLOR SYSTEM
+   * Charleston-inspired: black iron, cream limestone, candlelit warmth.
+   * "primary" is the espresso brand ink used for filled buttons/controls;
+   * "primary-dark" is the deepest espresso used for full hero/footer bands.
+   * ------------------------------------------------------------------ */
 
-  /* Warm sand neutral used for editorial frame panels and subtle section backgrounds */
+  /* Brand ink (filled buttons, badges, selected controls) */
+  --color-primary: #1e1a17;
+  --color-primary-foreground: #fbf6ef;
+  --color-primary-dark: #151310;
+
+  /* Page base — warm ivory, never stark white */
+  --color-background: #faf6ef;
+  --color-foreground: #211c17;
+
+  /* Surfaces */
+  --color-card: #fffdf8;
+  --color-card-foreground: #211c17;
+  --color-popover: #fffdf8;
+  --color-popover-foreground: #211c17;
+
+  /* Muted panels + subtle copy (kept readable) */
+  --color-muted: #efe7da;
+  --color-muted-foreground: #6e6253;
+
+  /* Tan / warm brass accent */
+  --color-accent: #b58a5a;
+  --color-accent-foreground: #1e1a17;
+  --color-accent-light: #d8c7b3;
+
+  /* Warm sand neutral used for editorial frame panels and contrast sections */
   --color-secondary: #e9dfd0;
-  --color-secondary-foreground: #2d2d2d;
+  --color-secondary-foreground: #2a241e;
+
+  /* Lines, fields, focus rings */
+  --color-border: #e4dac9;
+  --color-input: #d8ccba;
+  --color-ring: #b58a5a;
+
+  /* Functional only — restrained terracotta, never KW red */
+  --color-destructive: #9b3d2c;
+
+  --color-text: #3a3a3a;
+  --color-text-light: #5f574c;
+  --color-success: #4f7a52;
+  --color-error: #9b3d2c;
 
   --font-serif: "Playfair Display", serif;
   --font-sans: "Lora", serif;
@@ -32,8 +66,8 @@
   }
 
   body {
-    background-color: var(--color-primary);
-    color: var(--color-text);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
     font-family: var(--font-sans);
   }
 
@@ -103,7 +137,7 @@
   }
 
   a:hover {
-    color: var(--color-accent-light);
+    color: var(--color-primary-dark);
   }
 
   button {
@@ -134,12 +168,25 @@
     }
   }
 
-  .section-eyebrow {
+  .section-eyebrow,
+  .eyebrow {
     font-size: 0.75rem;
     font-weight: var(--font-weight-semibold);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.18em;
     color: var(--color-accent);
+  }
+
+  /* Full-bleed dark editorial band */
+  .section-dark {
+    background-color: var(--color-primary-dark);
+    color: var(--color-background);
+  }
+  .section-dark h1,
+  .section-dark h2,
+  .section-dark h3,
+  .section-dark h4 {
+    color: var(--color-background);
   }
 
   .btn-primary {
@@ -194,18 +241,56 @@
     color: white;
   }
 
+  /* Buttons for use on DARK sections */
+  .btn-on-dark {
+    padding: 1rem 2.5rem;
+    border-radius: 0.125rem;
+    background-color: var(--color-background);
+    color: var(--color-primary-dark);
+    font-weight: var(--font-weight-semibold);
+    font-size: 1rem;
+    letter-spacing: 0.6px;
+    border: 1.5px solid var(--color-background);
+    transition: all 0.35s ease;
+  }
+
+  .btn-on-dark:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-primary-dark);
+  }
+
+  .btn-outline-light {
+    padding: 1rem 2.5rem;
+    border-radius: 0.125rem;
+    border: 1.5px solid color-mix(in srgb, var(--color-background) 65%, transparent);
+    background-color: transparent;
+    color: var(--color-background);
+    font-weight: var(--font-weight-semibold);
+    font-size: 1rem;
+    letter-spacing: 0.6px;
+    transition: all 0.35s ease;
+  }
+
+  .btn-outline-light:hover {
+    background-color: var(--color-background);
+    color: var(--color-primary-dark);
+    border-color: var(--color-background);
+  }
+
   .card {
     border-radius: 0;
     border: 1px solid #d4c5b9;
     background-color: #faf8f5;
-    padding: 3.5rem;
+    padding: 2.25rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     transition: all 0.35s ease;
     border-top: 3px solid var(--color-accent);
   }
 
   .card:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 24px rgba(21, 19, 16, 0.12);
+    transform: translateY(-2px);
   }
 
   .headshot-frame {
@@ -293,28 +378,28 @@
 }
 
 @layer utilities {
-  /* Luxury spacing utilities */
+  /* Luxury spacing utilities — generous but not empty */
   .section-lg {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-
-  @media (min-width: 1024px) {
-    .section-lg {
-      padding-top: 9rem;
-      padding-bottom: 9rem;
-    }
-  }
-
-  .section-md {
     padding-top: 4.5rem;
     padding-bottom: 4.5rem;
   }
 
   @media (min-width: 1024px) {
-    .section-md {
+    .section-lg {
       padding-top: 6.5rem;
       padding-bottom: 6.5rem;
+    }
+  }
+
+  .section-md {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .section-md {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
     }
   }
 
