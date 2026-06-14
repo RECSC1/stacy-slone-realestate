@@ -26,7 +26,7 @@ export function Headshot({ className, withPanel = false }: HeadshotProps) {
   const frame = (
     <figure
       className={cn(
-        "relative mx-auto w-full max-w-[340px] overflow-hidden border border-primary-dark bg-[#faf8f5] shadow-[0_10px_30px_rgba(45,45,45,0.12)]",
+        "relative mx-auto w-full max-w-[400px] overflow-hidden border border-primary-dark bg-[#faf8f5] shadow-[0_10px_30px_rgba(45,45,45,0.12)]",
         className,
       )}
     >

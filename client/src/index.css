@@ -1,3 +1,4 @@
+@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap");
 
 @theme {
@@ -10,6 +11,10 @@
   --color-text-light: #666666;
   --color-success: #4caf50;
   --color-error: #e74c3c;
+
+  /* Warm sand neutral used for editorial frame panels and subtle section backgrounds */
+  --color-secondary: #e9dfd0;
+  --color-secondary-foreground: #2d2d2d;
 
   --font-serif: "Playfair Display", serif;
   --font-sans: "Lora", serif;

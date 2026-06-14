@@ -86,7 +86,7 @@ export default function Home() {
 
             {/* Right: Brand portrait - Anchored to the right edge with luxury framing */}
             <div className="lg:col-span-1 flex flex-col justify-center">
-              <div className="relative w-full max-w-[340px] mx-auto lg:ml-auto lg:mr-0">
+              <div className="relative w-full max-w-[400px] mx-auto lg:ml-auto lg:mr-0">
                 {/* Layered taupe/sand offset panel behind the portrait */}
                 <div
                   aria-hidden
