@@ -33,6 +33,11 @@ const VALUE_PROPS = [
 export default function Home() {
   return (
     <>
+      <Seo
+        title="Real Estate Agent Raleigh, Durham, Chapel Hill"
+        description="Trusted real estate agent serving Raleigh, Durham, Chapel Hill & Triangle NC. Expert buyer & seller guidance."
+        keywords="real estate agent Raleigh, Durham real estate, Chapel Hill homes, Triangle NC realtor, Cary real estate"
+      />
       {/* LUXURY HERO - Editorial, refined, Charleston-inspired */}
       <section className="relative overflow-hidden bg-primary section-lg border-b border-border">
         <div className="container">

@@ -4,13 +4,14 @@ import { SITE } from "@/config/site";
 interface SeoProps {
   title?: string;
   description?: string;
+  keywords?: string;
 }
 
 /**
  * Lightweight SEO helper: updates document title and meta description
  * on route change. Keeps page titles consistent and keyword-aware.
  */
-export function Seo({ title, description }: SeoProps) {
+export function Seo({ title, description, keywords }: SeoProps) {
   useEffect(() => {
     const fullTitle = title
       ? `${title} | ${SITE.agentName}, ${SITE.brokerage}`
@@ -26,9 +27,19 @@ export function Seo({ title, description }: SeoProps) {
     }
     metaDesc.setAttribute("content", desc);
 
+    if (keywords) {
+      let metaKeywords = document.querySelector('meta[name="keywords"]');
+      if (!metaKeywords) {
+        metaKeywords = document.createElement("meta");
+        metaKeywords.setAttribute("name", "keywords");
+        document.head.appendChild(metaKeywords);
+      }
+      metaKeywords.setAttribute("content", keywords);
+    }
+
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) ogTitle.setAttribute("content", fullTitle);
-  }, [title, description]);
+  }, [title, description, keywords]);
 
   return null;
 }
