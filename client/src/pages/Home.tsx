@@ -36,58 +36,73 @@ export default function Home() {
       {/* LUXURY HERO - Editorial, refined, Charleston-inspired */}
       <section className="relative overflow-hidden bg-primary section-lg border-b border-border">
         <div className="container">
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24 items-center">
-            {/* Left: Text Content */}
-            <div className="flex flex-col justify-center space-y-10">
-              <div className="space-y-6">
-                <p className="section-eyebrow mb-2">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-20 items-stretch">
+            {/* Left: Text Content (2 columns) */}
+            <div className="lg:col-span-2 flex flex-col justify-center space-y-12">
+              <div className="space-y-8">
+                <p className="section-eyebrow mb-3">
                   {SITE.serviceAreas.join(" · ")}
                 </p>
-                <h1 className="text-primary-dark leading-tight">
+                <h1 className="text-5xl lg:text-6xl font-serif text-primary-dark leading-tight tracking-tight">
                   Choosing The RIGHT Realtor
-                  <span className="block text-accent font-light italic mt-3">
+                  <span className="block text-accent font-light italic mt-4 text-5xl lg:text-6xl">
                     DOES Make A Difference.
                   </span>
                 </h1>
-                <div className="h-px bg-accent w-16 my-4"></div>
-                <p className="text-lg text-text-light leading-relaxed max-w-2xl font-light">
+                <div className="flex gap-4 items-center">
+                  <div className="h-px bg-accent w-20"></div>
+                  <div className="h-px bg-accent w-12"></div>
+                </div>
+                <p className="text-xl text-text-light leading-relaxed max-w-2xl font-light">
                   Trusted, people-first real estate guidance for {SITE.serviceAreas.slice(0, 2).join(" and ")} and the Triangle, rooted in local insight, calm confidence, and genuine care.
                 </p>
               </div>
 
               {/* Credentials */}
-              <div className="flex flex-wrap gap-8 text-sm font-semibold text-text-light border-t border-accent pt-6 mt-6">
-                <span className="uppercase tracking-widest">Realtor®</span>
-                <span className="uppercase tracking-widest">KW Elite Realty</span>
+              <div className="flex flex-wrap gap-10 text-sm font-semibold text-text-light border-t border-accent pt-8 mt-4">
+                <span className="uppercase tracking-widest text-xs">Realtor®</span>
+                <span className="uppercase tracking-widest text-xs">KW Elite Realty</span>
               </div>
 
               {/* CTAs */}
-              <div className="flex flex-wrap gap-4 pt-6">
+              <div className="flex flex-wrap gap-6 pt-8">
                 <Link href="/buyer-inquiry">
-                  <button className="btn-primary flex items-center gap-2">
-                    Schedule a Consultation <ArrowRight className="w-4 h-4" />
+                  <button className="btn-primary flex items-center gap-3 px-8 py-4 text-base">
+                    Schedule a Consultation <ArrowRight className="w-5 h-5" />
                   </button>
                 </Link>
                 <Link href="/ai-home-search">
-                  <button className="btn-outline">
+                  <button className="btn-outline px-8 py-4 text-base">
                     Explore Buyer Tools
                   </button>
                 </Link>
               </div>
             </div>
 
-            {/* Right: Headshot */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-sm">
-                <Headshot />
-                <div className="mt-8 text-center lg:text-right border-t border-accent pt-6">
-                  <p className="text-sm font-semibold text-primary-dark">
-                    {SITE.agentName}
-                  </p>
-                  <p className="text-xs text-accent uppercase tracking-widest font-semibold">
-                    Realtor® · {SITE.brokerage}
-                  </p>
+            {/* Right: Headshot - Anchored to right edge with luxury framing */}
+            <div className="lg:col-span-1 flex flex-col justify-center">
+              <div className="relative w-full">
+                {/* Layered background panel */}
+                <div className="absolute -inset-6 bg-gradient-to-b from-accent/10 to-transparent rounded-none"></div>
+                <div className="absolute -inset-4 border border-accent/30 rounded-none"></div>
+                
+                {/* Image container with refined frame */}
+                <div className="relative bg-white p-6 border-2 border-primary-dark">
+                  <Headshot />
                 </div>
+                
+                {/* Bottom accent line */}
+                <div className="absolute -bottom-4 left-0 right-0 h-px bg-accent"></div>
+              </div>
+              
+              {/* Credentials below image */}
+              <div className="mt-12 text-center lg:text-left border-t border-accent pt-8">
+                <p className="text-base font-semibold text-primary-dark">
+                  {SITE.agentName}
+                </p>
+                <p className="text-xs text-accent uppercase tracking-widest font-semibold mt-2">
+                  Realtor® · {SITE.brokerage}
+                </p>
               </div>
             </div>
           </div>
