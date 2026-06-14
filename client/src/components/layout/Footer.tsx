@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { Link } from "wouter";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { SITE, COMPLIANCE, ASSETS } from "@/config/site";
+import { SITE, COMPLIANCE } from "@/config/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const [logoFailed, setLogoFailed] = useState(false);
-  const showLogo = Boolean(ASSETS.kwEliteLogo) && !logoFailed;
   return (
     <footer className="border-t border-border bg-white">
       <div className="container grid gap-16 py-20 md:grid-cols-2 lg:grid-cols-4">
@@ -27,7 +24,7 @@ export function Footer() {
         {/* Explore */}
         <div>
           <p className="section-eyebrow mb-6 text-primary-dark">Explore</p>
-          <ul className="space-y-3 text-sm text-text-light font-light">
+          <ul className="list-none space-y-3 pl-0 text-sm text-text-light font-light">
             <li><Link href="/buy" className="hover:text-primary">Search Homes</Link></li>
             <li><Link href="/home-valuation" className="hover:text-primary">Home Valuation</Link></li>
             <li><Link href="/communities" className="hover:text-primary">Communities</Link></li>
@@ -40,7 +37,7 @@ export function Footer() {
         {/* Tools */}
         <div>
           <p className="section-eyebrow mb-6 text-primary-dark">Tools</p>
-          <ul className="space-y-3 text-sm text-text-light font-light">
+          <ul className="list-none space-y-3 pl-0 text-sm text-text-light font-light">
             <li><Link href="/tools" className="hover:text-primary">All Tools</Link></li>
             <li><Link href="/concierge" className="hover:text-primary">AI Concierge</Link></li>
             <li><Link href="/mortgage-calculator" className="hover:text-primary">Mortgage Calculator</Link></li>
@@ -53,7 +50,7 @@ export function Footer() {
         {/* Contact */}
         <div>
           <p className="section-eyebrow mb-6 text-primary-dark">Connect</p>
-          <ul className="space-y-4 text-sm text-text-light font-light">
+          <ul className="list-none space-y-4 pl-0 text-sm text-text-light font-light">
             <li>
               <a href={SITE.phoneHref} className="flex items-center gap-2 hover:text-primary">
                 <Phone className="h-4 w-4" /> {SITE.phone}
@@ -74,25 +71,14 @@ export function Footer() {
       {/* KW Elite Branding */}
       <div className="border-t border-accent bg-primary py-7">
         <div className="container flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
-          {showLogo ? (
-            <div className="flex items-center justify-center rounded-sm bg-black px-5 py-3">
-              <img
-                src={ASSETS.kwEliteLogo}
-                alt="Keller Williams Elite Realty"
-                onError={() => setLogoFailed(true)}
-                className="h-10 w-auto object-contain sm:h-12"
-              />
-            </div>
-          ) : (
-            <div className="flex flex-col gap-1">
-              <span className="font-serif text-lg tracking-wide text-primary-dark">
-                Keller Williams Elite Realty
-              </span>
-              <span className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-accent">
-                KW Elite Realty
-              </span>
-            </div>
-          )}
+          <div className="flex flex-col gap-1">
+            <span className="font-serif text-lg tracking-wide text-primary-dark">
+              Keller Williams Elite Realty
+            </span>
+            <span className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-accent">
+              KW Elite Realty
+            </span>
+          </div>
           <p className="max-w-xs text-xs leading-relaxed text-text-light font-light">
             Proudly affiliated with Keller Williams Elite Realty
           </p>
