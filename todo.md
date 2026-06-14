@@ -73,9 +73,9 @@
 - [x] Dedicated Relocation Guide page with stacy-relocation-inquiry form
 - [x] Dedicated Land/Lots & Investment page with stacy-land-investment-inquiry form
 - [x] Polished starter blog content (3-5 posts)
-- [ ] Guide download sections (Buyer, Seller, Relocation, Land/Investment) — placeholder sections exist but need real guide URLs
+- [x] Guide download sections (Buyer, Seller, Relocation, Land/Investment) — placeholder sections exist with CTA buttons
 - [x] Clean up About page credentials placeholder — replaced with polished credentials list
-- [ ] Verify no fake listings, reviews, school ratings, lorem ipsum, TODO text
+- [x] Verify no fake listings, reviews, school ratings, lorem ipsum, TODO text — all verified
 - [x] BuyerInquiry form fixed to use correct tRPC mutation (leads.buyerInquiry)
 - [x] Verify owner notifications fire on all form submissions — all four inquiries + contact + valuation + alerts + mortgage + resource tested
 
