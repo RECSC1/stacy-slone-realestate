@@ -39,6 +39,20 @@ const NAV: NavItem[] = [
       { label: "Local Landmarks", href: "/local-landmarks" },
     ],
   },
+  {
+    label: "Tools",
+    href: "/tools",
+    children: [
+      { label: "All Tools", href: "/tools" },
+      { label: "AI Home Search", href: "/ai-home-search" },
+      { label: "Mortgage Calculator", href: "/mortgage-calculator" },
+      { label: "Property Alerts", href: "/property-alerts" },
+      { label: "Neighborhood Comparison", href: "/compare-neighborhoods" },
+      { label: "School Search", href: "/school-search" },
+      { label: "Local Landmarks", href: "/local-landmarks" },
+      { label: "Virtual Staging", href: "/virtual-staging" },
+    ],
+  },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
 ];

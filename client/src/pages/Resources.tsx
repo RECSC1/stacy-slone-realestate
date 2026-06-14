@@ -45,7 +45,7 @@ export default function Resources() {
   const { data: posts, isLoading } = trpc.content.publishedPosts.useQuery();
 
   return (
-    <SiteLayout>
+    <>
       <Seo
         title="Triangle NC Real Estate Resources & Guides"
         description="Real estate guides, tips, and resources for buying and selling in the Triangle NC from Stacy Wilson Slone, KW Elite Realty."
@@ -171,7 +171,7 @@ export default function Resources() {
             </div>
           )}
         </div>
-      </Section>
-    </SiteLayout>
+        </Section>
+    </>
   );
 }
