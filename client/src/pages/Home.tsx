@@ -1,9 +1,7 @@
-import { ArrowRight, Sparkles, Home as HomeIcon, TrendingUp, MapPin } from "lucide-react";
+import { ArrowRight, Sparkles, Home as HomeIcon, TrendingUp } from "lucide-react";
 import { Seo } from "@/components/Seo";
 import { Headshot } from "@/components/Headshot";
-import { Section, SectionHeading } from "@/components/ui-blocks/Section";
-import { FeaturedListings } from "@/components/ui-blocks/FeaturedListings";
-import { SITE, ASSETS, COMMUNITIES } from "@/config/site";
+import { SITE, COMMUNITIES } from "@/config/site";
 import { Link } from "wouter";
 
 const VALUE_PROPS = [
@@ -84,31 +82,27 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Headshot - Anchored to right edge with luxury framing */}
+            {/* Right: Brand portrait - Anchored to the right edge with luxury framing */}
             <div className="lg:col-span-1 flex flex-col justify-center">
-              <div className="relative w-full">
-                {/* Layered background panel */}
-                <div className="absolute -inset-6 bg-gradient-to-b from-accent/10 to-transparent rounded-none"></div>
-                <div className="absolute -inset-4 border border-accent/30 rounded-none"></div>
-                
-                {/* Image container with refined frame */}
-                <div className="relative bg-white p-6 border-2 border-primary-dark">
-                  <Headshot />
-                </div>
-                
-                {/* Bottom accent line */}
-                <div className="absolute -bottom-4 left-0 right-0 h-px bg-accent"></div>
+              <div className="relative w-full max-w-[340px] mx-auto lg:ml-auto lg:mr-0">
+                {/* Layered taupe/sand offset panel behind the portrait */}
+                <div
+                  aria-hidden
+                  className="absolute -bottom-6 -right-6 -top-6 left-8 -z-10 bg-secondary/70 border border-accent/30"
+                ></div>
+
+                <Headshot />
+
+                {/* Thin accent baseline */}
+                <div
+                  aria-hidden
+                  className="absolute -bottom-3 left-0 right-0 h-px bg-accent"
+                ></div>
               </div>
-              
-              {/* Credentials below image */}
-              <div className="mt-12 text-center lg:text-left border-t border-accent pt-8">
-                <p className="text-base font-semibold text-primary-dark">
-                  {SITE.agentName}
-                </p>
-                <p className="text-xs text-accent uppercase tracking-widest font-semibold mt-2">
-                  Realtor® · {SITE.brokerage}
-                </p>
-              </div>
+
+              <p className="mt-10 text-center text-sm italic font-serif text-text-light">
+                Serving the Triangle with calm, considered guidance.
+              </p>
             </div>
           </div>
         </div>
@@ -169,17 +163,60 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Listings */}
+      {/* The Right Realtor Changes The Whole Experience */}
       <section className="section-lg bg-white border-t border-border">
         <div className="container">
-          <div className="mb-16 pb-8 border-b border-accent">
-            <p className="section-eyebrow mb-6">Properties</p>
-            <h2 className="text-primary-dark mb-6">Listing previews & client stories</h2>
-            <p className="text-text-light max-w-2xl">
-              The property cards below are placeholders only and do not represent live MLS or IDX data. Listings will be updated once approved property data is available.
+          <div className="mb-16 pb-8 border-b border-accent max-w-3xl">
+            <p className="section-eyebrow mb-6">Strategy Before The Search</p>
+            <h2 className="text-primary-dark mb-6">
+              The right realtor changes the whole experience
+            </h2>
+            <p className="text-lg text-text-light leading-relaxed font-light">
+              Before the search, the showing, the pricing conversation, or the offer,
+              there is a better first step: getting clear on what actually matters.
+              Stacy helps clients slow down the noise, understand the market, and make
+              decisions with more confidence from the beginning.
             </p>
           </div>
-          <FeaturedListings />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-accent/30 border border-accent/30">
+            {[
+              {
+                title: "For Buyers",
+                body: "Get clear on area fit, timing, search strategy, and what to watch before you start chasing listings.",
+                href: "/buyer-inquiry",
+                cta: "Start A Buyer Conversation",
+              },
+              {
+                title: "For Sellers",
+                body: "Talk through pricing, prep, positioning, and the smartest way to bring your home to market.",
+                href: "/seller-inquiry",
+                cta: "Talk About Selling",
+              },
+              {
+                title: "For Relocation, Land & Investment",
+                body: "Explore the more complex moves with better questions, better context, and a steadier plan.",
+                href: "/relocation-guide",
+                cta: "Explore Specialty Guidance",
+              },
+            ].map((card) => (
+              <div
+                key={card.title}
+                className="flex flex-col bg-[#faf8f5] p-10"
+              >
+                <h3 className="font-serif text-2xl text-primary-dark mb-5 leading-snug">
+                  {card.title}
+                </h3>
+                <p className="text-text-light text-sm leading-relaxed font-light mb-8 flex-1">
+                  {card.body}
+                </p>
+                <Link href={card.href}>
+                  <button className="text-accent font-semibold text-xs uppercase tracking-widest hover:text-accent-light flex items-center gap-2">
+                    {card.cta} <ArrowRight className="w-3 h-3" />
+                  </button>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
