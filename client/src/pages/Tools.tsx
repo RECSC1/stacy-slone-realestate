@@ -38,20 +38,20 @@ export default function Tools() {
         description="A suite of modern, AI-powered tools to help you research, plan, and decide with confidence."
       />
 
-      <Section className="bg-background">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <Section className="section-lg bg-primary border-t border-border">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {TOOLS.map((t) => (
             <Link
               key={t.t}
               href={t.href}
-              className="group flex flex-col border border-border bg-card p-7 transition-shadow hover:shadow-lg"
+              className="group flex flex-col card bg-white hover:border-accent transition-all"
             >
-              <t.icon className="h-8 w-8 text-primary" strokeWidth={1.5} />
-              <h2 className="mt-5 font-serif text-2xl text-foreground">{t.t}</h2>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+              <t.icon className="h-6 w-6 text-accent" strokeWidth={1.5} />
+              <h2 className="mt-6 font-serif text-xl text-primary-dark font-semibold">{t.t}</h2>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-text-light font-light">
                 {t.b}
               </p>
-              <span className="mt-5 flex items-center gap-2 text-sm font-medium text-primary">
+              <span className="mt-6 flex items-center gap-2 text-sm font-semibold text-accent uppercase tracking-widest">
                 Open tool
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>
