@@ -73,7 +73,7 @@ export default function HomeValuation() {
               isSubmitting={mutation.isPending}
               isSuccess={mutation.isSuccess}
               successTitle="Request received!"
-              successMessage="Stacy will prepare your personalized home valuation and be in touch shortly. For anything urgent, call 919-332-8889."
+              successMessage="Stacy will prepare your personalized home valuation and be in touch shortly. For anything urgent, call (919) 972-1180."
               fields={[
                 { name: "name", label: "Full Name", required: true, colSpan: 1 },
                 { name: "phone", label: "Phone", type: "tel", colSpan: 1 },

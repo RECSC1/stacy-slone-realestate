@@ -15,7 +15,7 @@ Rules you must always follow:
 - Be warm, polished, confident, and genuinely helpful — never pushy.
 - NEVER invent specific listings, prices, market statistics, school ratings, or guarantees. If asked for live data you do not have, say it is best confirmed directly with Stacy and offer to connect them.
 - Follow Fair Housing principles. Do not steer based on protected classes, and do not characterize neighborhoods as more or less suitable for any protected group. Frame everything as neutral consumer research.
-- Encourage the visitor to take a next step: request a home valuation, set up property alerts, or contact Stacy at 919-332-8889.
+- Encourage the visitor to take a next step: request a home valuation, set up property alerts, or contact Stacy at (919) 972-1180.
 - Keep answers concise and easy to read. Use short paragraphs or brief lists.`;
 
 export const aiRouter = router({
@@ -50,7 +50,7 @@ export const aiRouter = router({
       const reply =
         typeof choice === "string"
           ? choice
-          : "I'm sorry, I had trouble responding just now. Please call Stacy at 919-332-8889 and she'll be glad to help.";
+          : "I'm sorry, I had trouble responding just now. Please call Stacy at (919) 972-1180 and she'll be glad to help.";
 
       // Log conversation (best-effort, non-blocking on failure)
       if (lastUser) {
@@ -89,7 +89,7 @@ export const aiRouter = router({
       const answer =
         typeof choice === "string"
           ? choice
-          : "I had trouble researching that just now. Please call Stacy at 919-332-8889.";
+          : "I had trouble researching that just now. Please call Stacy at (919) 972-1180.";
       return { answer };
     }),
 
@@ -120,7 +120,7 @@ export const aiRouter = router({
       const answer =
         typeof choice === "string"
           ? choice
-          : "I had trouble comparing those just now. Please call Stacy at 919-332-8889.";
+          : "I had trouble comparing those just now. Please call Stacy at (919) 972-1180.";
       return { answer };
     }),
 

@@ -97,6 +97,7 @@ export function Footer() {
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />{" "}
               {SITE.officeAddress}
             </span>
+            <span className="text-[#fbf6ef]/55">{SITE.licenseLabel}</span>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section, SectionHeading } from "@/components/ui-blocks/Section";
 import { SmartImage } from "@/components/SmartImage";
-import { ASSETS } from "@/config/site";
+import { ASSETS, PROOF, SITE } from "@/config/site";
 import { Link } from "wouter";
 
 export default function About() {
@@ -39,10 +39,35 @@ export default function About() {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-2">
                 Stacy Wilson Slone
               </h2>
-              <p className="text-lg text-foreground/70 leading-relaxed font-medium mb-6">
+              <p className="text-lg text-foreground/70 leading-relaxed font-medium mb-2">
                 Realtor® | KW Elite Realty
               </p>
+              <p className="text-sm text-foreground/50 mb-6">
+                {SITE.licenseLabel}
+              </p>
             </div>
+
+            {/* Proof points — approved, tastefully presented */}
+            <div className="grid grid-cols-2 gap-px border border-accent/30 bg-accent/30 sm:grid-cols-4">
+              {[
+                { value: `${PROOF.yearsExperience} Years`, label: "Local Experience" },
+                { value: PROOF.totalSales, label: "Total Sales" },
+                { value: PROOF.salesLast12Months, label: "Sales · Last 12 Months" },
+                { value: PROOF.rating, label: `Rating · ${PROOF.reviewCount} Reviews` },
+              ].map((stat) => (
+                <div key={stat.label} className="bg-[#faf8f5] px-5 py-6 text-center">
+                  <p className="font-serif text-3xl text-primary-dark">
+                    {stat.value}
+                  </p>
+                  <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-text-light">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p className="text-sm text-foreground/55">
+              Experience across a wide range of price points and property types.
+            </p>
 
             <div>
               <h3 className="text-xl font-serif font-bold text-foreground mb-3">

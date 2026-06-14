@@ -67,7 +67,7 @@ export default function Buy() {
               isSubmitting={mutation.isPending}
               isSuccess={mutation.isSuccess}
               successTitle="Got it!"
-              successMessage="Stacy will review your criteria and send matching Triangle homes your way. For anything urgent, call 919-332-8889."
+              successMessage="Stacy will review your criteria and send matching Triangle homes your way. For anything urgent, call (919) 972-1180."
               fields={[
                 { name: "name", label: "Full Name", required: true, colSpan: 1 },
                 { name: "phone", label: "Phone", type: "tel", colSpan: 1 },

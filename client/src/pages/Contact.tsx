@@ -14,7 +14,7 @@ export default function Contact() {
     <>
       <Seo
         title="Contact Stacy Wilson Slone"
-        description="Get in touch with Stacy Wilson Slone, Triangle North Carolina Realtor with KW Elite Realty. Call 919-332-8889 or send a message."
+        description="Get in touch with Stacy Wilson Slone, Triangle North Carolina Realtor with KW Elite Realty. Call (919) 972-1180 or send a message."
       />
       <PageHero
         eyebrow="Get in Touch"
@@ -37,7 +37,7 @@ export default function Contact() {
                 submitLabel="Send Message"
                 isSubmitting={mutation.isPending}
                 isSuccess={mutation.isSuccess}
-                successMessage="Your message has been received. Stacy will be in touch shortly. For anything urgent, call 919-332-8889."
+                successMessage="Your message has been received. Stacy will be in touch shortly. For anything urgent, call (919) 972-1180."
                 fields={[
                   { name: "name", label: "Full Name", required: true, colSpan: 1 },
                   { name: "phone", label: "Phone", type: "tel", colSpan: 1 },
@@ -80,9 +80,12 @@ export default function Contact() {
                 </p>
                 <p className="flex items-start gap-3 text-foreground">
                   <Clock className="mt-0.5 h-5 w-5 text-primary" />
-                  <span>[Add business hours — e.g., Mon–Sat, by appointment]</span>
+                  <span>By appointment</span>
                 </p>
               </div>
+              <p className="mt-5 border-t border-border pt-4 text-xs text-muted-foreground">
+                {SITE.licenseLabel}
+              </p>
             </div>
           </div>
         </div>

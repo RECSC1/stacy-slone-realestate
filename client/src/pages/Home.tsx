@@ -66,7 +66,8 @@ export default function Home() {
                 <span className="uppercase tracking-widest text-xs">Realtor®</span>
                 <span className="uppercase tracking-widest text-xs">KW Elite Realty</span>
                 <span className="uppercase tracking-widest text-xs">28 Years of Experience</span>
-                <span className="uppercase tracking-widest text-xs">Award-Winning</span>
+                <span className="uppercase tracking-widest text-xs">673 Total Sales</span>
+                <span className="uppercase tracking-widest text-xs">5.0 Rating</span>
               </div>
 
               {/* CTAs */}

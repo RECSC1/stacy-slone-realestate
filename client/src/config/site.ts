@@ -2,9 +2,7 @@
  * CENTRAL SITE CONFIGURATION
  * -------------------------------------------------------------------
  * Single source of truth for Stacy Wilson Slone's brand details.
- * Edit the values here to update the site globally. Anything wrapped
- * in square brackets like "[License number]" is a placeholder that is
- * safe and easy to replace once the real value is provided.
+ * Edit the values here to update the site globally.
  */
 
 export const ASSETS = {
@@ -79,14 +77,15 @@ export const SITE = {
   region: "Triangle, North Carolina",
 
   // Contact details
-  phone: "919-332-8889",
-  phoneHref: "tel:+19193328889",
-  email: "stacy@stacyslonerealty.com",
-  emailHref: "mailto:stacy@stacyslonerealty.com",
+  phone: "(919) 972-1180",
+  phoneHref: "tel:+19199721180",
+  email: "slonestacy@gmail.com",
+  emailHref: "mailto:slonestacy@gmail.com",
 
-  // Placeholders that are easy to find and replace
-  officeAddress: "Raleigh, NC",
-  licenseNumber: "Broker/Realtor®",
+  // Brokerage / compliance details
+  officeAddress: "245 NC 54 Highway Ste 101, Durham, NC 27713",
+  licenseNumber: "189905",
+  licenseLabel: "NC License #189905",
   brokerageDisclaimer:
     "Each office is independently owned and operated by a Keller Williams franchisee.",
 
@@ -112,10 +111,25 @@ export const SITE = {
     "Chapel Hill",
     "Cary",
     "Apex",
+    "Morrisville",
+    "Carrboro",
     "Wake Forest",
     "Hillsborough",
-    "Morrisville",
   ],
+} as const;
+
+/**
+ * Approved public proof points. Phrased conservatively — no "#1 agent" or
+ * guarantee language. Update only with values Stacy has approved.
+ */
+export const PROOF = {
+  yearsExperience: "28",
+  totalSales: "673",
+  salesLast12Months: "49",
+  rating: "5.0",
+  reviewCount: "123",
+  priceRange: "$15K–$3.1M",
+  averagePrice: "$368K",
 } as const;
 
 export type CommunitySlug =
