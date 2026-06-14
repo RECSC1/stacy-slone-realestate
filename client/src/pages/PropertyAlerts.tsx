@@ -33,8 +33,9 @@ export default function PropertyAlerts() {
             submitLabel="Create My Alerts"
             isSubmitting={mutation.isPending}
             isSuccess={mutation.isSuccess}
+            isError={mutation.isError}
             successTitle="You're all set!"
-            successMessage="Stacy will set up your custom property alerts and reach out with matching Triangle homes. For anything urgent, call 919-332-8889."
+            successMessage="Stacy will set up your custom property alerts and reach out with matching Triangle homes. For anything urgent, call (919) 972-1180."
             fields={[
               { name: "name", label: "Full Name", required: true, colSpan: 1 },
               { name: "phone", label: "Phone", type: "tel", colSpan: 1 },

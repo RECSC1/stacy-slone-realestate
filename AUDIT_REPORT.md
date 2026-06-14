@@ -101,7 +101,7 @@
 - [x] Resources (Blog)
 - [x] About
 - [x] Contact
-- [x] Phone number (919-332-8889) in header
+- [x] Phone number ((919) 972-1180) in header
 
 **Status:** ✓ Complete and organized
 
@@ -142,7 +142,7 @@
 - [x] Stacy Wilson Slone name
 - [x] KW Elite Realty affiliation
 - [x] Triangle, North Carolina location
-- [x] Phone number (919-332-8889)
+- [x] Phone number ((919) 972-1180)
 - [x] Email placeholder
 - [x] Office address placeholder
 - [x] License number placeholder

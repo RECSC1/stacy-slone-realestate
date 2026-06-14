@@ -14,7 +14,7 @@ vi.mock("./db", async () => {
         formName: "contact",
         name: "Test Person",
         email: "test@example.com",
-        phone: "9193328889",
+        phone: "9199721180",
         propertyAddress: null,
         message: "Hello",
         details: null,
@@ -72,7 +72,7 @@ describe("lead capture", () => {
     const result = await caller.leads.homeValuation({
       name: "Jane Buyer",
       email: "jane@example.com",
-      phone: "9193328889",
+      phone: "9199721180",
       propertyAddress: "123 Main St, Raleigh NC",
       timeline: "3 months",
     });
