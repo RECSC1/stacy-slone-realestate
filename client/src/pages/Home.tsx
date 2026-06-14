@@ -78,7 +78,7 @@ export default function Home() {
 
             {/* Right: Headshot */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-sm">
+              <div className="relative w-full max-w-xs">
                 <Headshot />
                 <div className="mt-6 text-center lg:text-right">
                   <p className="text-sm font-semibold text-primary-dark">

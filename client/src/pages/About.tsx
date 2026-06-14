@@ -10,12 +10,12 @@ export default function About() {
     <SiteLayout>
       <Seo
         title="About Stacy Wilson Slone | Triangle Real Estate"
-        description="Meet Stacy Wilson Slone, a dedicated real estate professional serving the Triangle NC market with personalized guidance and local expertise."
+        description="Meet Stacy Wilson Slone, a real estate agent at KW Elite Realty serving the Triangle NC market."
       />
 
       <PageHero
         title="About Stacy"
-        description="Real estate guidance rooted in genuine care and local knowledge"
+        description="Real estate guidance for the Triangle"
         image="https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/neutral-living-room_cc4639a5.jpg"
       />
 
@@ -33,70 +33,41 @@ export default function About() {
 
             {/* Bio */}
             <div className="md:col-span-3 space-y-6">
-            <div>
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-4">
-                Stacy Wilson Slone
-              </h2>
-              <p className="text-lg text-foreground/80 leading-relaxed">
-                Stacy is a dedicated real estate professional serving the Raleigh, Durham, Chapel Hill, and surrounding Triangle communities. With a focus on personalized guidance and local market expertise, Stacy helps buyers find their next home, sellers market their properties effectively, and families navigate relocations with confidence.
-              </p>
-            </div>
+              <div>
+                <h2 className="text-3xl font-serif font-bold text-foreground mb-4">
+                  Stacy Wilson Slone
+                </h2>
+                <p className="text-lg text-foreground/80 leading-relaxed">
+                  Stacy is a real estate agent at KW Elite Realty, serving buyers, sellers, and investors across the Raleigh, Durham, Chapel Hill, and surrounding Triangle communities.
+                </p>
+              </div>
 
-            <div>
-              <h3 className="text-xl font-serif font-bold text-foreground mb-3">
-                What Stacy Brings
-              </h3>
-              <p className="text-foreground/80 leading-relaxed mb-4">
-                Whether you're buying, selling, or relocating to the Triangle, Stacy combines deep local knowledge with a genuine commitment to understanding your unique needs. Every client receives personalized attention and honest guidance tailored to their goals.
-              </p>
-            </div>
+              <div>
+                <h3 className="text-xl font-serif font-bold text-foreground mb-3">
+                  What Stacy Does
+                </h3>
+                <p className="text-foreground/80 leading-relaxed">
+                  Whether you're buying your first home, selling a property, relocating to the area, or looking for investment opportunities, Stacy brings local market knowledge and professional expertise to guide you through every step of the real estate process.
+                </p>
+              </div>
 
-            <blockquote className="border-l-2 border-primary bg-secondary/50 px-6 py-4 font-serif text-xl italic leading-relaxed text-foreground">
-              "{SITE.tagline}"
-            </blockquote>
-
-            {/* Why Work with Stacy */}
-            <div className="mt-10 border border-border bg-secondary/40 p-6">
-              <p className="text-sm font-medium text-foreground mb-4">
-                Why Work with Stacy
-              </p>
-              <ul className="space-y-2 text-sm leading-relaxed text-foreground">
-                <li className="flex items-start gap-3">
-                  <span className="text-primary">•</span>
-                  <span>Deep knowledge of Raleigh, Durham, Chapel Hill, and surrounding Triangle communities</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary">•</span>
-                  <span>Specializes in buyer guidance, seller marketing, and relocation support</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary">•</span>
-                  <span>Keller Williams Elite Realty — backed by a trusted national network</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary">•</span>
-                  <span>Personalized approach rooted in genuine care and local expertise</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform active:scale-[0.97]"
-              >
-                Work With Stacy
-              </Link>
-              <Link
-                href="/home-valuation"
-                className="border border-border bg-background px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary"
-              >
-                Get a Home Valuation
-              </Link>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  href="/contact"
+                  className="bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform active:scale-[0.97]"
+                >
+                  Get in Touch
+                </Link>
+                <Link
+                  href="/buyer-inquiry"
+                  className="border border-border bg-background px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary"
+                >
+                  Start Your Search
+                </Link>
+              </div>
             </div>
             </div>
           </div>
-        </div>
       </Section>
 
       {/* Contact CTA */}
@@ -106,7 +77,7 @@ export default function About() {
             Ready to Get Started?
           </h2>
           <p className="text-lg text-foreground/80 mb-6">
-            Whether you're buying, selling, or relocating, Stacy is here to help. Reach out today to discuss your real estate goals.
+            Whether you're buying, selling, or relocating to the Triangle, reach out to discuss your real estate goals.
           </p>
           <Link
             href="/contact"
