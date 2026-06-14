@@ -27,27 +27,39 @@ export default function About() {
               <img
                 src={ASSETS.headshot}
                 alt="Stacy Wilson Slone"
-                className="w-full rounded-lg shadow-lg max-w-xs"
+                className="w-full rounded-lg shadow-lg max-w-[240px]"
               />
             </div>
 
             {/* Bio */}
             <div className="md:col-span-3 space-y-6">
               <div>
-                <h2 className="text-3xl font-serif font-bold text-foreground mb-4">
+                <h2 className="text-3xl font-serif font-bold text-foreground mb-2">
                   Stacy Wilson Slone
                 </h2>
-                <p className="text-lg text-foreground/80 leading-relaxed">
-                  Stacy is a real estate agent at KW Elite Realty, serving buyers, sellers, and investors across the Raleigh, Durham, Chapel Hill, and surrounding Triangle communities.
+                <p className="text-lg text-foreground/70 leading-relaxed font-medium mb-6">
+                  Realtor® | KW Elite Realty
                 </p>
               </div>
 
               <div>
                 <h3 className="text-xl font-serif font-bold text-foreground mb-3">
-                  What Stacy Does
+                  Her Journey
+                </h3>
+                <p className="text-foreground/80 leading-relaxed mb-4">
+                  Originally from Pennsylvania, Stacy moved to Durham, North Carolina in 1988 when her mother was transferred with Verizon. After nearly a decade working in interior design, she discovered her true passion in real estate. She spent nine years as an Executive Assistant to two top-producing agents in the Triangle, gaining invaluable insights into the market and developing the skills that would define her career.
+                </p>
+                <p className="text-foreground/80 leading-relaxed mb-4">
+                  For the past nine years, Stacy has worked directly with buyers and sellers, building a reputation for hard work, market expertise, and unwavering commitment to her clients' best interests. She's grown tremendously in this career and loves it more with each passing year, with plans to serve the Triangle real estate community for many years to come.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-serif font-bold text-foreground mb-3">
+                  What Stacy Brings
                 </h3>
                 <p className="text-foreground/80 leading-relaxed">
-                  Whether you're buying your first home, selling a property, relocating to the area, or looking for investment opportunities, Stacy brings local market knowledge and professional expertise to guide you through every step of the real estate process.
+                  Whether you're buying your first home, selling a property, relocating to the Triangle, or exploring investment opportunities, Stacy combines deep local market knowledge with professional expertise and genuine care for your success. Her clients know they can count on her to work tirelessly and always advocate for their best interests.
                 </p>
               </div>
 
