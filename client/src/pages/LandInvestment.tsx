@@ -5,6 +5,7 @@ import { Section, SectionHeading } from "@/components/ui-blocks/Section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "wouter";
+import { HERO_IMAGES } from "@/config/images";
 
 export default function LandInvestment() {
   return (
@@ -17,7 +18,7 @@ export default function LandInvestment() {
       <PageHero
         title="Land, Lots & Investment Opportunities"
         description="Strategic real estate investment guidance for the Triangle market"
-        image="https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/cta-home_02d28c7a.jpg"
+        image={HERO_IMAGES.landInvestment}
       />
 
       <Section className="py-16">

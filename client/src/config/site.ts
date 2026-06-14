@@ -7,65 +7,32 @@
  * safe and easy to replace once the real value is provided.
  */
 
+import { LOCAL_IMAGES, COMMUNITY_IMAGES } from "@/config/images";
+
+/**
+ * Brand assets. Every value here is a locally bundled, deploy-safe asset.
+ * There are intentionally NO external CloudFront / CDN URLs — those returned
+ * HTTP 403 and have been removed. Where real photography is not yet available,
+ * the consuming component renders an intentional editorial treatment (espresso
+ * gradient hero, or a curated CSS community plate) rather than a broken image.
+ * See `client/src/config/images.ts` for the full image strategy.
+ */
 export const ASSETS = {
-  // Headshot: Stacy Wilson Slone's real professional editorial headshot.
-  // Served from the deploy-safe public folder (client/public/images), so it is
-  // bundled into the production build. The Headshot component renders this photo
-  // inside the cream/taupe/black editorial frame and only falls back to the
-  // elegant monogram panel if the asset ever fails to load.
-  headshot: "/images/stacy-wilson-slone-triangle-realtor-headshot.jpg",
+  // Stacy Wilson Slone's real professional editorial headshot, bundled into the
+  // production build. The Headshot component renders this photo inside the
+  // cream/taupe/black editorial frame and only falls back to the elegant
+  // monogram panel if the asset ever fails to load.
+  headshot: LOCAL_IMAGES.homepagePortrait,
   headshotIsPlaceholder: false,
   // Stacy pictured with her KW Elite Realty "Top 10%" recognition sign. Used as
   // the editorial portrait on the About page.
-  aboutPortrait: "/images/stacy-wilson-slone-top-10-percent-kw-elite.jpg",
+  aboutPortrait: LOCAL_IMAGES.aboutPortrait,
   aboutPortraitAlt:
     "Stacy Wilson Slone being recognized as a Top 10% Realtor with Keller Williams Elite Realty",
-  logoMonogram:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/sws-monogram-jmaARJMnpKpwkAW4v57s9F.webp",
-  // KW Elite Realty logo, served from the deploy-safe public folder. Rendered on
-  // a dark plaque in the footer; if the asset ever fails to load, the footer
-  // falls back to the elegant styled-text treatment instead of a broken image.
-  kwEliteLogo: "/images/kw-elite-realty-logo.jpg",
-  heroHome:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/hero-southern-home_9ff96c9e.jpg",
-  creamBrickLantern:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/cream-brick-lantern_b1917274.jpg",
-  porchBlackShutters:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/porch-black-shutters_b023c05e.jpg",
-  neutralInteriorWide:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/neutral-interior-wide_a75e2d8e.jpg",
-  neutralLivingRoom:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/neutral-living-room_cc4639a5.jpg",
-  neutralKitchen:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/neutral-kitchen_53873430.jpg",
-  homeLibrary:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/home-library_8b0df59d.jpg",
-  whiteBrickPorch:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/white-brick-porch_b44596b1.jpg",
-  treeLinedNeighborhood:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/tree-lined-neighborhood_16a18435.jpg",
-  ctaHome:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/cta-home_02d28c7a.jpg",
-  stagingBefore:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/staging-before-TUS6eTyKSSp23Bae7RiCU6.webp",
-  stagingAfter:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/staging-after-hqz2Rwzpub8BWF8i2XXj5M.webp",
-  communities: {
-    raleigh:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/raleigh-skyline_3432b40a.jpg",
-    durham:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/durham-tobacco_5bb5c28e.jpg",
-    chapelHill:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/chapel-hill_e33aad2e.jpg",
-    cary:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/cary-park_1f34908f.jpg",
-    apex:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/apex_b587b7ef.jpg",
-    wakeForest:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/wake-forest_d4591b21.jpg",
-    hillsborough:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/hillsborough_3a2a66b7.jpg",
-  },
+  // Local editorial monogram (SVG) used as the refined image fallback mark.
+  logoMonogram: LOCAL_IMAGES.monogram,
+  // KW Elite Realty logo, served from the deploy-safe public folder.
+  kwEliteLogo: LOCAL_IMAGES.kwEliteLogo,
 } as const;
 
 export const SITE = {
@@ -130,7 +97,12 @@ export type CommunitySlug =
 export interface Community {
   slug: CommunitySlug;
   name: string;
-  image: string;
+  /**
+   * Local image path, or `null` when no photograph is available yet. When
+   * null, the community is rendered with an intentional editorial CSS plate
+   * (see CommunityPlate) and a gradient detail hero — never a broken image.
+   */
+  image: string | null;
   tagline: string;
   overview: string;
   housingStyle: string;
@@ -147,7 +119,7 @@ export const COMMUNITIES: Community[] = [
   {
     slug: "raleigh",
     name: "Raleigh",
-    image: ASSETS.communities.raleigh,
+    image: COMMUNITY_IMAGES.raleigh,
     tagline: "The capital city anchor of the Triangle",
     overview:
       "North Carolina's capital blends a thriving downtown, established tree-lined neighborhoods, and a deep base of museums, parks, and universities. Raleigh offers a broad spectrum of housing and lifestyle options across its many districts.",
@@ -167,7 +139,7 @@ export const COMMUNITIES: Community[] = [
   {
     slug: "durham",
     name: "Durham",
-    image: ASSETS.communities.durham,
+    image: COMMUNITY_IMAGES.durham,
     tagline: "Historic character meets innovation",
     overview:
       "Durham pairs a revitalized historic core — including the American Tobacco District — with a celebrated food scene and a strong creative and research community anchored by Duke University.",
@@ -187,7 +159,7 @@ export const COMMUNITIES: Community[] = [
   {
     slug: "chapel-hill",
     name: "Chapel Hill",
-    image: ASSETS.communities.chapelHill,
+    image: COMMUNITY_IMAGES["chapel-hill"],
     tagline: "A classic college-town setting",
     overview:
       "Home to the University of North Carolina, Chapel Hill is known for its leafy streets, Franklin Street energy, and a strong sense of community within the wider Triangle.",
@@ -207,7 +179,7 @@ export const COMMUNITIES: Community[] = [
   {
     slug: "cary",
     name: "Cary",
-    image: ASSETS.communities.cary,
+    image: COMMUNITY_IMAGES.cary,
     tagline: "Planned, polished, and central",
     overview:
       "Cary is one of the Triangle's most carefully planned communities, known for its parks, greenways, and the new Downtown Cary Park. It sits centrally between Raleigh, Durham, and RTP.",
@@ -227,7 +199,7 @@ export const COMMUNITIES: Community[] = [
   {
     slug: "apex",
     name: "Apex",
-    image: ASSETS.communities.apex,
+    image: COMMUNITY_IMAGES.apex,
     tagline: "Historic small-town charm",
     overview:
       "Apex is known for its preserved historic downtown and a welcoming small-town feel, while remaining well-connected to the broader Triangle economy.",
@@ -247,7 +219,7 @@ export const COMMUNITIES: Community[] = [
   {
     slug: "wake-forest",
     name: "Wake Forest",
-    image: ASSETS.communities.wakeForest,
+    image: COMMUNITY_IMAGES["wake-forest"],
     tagline: "Small-town warmth north of Raleigh",
     overview:
       "Just north of Raleigh, Wake Forest combines a historic downtown with newer growth, offering a relaxed pace while staying connected to the capital.",
@@ -267,7 +239,7 @@ export const COMMUNITIES: Community[] = [
   {
     slug: "hillsborough",
     name: "Hillsborough",
-    image: ASSETS.communities.hillsborough,
+    image: COMMUNITY_IMAGES.hillsborough,
     tagline: "Riverside history and craft culture",
     overview:
       "Hillsborough offers a richly historic downtown along the Eno River, a celebrated literary and craft community, and easy access to both Durham and Chapel Hill.",

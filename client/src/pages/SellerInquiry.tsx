@@ -5,6 +5,7 @@ import { Section, SectionHeading } from "@/components/ui-blocks/Section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "wouter";
+import { HERO_IMAGES } from "@/config/images";
 
 export default function SellerInquiry() {
   return (
@@ -17,7 +18,7 @@ export default function SellerInquiry() {
       <PageHero
         title="Ready to Sell Your Home?"
         description="Get expert guidance and a personalized market analysis"
-        image="https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/neutral-interior-wide_a75e2d8e.jpg"
+        image={HERO_IMAGES.sell}
       />
 
       <Section className="py-16">

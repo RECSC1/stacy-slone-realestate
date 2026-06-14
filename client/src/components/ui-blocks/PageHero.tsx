@@ -4,7 +4,7 @@ interface PageHeroProps {
   eyebrow?: string;
   title: ReactNode;
   description?: ReactNode;
-  image?: string;
+  image?: string | null;
   imageAlt?: string;
 }
 
@@ -33,7 +33,7 @@ export function PageHero({
         {showImage ? (
           <>
             <img
-              src={image}
+              src={image ?? undefined}
               alt={imageAlt ?? ""}
               onError={() => setImageOk(false)}
               className="h-full w-full object-cover"
@@ -43,7 +43,27 @@ export function PageHero({
             <div className="absolute inset-0 bg-gradient-to-r from-[#151310]/85 via-[#151310]/55 to-transparent" />
           </>
         ) : (
-          <div className="h-full w-full bg-gradient-to-br from-[#151310] via-[#1e1a17] to-[#24211d]" />
+          <>
+            <div className="h-full w-full bg-gradient-to-br from-[#151310] via-[#1e1a17] to-[#24211d]" />
+            {/* Intentional Southern-architectural linework so the band reads as
+                a designed editorial treatment, not a missing photograph. */}
+            <svg
+              aria-hidden
+              viewBox="0 0 1200 400"
+              preserveAspectRatio="xMidYMax slice"
+              className="absolute inset-0 h-full w-full text-accent"
+            >
+              <g fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.14">
+                <path d="M0 300 L150 250 L300 300 L450 240 L600 300 L750 250 L900 300 L1050 250 L1200 300" />
+                <line x1="0" y1="340" x2="1200" y2="340" />
+                <line x1="180" y1="340" x2="180" y2="400" />
+                <line x1="420" y1="340" x2="420" y2="400" />
+                <line x1="660" y1="340" x2="660" y2="400" />
+                <line x1="900" y1="340" x2="900" y2="400" />
+                <line x1="1140" y1="340" x2="1140" y2="400" />
+              </g>
+            </svg>
+          </>
         )}
       </div>
 

@@ -3,7 +3,7 @@ import { ArrowRight, Wand2, TrendingUp } from "lucide-react";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section, SectionHeading } from "@/components/ui-blocks/Section";
-import { ASSETS } from "@/config/site";
+import { HERO_IMAGES } from "@/config/images";
 
 export default function Sell() {
   return (
@@ -13,7 +13,7 @@ export default function Sell() {
         description="Sell your Triangle North Carolina home with Stacy Wilson Slone, KW Elite Realty. Strategic pricing, polished marketing, and skilled negotiation."
       />
       <PageHero
-        image={ASSETS.whiteBrickPorch}
+        image={HERO_IMAGES.sell}
         imageAlt="Triangle NC home prepared for sale"
         eyebrow="For Sellers"
         title="Sell with strategy and confidence"
