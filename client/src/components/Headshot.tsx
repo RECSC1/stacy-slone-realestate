@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ASSETS, SITE } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -10,13 +11,18 @@ interface HeadshotProps {
 /**
  * Editorial brand portrait panel.
  *
- * Until a finished, deploy-ready headshot asset is provided, this renders a
- * refined monogram treatment on a cream/ivory ground with thin taupe + black
- * hairline framing — luxury, Charleston-inspired, and free of any broken-image
- * state. Swapping in a real photo later only requires pointing this component
- * (or ASSETS.headshot) at the new asset.
+ * Renders Stacy's real headshot inside a refined cream/ivory frame with thin
+ * taupe + black hairline framing — luxury, Charleston-inspired. If no photo is
+ * configured (or the asset ever fails to load), it gracefully falls back to a
+ * monogram treatment so a broken-image state is never shown. The portrait is
+ * displayed with object-cover anchored toward the top so the face is never
+ * cropped awkwardly and the image is never stretched or distorted.
  */
 export function Headshot({ className, withPanel = false }: HeadshotProps) {
+  const showPhoto = !ASSETS.headshotIsPlaceholder && Boolean(ASSETS.headshot);
+  const [failed, setFailed] = useState(false);
+  const usePhoto = showPhoto && !failed;
+
   const frame = (
     <figure
       className={cn(
@@ -25,26 +31,35 @@ export function Headshot({ className, withPanel = false }: HeadshotProps) {
       )}
     >
       {/* inner taupe hairline */}
-      <div className="pointer-events-none absolute inset-2 border border-accent/40" />
-      <div className="flex aspect-[4/5] flex-col items-center justify-center gap-6 px-8 text-center">
+      <div className="pointer-events-none absolute inset-2 z-10 border border-accent/40" />
+      {usePhoto ? (
         <img
-          src={ASSETS.logoMonogram}
-          alt=""
-          aria-hidden
-          className="h-24 w-auto mix-blend-multiply"
+          src={ASSETS.headshot}
+          alt={SITE.headshotAlt}
+          onError={() => setFailed(true)}
+          className="aspect-[4/5] w-full object-cover object-top"
         />
-        <div className="h-px w-12 bg-accent" />
-        <div className="space-y-2">
-          <p className="font-serif text-2xl leading-tight text-primary-dark">
-            {SITE.agentName}
-          </p>
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-accent">
-            Realtor® · {SITE.brokerage}
-          </p>
+      ) : (
+        <div className="flex aspect-[4/5] flex-col items-center justify-center gap-6 px-8 text-center">
+          <img
+            src={ASSETS.logoMonogram}
+            alt=""
+            aria-hidden
+            className="h-24 w-auto mix-blend-multiply"
+          />
+          <div className="h-px w-12 bg-accent" />
+          <div className="space-y-2">
+            <p className="font-serif text-2xl leading-tight text-primary-dark">
+              {SITE.agentName}
+            </p>
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-accent">
+              Realtor® · {SITE.brokerage}
+            </p>
+          </div>
+          {/* visually-hidden, screen-reader-friendly description */}
+          <figcaption className="sr-only">{SITE.headshotAlt}</figcaption>
         </div>
-      </div>
-      {/* visually-hidden, screen-reader-friendly description */}
-      <figcaption className="sr-only">{SITE.headshotAlt}</figcaption>
+      )}
     </figure>
   );
 
