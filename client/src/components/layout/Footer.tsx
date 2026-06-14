@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { SITE, COMPLIANCE, ASSETS } from "@/config/site";
+import { SITE, COMPLIANCE } from "@/config/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -69,14 +69,17 @@ export function Footer() {
       </div>
 
       {/* KW Elite Branding */}
-      <div className="border-t border-accent bg-primary py-6">
-        <div className="container flex items-center justify-between">
-          <img
-            src={ASSETS.kwEliteLogo}
-            alt="Keller Williams Elite Realty"
-            className="h-10 w-auto"
-          />
-          <p className="text-xs text-text-light font-light">
+      <div className="border-t border-accent bg-primary py-7">
+        <div className="container flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div className="flex flex-col gap-1">
+            <span className="font-serif text-lg tracking-wide text-primary-dark">
+              Keller Williams Elite Realty
+            </span>
+            <span className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-accent">
+              KW Elite Realty
+            </span>
+          </div>
+          <p className="max-w-xs text-xs leading-relaxed text-text-light font-light">
             Proudly affiliated with Keller Williams Elite Realty
           </p>
         </div>

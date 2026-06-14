@@ -8,11 +8,18 @@
  */
 
 export const ASSETS = {
-  // Headshot: Stacy Wilson Slone's professional editorial headshot
+  // Headshot: Stacy Wilson Slone's professional editorial headshot.
+  // NOTE: The previous upload path was not present in the deployed build, so the
+  // Headshot component currently renders an elegant monogram brand panel instead
+  // of a broken image. Replace this with a real, deploy-verified asset to restore
+  // the photo, then flip headshotIsPlaceholder to false.
   headshot: "/manus-storage/stacy-headshot_b2585bda.jpg",
-  headshotIsPlaceholder: false,
+  headshotIsPlaceholder: true,
   logoMonogram:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/sws-monogram-jmaARJMnpKpwkAW4v57s9F.webp",
+  // KW Elite logo: the prior path was not present in the deployed build. The
+  // footer now renders a compliant styled-text treatment instead of a broken
+  // logo. Replace with a real asset to restore an image-based logo.
   kwEliteLogo: "/manus-storage/kw-elite-realty-logo_945978cb.jpg",
   heroHome:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/hero-southern-home_9ff96c9e.jpg",

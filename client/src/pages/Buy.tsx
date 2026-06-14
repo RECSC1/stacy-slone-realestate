@@ -57,9 +57,9 @@ export default function Buy() {
             Tell Stacy what you're looking for
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Full MLS/IDX home search is coming soon. In the meantime, share your
-            criteria and Stacy will personally send you matching homes across the
-            Triangle.
+            Live MLS/IDX search is being connected to live data. In the meantime,
+            share your criteria and Stacy will personally send you matching homes
+            across the Triangle.
           </p>
           <div className="mt-8">
             <LeadForm

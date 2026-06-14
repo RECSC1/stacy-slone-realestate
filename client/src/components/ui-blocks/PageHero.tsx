@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 interface PageHeroProps {
   eyebrow?: string;
@@ -15,16 +15,27 @@ export function PageHero({
   image,
   imageAlt,
 }: PageHeroProps) {
+  const [imageOk, setImageOk] = useState(true);
+
   if (image) {
     return (
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate overflow-hidden bg-primary-dark">
         <div className="absolute inset-0 -z-10">
-          <img
-            src={image}
-            alt={imageAlt ?? ""}
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-foreground/65" />
+          {imageOk ? (
+            <>
+              <img
+                src={image}
+                alt={imageAlt ?? ""}
+                onError={() => setImageOk(false)}
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-foreground/65" />
+            </>
+          ) : (
+            // Elegant editorial fallback — keeps the dark, intentional hero
+            // band without a broken background image.
+            <div className="h-full w-full bg-gradient-to-br from-primary-dark via-primary-dark to-[#1f1c18]" />
+          )}
         </div>
         <div className="container py-20 md:py-28">
           {eyebrow && <p className="eyebrow text-background/85">{eyebrow}</p>}

@@ -3,6 +3,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section } from "@/components/ui-blocks/Section";
+import { SmartImage } from "@/components/SmartImage";
 import { COMMUNITIES, ASSETS } from "@/config/site";
 
 export default function Communities() {
@@ -29,10 +30,11 @@ export default function Communities() {
               className="group flex flex-col overflow-hidden border border-border bg-card transition-shadow hover:shadow-xl"
             >
               <div className="aspect-[4/3] overflow-hidden">
-                <img
+                <SmartImage
                   src={c.image}
                   alt={`${c.name}, North Carolina — Triangle real estate with Stacy Wilson Slone, KW Elite Realty`}
                   loading="lazy"
+                  fallbackLabel={`${c.name}, NC`}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>

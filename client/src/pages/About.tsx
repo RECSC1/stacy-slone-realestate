@@ -2,8 +2,8 @@ import { Seo } from "@/components/Seo";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section, SectionHeading } from "@/components/ui-blocks/Section";
+import { Headshot } from "@/components/Headshot";
 import { Link } from "wouter";
-import { SITE, ASSETS } from "@/config/site";
 
 export default function About() {
   return (
@@ -24,11 +24,7 @@ export default function About() {
           <div className="grid md:grid-cols-4 gap-8 items-start">
             {/* Headshot */}
             <div className="md:col-span-1">
-              <img
-                src={ASSETS.headshot}
-                alt="Stacy Wilson Slone"
-                className="w-full rounded-lg shadow-lg max-w-[240px]"
-              />
+              <Headshot className="max-w-[240px]" />
             </div>
 
             {/* Bio */}
