@@ -3,6 +3,7 @@ import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section, SectionHeading } from "@/components/ui-blocks/Section";
 import { SmartImage } from "@/components/SmartImage";
 import { ASSETS } from "@/config/site";
+import { HERO_IMAGES } from "@/config/images";
 import { Link } from "wouter";
 
 export default function About() {
@@ -16,7 +17,7 @@ export default function About() {
       <PageHero
         title="About Stacy"
         description="Real estate guidance for the Triangle"
-        image="https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/neutral-living-room_cc4639a5.jpg"
+        image={HERO_IMAGES.about}
       />
 
       <Section className="py-16">

@@ -4,7 +4,7 @@ import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section } from "@/components/ui-blocks/Section";
 import { LeadForm } from "@/components/ui-blocks/LeadForm";
 import { trpc } from "@/lib/trpc";
-import { ASSETS } from "@/config/site";
+import { HERO_IMAGES } from "@/config/images";
 
 const STEPS = [
   { icon: Target, title: "Strategic Pricing", body: "A thoughtful pricing strategy grounded in your home and the local market." },
@@ -22,7 +22,7 @@ export default function HomeValuation() {
         description="Request a complimentary home valuation from Stacy Wilson Slone, KW Elite Realty, serving the Triangle NC. Find out what your home could be worth."
       />
       <PageHero
-        image={ASSETS.porchBlackShutters}
+        image={HERO_IMAGES.homeValuation}
         imageAlt="Charleston-inspired Triangle NC home considering a sale"
         eyebrow="For Sellers"
         title="What's your Triangle home worth?"

@@ -4,7 +4,9 @@ import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section } from "@/components/ui-blocks/Section";
 import { SmartImage } from "@/components/SmartImage";
-import { COMMUNITIES, ASSETS } from "@/config/site";
+import { CommunityPlate } from "@/components/CommunityPlate";
+import { COMMUNITIES } from "@/config/site";
+import { HERO_IMAGES } from "@/config/images";
 
 export default function Communities() {
   return (
@@ -14,7 +16,7 @@ export default function Communities() {
         description="Explore Triangle North Carolina communities with Stacy Wilson Slone, KW Elite Realty — Raleigh, Durham, Chapel Hill, Cary, Apex, Wake Forest, and Hillsborough."
       />
       <PageHero
-        image={ASSETS.treeLinedNeighborhood}
+        image={HERO_IMAGES.communities}
         imageAlt="Tree-lined Triangle North Carolina neighborhood"
         eyebrow="Explore the Triangle"
         title="Communities across the Triangle"
@@ -23,20 +25,28 @@ export default function Communities() {
 
       <Section className="bg-background">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {COMMUNITIES.map((c) => (
+          {COMMUNITIES.map((c, i) => (
             <Link
               key={c.slug}
               href={`/communities/${c.slug}`}
               className="group flex flex-col overflow-hidden border border-border bg-card transition-shadow hover:shadow-xl"
             >
               <div className="aspect-[4/3] overflow-hidden">
-                <SmartImage
-                  src={c.image}
-                  alt={`${c.name}, North Carolina — Triangle real estate with Stacy Wilson Slone, KW Elite Realty`}
-                  loading="lazy"
-                  fallbackLabel={`${c.name}, NC`}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                {c.image ? (
+                  <SmartImage
+                    src={c.image}
+                    alt={`${c.name}, North Carolina — Triangle real estate with Stacy Wilson Slone, KW Elite Realty`}
+                    loading="lazy"
+                    fallbackLabel={`${c.name}, NC`}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <CommunityPlate
+                    name={c.name}
+                    index={i}
+                    className="transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <p className="flex items-center gap-1.5 text-xs text-muted-foreground">

@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Link } from "wouter";
 import { useState } from "react";
 import { trpc } from "@/lib/trpc";
+import { HERO_IMAGES } from "@/config/images";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -120,7 +121,7 @@ export default function BuyerInquiry() {
       <PageHero
         title="Ready to Find Your Next Home?"
         description="Let's start your Triangle real estate journey"
-        image="https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/neutral-living-room_cc4639a5.jpg"
+        image={HERO_IMAGES.buy}
       />
 
       <Section className="py-16">

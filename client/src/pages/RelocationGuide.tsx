@@ -5,6 +5,7 @@ import { Section, SectionHeading } from "@/components/ui-blocks/Section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "wouter";
+import { HERO_IMAGES } from "@/config/images";
 
 export default function RelocationGuide() {
   return (
@@ -17,7 +18,7 @@ export default function RelocationGuide() {
       <PageHero
         title="Relocating to the Triangle?"
         description="Expert guidance for your move to North Carolina"
-        image="https://d2xsxph8kpxj0f.cloudfront.net/310519663339013855/PPjJwKpuKz7qd9yKqynAyF/tree-lined-neighborhood_16a18435.jpg"
+        image={HERO_IMAGES.relocation}
       />
 
       <Section className="py-16">

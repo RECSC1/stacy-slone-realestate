@@ -6,7 +6,7 @@ import { Section } from "@/components/ui-blocks/Section";
 import { LeadForm } from "@/components/ui-blocks/LeadForm";
 import { FeaturedListings } from "@/components/ui-blocks/FeaturedListings";
 import { trpc } from "@/lib/trpc";
-import { ASSETS } from "@/config/site";
+import { HERO_IMAGES } from "@/config/images";
 
 export default function Buy() {
   const mutation = trpc.leads.searchCriteria.useMutation();
@@ -18,7 +18,7 @@ export default function Buy() {
         description="Search for homes across the Triangle with Stacy Wilson Slone, KW Elite Realty. Share your criteria and get personalized listings in Raleigh, Durham, Chapel Hill, and Cary."
       />
       <PageHero
-        image={ASSETS.creamBrickLantern}
+        image={HERO_IMAGES.buy}
         imageAlt="Triangle NC home for sale"
         eyebrow="For Buyers"
         title="Find your place in the Triangle"

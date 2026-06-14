@@ -2,7 +2,7 @@ import { MapPin } from "lucide-react";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section } from "@/components/ui-blocks/Section";
-import { ASSETS } from "@/config/site";
+import { HERO_IMAGES } from "@/config/images";
 
 const LANDMARKS = [
   { t: "Research Triangle Park", b: "One of the largest research parks in the country and a major regional employment hub anchoring the Triangle economy." },
@@ -23,7 +23,7 @@ export default function LocalLandmarks() {
         description="Get to know the Triangle North Carolina — landmarks, parks, universities, and culture — with Stacy Wilson Slone, KW Elite Realty."
       />
       <PageHero
-        image={ASSETS.treeLinedNeighborhood}
+        image={HERO_IMAGES.localLandmarks}
         imageAlt="Triangle North Carolina landscape"
         eyebrow="Get to Know the Area"
         title="Triangle landmarks & highlights"

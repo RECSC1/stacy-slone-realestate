@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Stacy Wilson Slone monogram">
+  <!-- Editorial SWS monogram. Espresso ink + tan hairline framing, served locally
+       so the brand mark never depends on an external CDN. -->
+  <rect x="3" y="3" width="114" height="114" fill="none" stroke="#b58a5a" stroke-width="1.4"/>
+  <rect x="10" y="10" width="100" height="100" fill="none" stroke="#b58a5a" stroke-width="0.7" opacity="0.55"/>
+  <text x="60" y="70" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-size="40"
+        fill="#211c17" letter-spacing="1">SWS</text>
+  <line x1="42" y1="82" x2="78" y2="82" stroke="#b58a5a" stroke-width="1"/>
+</svg>
