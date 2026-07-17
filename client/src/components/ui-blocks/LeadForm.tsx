@@ -1,5 +1,6 @@
 import { useState, ReactNode } from "react";
 import { CheckCircle2, Loader2 } from "lucide-react";
+import { SITE } from "@/config/site";
 
 export interface FieldDef {
   name: string;
@@ -17,6 +18,8 @@ interface LeadFormProps {
   onSubmit: (values: Record<string, string>) => Promise<void> | void;
   isSubmitting?: boolean;
   isSuccess?: boolean;
+  isError?: boolean;
+  errorMessage?: string;
   successTitle?: string;
   successMessage?: string;
   disclaimer?: ReactNode;
@@ -28,6 +31,8 @@ export function LeadForm({
   onSubmit,
   isSubmitting = false,
   isSuccess = false,
+  isError = false,
+  errorMessage = `Something went wrong sending your request. Please try again, or call Stacy directly at ${SITE.phone}.`,
   successTitle = "Thank you!",
   successMessage = "Your message has been received. Stacy will be in touch shortly.",
   disclaimer,
@@ -59,7 +64,14 @@ export function LeadForm({
       setErrors(nextErrors);
       return;
     }
-    await onSubmit(values);
+    try {
+      await onSubmit(values);
+    } catch {
+      // The submission failed. The parent surfaces this via the `isError`
+      // prop (wired to the mutation state), which renders the error banner
+      // with Stacy's correct phone number. Swallow here so the rejection
+      // does not bubble up as an unhandled promise rejection.
+    }
   };
 
   if (isSuccess) {
@@ -129,6 +141,15 @@ export function LeadForm({
       {disclaimer && (
         <div className="text-xs leading-relaxed text-muted-foreground sm:col-span-2">
           {disclaimer}
+        </div>
+      )}
+
+      {isError && (
+        <div
+          role="alert"
+          className="border border-destructive/40 bg-destructive/5 px-4 py-3 text-sm leading-relaxed text-destructive sm:col-span-2"
+        >
+          {errorMessage}
         </div>
       )}
 

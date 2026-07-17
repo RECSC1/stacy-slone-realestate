@@ -46,10 +46,10 @@ export const SITE = {
   region: "Triangle, North Carolina",
 
   // Contact details
-  phone: "919-332-8889",
-  phoneHref: "tel:+19193328889",
-  email: "stacy@stacyslonerealty.com",
-  emailHref: "mailto:stacy@stacyslonerealty.com",
+  phone: "(919) 972-1180",
+  phoneHref: "tel:19199721180",
+  email: "slonestacy@gmail.com",
+  emailHref: "mailto:slonestacy@gmail.com",
 
   // Placeholders that are easy to find and replace
   officeAddress: "Raleigh, NC",
