@@ -43,7 +43,7 @@ export const LOCAL_IMAGES = {
  * value with a local `/images/...` path to use a real photograph.
  */
 export const HERO_IMAGES: Record<string, string | null> = {
-  home: null, // home uses the portrait layout, no background hero photo
+  home: "/images/downtown-durham-skyline-night.webp",
   about: null,
   buy: null,
   sell: null,
@@ -64,13 +64,13 @@ export const HERO_IMAGES: Record<string, string | null> = {
  */
 export const COMMUNITY_IMAGES: Record<string, string | null> = {
   // Live communities
-  raleigh: null,
-  durham: null,
-  "chapel-hill": null,
+  raleigh: "/images/downtown-raleigh-community.webp",
+  durham: "/images/downtown-durham-skyline-night.webp",
+  "chapel-hill": "/images/downtown-chapel-hill-community.webp",
   cary: null,
-  apex: null,
-  "wake-forest": null,
-  hillsborough: null,
+  apex: "/images/downtown-apex-community.webp",
+  "wake-forest": "/images/historic-downtown-wake-forest-community.webp",
+  hillsborough: "/images/historic-downtown-hillsborough-community.webp",
   // Reserved for future community pages
   mebane: null,
   burlington: null,

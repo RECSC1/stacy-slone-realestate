@@ -62,9 +62,9 @@ export const SITE = {
   seoTitle:
     "Stacy Wilson Slone | Triangle North Carolina Realtor with KW Elite Realty",
   seoDescription:
-    "Stacy Wilson Slone is a Triangle North Carolina Realtor with KW Elite Realty serving Raleigh, Durham, Chapel Hill, Cary and surrounding areas. Buy, sell, and relocate with a trusted local expert.",
+    "Stacy Wilson Slone is a Triangle North Carolina Realtor with KW Elite Realty serving Durham, Hillsborough, Mebane, Burlington, Oxford, and surrounding areas. Buy, sell, and relocate with a trusted local expert.",
   headshotAlt:
-    "Stacy Wilson Slone, Triangle North Carolina Realtor with Keller Williams Elite Realty",
+    "Stacy Wilson Slone, Triangle North Carolina Realtor with KW Elite Realty",
 
   // Social links (add when available)
   social: {
@@ -74,14 +74,12 @@ export const SITE = {
   },
 
   serviceAreas: [
-    "Raleigh",
     "Durham",
-    "Chapel Hill",
-    "Cary",
-    "Apex",
-    "Wake Forest",
     "Hillsborough",
-    "Morrisville",
+    "Mebane",
+    "Burlington",
+    "Oxford",
+    "Greater Triangle",
   ],
 } as const;
 

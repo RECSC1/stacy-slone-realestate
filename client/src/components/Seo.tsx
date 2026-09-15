@@ -5,16 +5,20 @@ interface SeoProps {
   title?: string;
   description?: string;
   keywords?: string;
+  absoluteTitle?: boolean;
+  canonicalPath?: string;
+  image?: string;
+  type?: "website" | "article";
 }
 
 /**
  * Lightweight SEO helper: updates document title and meta description
  * on route change. Keeps page titles consistent and keyword-aware.
  */
-export function Seo({ title, description, keywords }: SeoProps) {
+export function Seo({ title, description, keywords, absoluteTitle = false, canonicalPath, image, type = "website" }: SeoProps) {
   useEffect(() => {
     const fullTitle = title
-      ? `${title} | ${SITE.agentName}, ${SITE.brokerage}`
+      ? absoluteTitle ? title : `${title} | ${SITE.agentName}, ${SITE.brokerage}`
       : SITE.seoTitle;
     document.title = fullTitle;
 
@@ -39,7 +43,29 @@ export function Seo({ title, description, keywords }: SeoProps) {
 
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) ogTitle.setAttribute("content", fullTitle);
-  }, [title, description, keywords]);
+
+    const canonicalUrl = canonicalPath ? `${SITE.baseUrl}${canonicalPath}` : SITE.baseUrl;
+    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href = canonicalUrl;
+
+    const setProperty = (property: string, content: string) => {
+      let element = document.querySelector<HTMLMetaElement>(`meta[property="${property}"]`);
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute("property", property);
+        document.head.appendChild(element);
+      }
+      element.content = content;
+    };
+    setProperty("og:type", type);
+    setProperty("og:url", canonicalUrl);
+    if (image) setProperty("og:image", image);
+  }, [title, description, keywords, absoluteTitle, canonicalPath, image, type]);
 
   return null;
 }

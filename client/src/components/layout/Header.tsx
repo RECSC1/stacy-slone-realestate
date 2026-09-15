@@ -54,6 +54,7 @@ const NAV: NavItem[] = [
     ],
   },
   { label: "Resources", href: "/resources" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -76,7 +77,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav aria-label="Primary navigation" className="hidden items-center gap-5 xl:gap-6 lg:flex">
             {NAV.map((item) => (
               <div key={item.href} className="group relative">
                 <Link href={item.href}>
@@ -102,7 +103,7 @@ export function Header() {
 
                 {/* Dropdown Menu */}
                 {item.children && (
-                  <div className="invisible absolute left-0 top-full w-56 translate-y-1 border border-accent/25 bg-[#1e1a17] p-2 opacity-0 shadow-[0_16px_36px_rgba(0,0,0,0.45)] transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="invisible absolute left-0 top-full w-56 translate-y-1 border border-accent/25 bg-[#1e1a17] p-2 opacity-0 shadow-[0_16px_36px_rgba(0,0,0,0.45)] transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                     {item.children.map((child) => (
                       <Link key={child.href} href={child.href}>
                         <button
@@ -133,6 +134,8 @@ export function Header() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
             className="p-2 text-[#fbf6ef] lg:hidden"
           >
             {mobileMenuOpen ? (
@@ -145,7 +148,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="border-t border-white/10 pb-4 lg:hidden">
+          <nav id="mobile-navigation" aria-label="Mobile navigation" className="border-t border-white/10 pb-4 lg:hidden">
             {NAV.map((item) => (
               <div key={item.href} className="border-b border-white/5">
                 <div className="flex items-center">

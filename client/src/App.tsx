@@ -24,6 +24,8 @@ import CompareNeighborhoods from "./pages/CompareNeighborhoods";
 import HouseDirectionFinder from "./pages/HouseDirectionFinder";
 import Tools from "./pages/Tools";
 import Resources from "./pages/Resources";
+import Blog from "./pages/Blog";
+import MovingToDurham from "./pages/MovingToDurham";
 import ResourceDetail from "./pages/ResourceDetail";
 import LocalLandmarks from "./pages/LocalLandmarks";
 import { Privacy, Terms } from "./pages/Legal";
@@ -61,6 +63,8 @@ function PublicSite() {
         <Route path="/house-direction-finder" component={HouseDirectionFinder} />
         <Route path="/tools" component={Tools} />
         <Route path="/resources" component={Resources} />
+        <Route path="/blog" component={Blog} />
+        <Route path="/blog/moving-to-durham-nc" component={MovingToDurham} />
         <Route path="/resources/:slug" component={ResourceDetail} />
         <Route path="/local-landmarks" component={LocalLandmarks} />
         <Route path="/privacy" component={Privacy} />

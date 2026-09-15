@@ -48,8 +48,8 @@ export function Footer() {
             {SITE.brokerage}
           </p>
           <p className="mt-5 max-w-xs text-sm font-light leading-relaxed text-[#fbf6ef]/60">
-            Trusted real estate guidance across the Triangle — Raleigh, Durham,
-            Chapel Hill, Cary, and the communities in between.
+            Trusted real estate guidance across Durham, Hillsborough, Mebane,
+            Burlington, Oxford, and the greater Triangle.
           </p>
         </div>
 
@@ -101,23 +101,6 @@ export function Footer() {
         </div>
       </div>
 
-      {/* KW Elite affiliation band */}
-      <div className="border-t border-white/10 bg-[#1e1a17]">
-        <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-3 px-5 py-6 text-center sm:flex-row sm:justify-between sm:px-6 sm:text-left lg:px-8">
-          <div className="flex flex-col gap-1">
-            <span className="font-serif text-lg tracking-wide text-[#fbf6ef]">
-              Keller Williams Elite Realty
-            </span>
-            <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-accent">
-              KW Elite Realty
-            </span>
-          </div>
-          <p className="max-w-xs text-xs font-light leading-relaxed text-[#fbf6ef]/55">
-            Proudly affiliated with Keller Williams Elite Realty
-          </p>
-        </div>
-      </div>
-
       {/* Legal / compliance */}
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-[1280px] space-y-3 px-5 py-8 text-xs font-light leading-relaxed text-[#fbf6ef]/55 sm:px-6 lg:px-8">
@@ -133,6 +116,17 @@ export function Footer() {
             <Link href="/terms" className="hover:text-accent-light">
               Terms of Use
             </Link>
+          </p>
+          <p className="pt-1 text-[11px] text-[#fbf6ef]/45">
+            Website designed by{" "}
+            <a
+              href="https://conciergeforrealtors.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#fbf6ef]/55 transition-colors hover:text-accent-light"
+            >
+              Real Estate Concierge Services Co, LLC
+            </a>
           </p>
         </div>
       </div>
