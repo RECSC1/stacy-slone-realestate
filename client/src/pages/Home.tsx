@@ -2,10 +2,12 @@ import { ArrowRight, Sparkles, Home as HomeIcon, TrendingUp } from "lucide-react
 import { Seo } from "@/components/Seo";
 import { Headshot } from "@/components/Headshot";
 import { SITE, COMMUNITIES } from "@/config/site";
+import { HERO_IMAGES } from "@/config/images";
 import { Link } from "wouter";
 
 const VALUE_PROPS = [
   {
+    number: "01",
     icon: HomeIcon,
     title: "For Buyers",
     body: "From first showing to closing day, get a guide who knows the Triangle's neighborhoods inside and out.",
@@ -13,6 +15,7 @@ const VALUE_PROPS = [
     cta: "Start your search",
   },
   {
+    number: "02",
     icon: TrendingUp,
     title: "For Sellers",
     body: "Strategic pricing, polished marketing, and skilled negotiation to position your home to sell.",
@@ -20,6 +23,7 @@ const VALUE_PROPS = [
     cta: "Get your home value",
   },
   {
+    number: "03",
     icon: Sparkles,
     title: "AI-Powered Tools",
     body: "Describe your dream home in plain language and explore the Triangle with smart, modern tools.",
@@ -36,90 +40,32 @@ export default function Home() {
         description="Trusted real estate agent serving Raleigh, Durham, Chapel Hill & Triangle NC. Expert buyer & seller guidance."
         keywords="real estate agent Raleigh, Durham real estate, Chapel Hill homes, Triangle NC realtor, Cary real estate"
       />
-      {/* LUXURY HERO - Editorial, refined, Charleston-inspired */}
-      <section className="relative overflow-hidden bg-background section-lg border-b border-border">
-        <div className="container">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-20 items-stretch">
-            {/* Left: Text Content (2 columns) */}
-            <div className="lg:col-span-2 flex flex-col justify-center space-y-12">
-              <div className="space-y-8">
-                <p className="section-eyebrow mb-3">
-                  {SITE.serviceAreas.join(" · ")}
-                </p>
-                <h1 className="text-5xl lg:text-6xl font-serif text-primary-dark leading-tight tracking-tight">
-                  Choosing The RIGHT Realtor
-                  <span className="block text-accent font-light italic mt-4 text-5xl lg:text-6xl">
-                    DOES Make A Difference.
-                  </span>
-                </h1>
-                <div className="flex gap-4 items-center">
-                  <div className="h-px bg-accent w-20"></div>
-                  <div className="h-px bg-accent w-12"></div>
-                </div>
-                <p className="text-xl text-text-light leading-relaxed max-w-2xl font-light">
-                  Trusted, people-first real estate guidance for {SITE.serviceAreas.slice(0, 2).join(" and ")} and the Triangle, rooted in local insight, calm confidence, and genuine care.
-                </p>
-              </div>
-
-              {/* Credentials */}
-              <div className="flex flex-wrap gap-10 text-sm font-semibold text-text-light border-t border-accent pt-8 mt-4">
-                <span className="uppercase tracking-widest text-xs">Realtor®</span>
-                <span className="uppercase tracking-widest text-xs">KW Elite Realty</span>
-                <span className="uppercase tracking-widest text-xs">28 Years of Experience</span>
-                <span className="uppercase tracking-widest text-xs">Award-Winning</span>
-              </div>
-
-              {/* CTAs */}
-              <div className="flex flex-wrap gap-6 pt-8">
-                <Link href="/buyer-inquiry">
-                  <button className="btn-primary flex items-center gap-3 px-8 py-4 text-base">
-                    Schedule a Consultation <ArrowRight className="w-5 h-5" />
-                  </button>
-                </Link>
-                <Link href="/ai-home-search">
-                  <button className="btn-outline px-8 py-4 text-base">
-                    Explore Buyer Tools
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right: Brand portrait - Anchored to the right edge with luxury framing */}
-            <div className="lg:col-span-1 flex flex-col justify-center">
-              <div className="relative w-full max-w-[400px] mx-auto lg:ml-auto lg:mr-0">
-                {/* Layered taupe/sand offset panel behind the portrait */}
-                <div
-                  aria-hidden
-                  className="absolute -bottom-6 -right-6 -top-6 left-8 -z-10 bg-secondary/70 border border-accent/30"
-                ></div>
-
-                <Headshot />
-
-                {/* Thin accent baseline */}
-                <div
-                  aria-hidden
-                  className="absolute -bottom-3 left-0 right-0 h-px bg-accent"
-                ></div>
-              </div>
-
-              <p className="mt-10 text-center text-sm italic font-serif text-text-light">
-                Serving the Triangle with calm, considered guidance.
-              </p>
-            </div>
+      <section className="hero-skyline relative overflow-hidden">
+        <img src={HERO_IMAGES.home!} alt="Downtown Durham skyline at night with illuminated buildings and waterfront reflections" width="1280" height="720" fetchPriority="high" className="hero-skyline__image" />
+        <div className="container hero-skyline__content text-background">
+          <p className="section-eyebrow text-accent-light">{SITE.serviceAreas.join(" · ")}</p>
+          <h1 className="hero-title mt-3">Choosing The RIGHT Realtor<em>DOES Make A Difference.</em></h1>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-background/85 sm:text-base">Trusted, people-first real estate guidance for Durham, Hillsborough, and the greater Triangle, rooted in local insight, calm confidence, and genuine care.</p>
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+            <Link href="/buyer-inquiry"><button className="btn-primary flex w-full items-center justify-center gap-2 sm:w-auto">Schedule a Consultation <ArrowRight className="h-4 w-4" /></button></Link>
+            <Link href="/ai-home-search"><button className="btn-outline w-full sm:w-auto">Explore Buyer Tools</button></Link>
+          </div>
+          <div className="hero-credentials mt-5 flex flex-wrap gap-x-7 gap-y-2 pt-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-background/80 sm:text-[11px]">
+            <span>Realtor®</span><span>KW Elite Realty</span><span>28 Years of Experience</span><span>Award-Winning</span>
           </div>
         </div>
       </section>
 
       {/* About Preview */}
-      <section className="section-lg bg-background border-t border-border">
+      <section className="bg-secondary py-12 border-t border-border md:py-14 lg:py-16">
         <div className="container">
           <div className="max-w-3xl">
             <p className="section-eyebrow mb-6">About Stacy</p>
-            <h2 className="text-primary-dark mb-10">
+            <h2 className="signature-statement text-primary-dark mb-10">
               Your trusted guide through every step of the Triangle real estate journey.
             </h2>
             <p className="text-lg text-text-light leading-relaxed mb-8">
-              With 28 years of experience, Stacy Wilson Slone is a consistent, award-winning Realtor® in the greater Durham area and across the Triangle. At KW Elite Realty, she specializes in helping buyers, sellers, and investors navigate the Raleigh, Durham, Chapel Hill, and Cary markets with confidence and clarity.
+              With 28 years of experience, Stacy Wilson Slone is a consistent, award-winning Realtor® in the greater Durham area and across the Triangle. At KW Elite Realty, she specializes in helping buyers, sellers, and investors navigate Durham, Hillsborough, Mebane, Burlington, Oxford, and surrounding markets with confidence and clarity.
             </p>
             <p className="text-lg text-text-light leading-relaxed mb-8">
               With a people-first approach and deep local knowledge, she combines strategic market expertise with genuine care for her clients' goals — whether you're buying your first home, selling a property, or building wealth through real estate investment.
@@ -137,28 +83,27 @@ export default function Home() {
       </section>
 
       {/* Value Props */}
-      <section className="section-lg section-dark">
+      <section className="section-lg bg-secondary">
         <div className="container">
           <div className="mb-16 pb-8 border-b border-accent/40">
             <p className="section-eyebrow mb-6">How Stacy Helps</p>
-            <h2>Service tailored to your next chapter</h2>
+            <h2 className="signature-statement text-primary-dark">Service tailored to your next chapter</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {VALUE_PROPS.map((prop) => {
               const Icon = prop.icon;
               return (
-                <div key={prop.title} className="card group bg-white">
-                  <Icon className="w-6 h-6 text-accent mb-6" />
-                  <h3 className="text-primary-dark mb-4 font-semibold">{prop.title}</h3>
-                  <p className="text-text-light text-sm leading-relaxed mb-8 font-light">
+                <article key={prop.title} className="service-card group">
+                  <span className="service-card__number" aria-hidden="true">{prop.number}</span>
+                  <Icon className="service-card__icon" strokeWidth={1.5} aria-hidden="true" />
+                  <h3 className="service-card__title">{prop.title}</h3>
+                  <p className="service-card__copy">
                     {prop.body}
                   </p>
-                  <Link href={prop.href}>
-                    <button className="text-accent font-semibold text-sm hover:text-accent-light flex items-center gap-2 uppercase tracking-widest">
-                      {prop.cta} <ArrowRight className="w-3 h-3" />
-                    </button>
+                  <Link href={prop.href} className="service-card__link">
+                      {prop.cta} <ArrowRight className="service-card__arrow h-3.5 w-3.5" />
                   </Link>
-                </div>
+                </article>
               );
             })}
           </div>

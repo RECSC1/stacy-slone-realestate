@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">Empty living room before virtual staging</title><desc id="desc">A bright empty living room with hardwood floors, a large window, and neutral walls.</desc>
+<defs><linearGradient id="wall" x2="0" y2="1"><stop stop-color="#eee9e1"/><stop offset="1" stop-color="#d9d0c4"/></linearGradient><linearGradient id="floor" x2="0" y2="1"><stop stop-color="#9d7653"/><stop offset="1" stop-color="#5f422f"/></linearGradient><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#b9d8e2"/><stop offset="1" stop-color="#edf2ed"/></linearGradient></defs>
+<rect width="1200" height="800" fill="url(#wall)"/><path d="M0 555L1200 520V800H0Z" fill="url(#floor)"/>
+<path d="M0 0H1200V50H0Z" fill="#f7f3ec"/><path d="M0 548L1200 513V532L0 568Z" fill="#f6f0e7"/>
+<rect x="120" y="105" width="420" height="330" fill="#f5f1e9" stroke="#5b5146" stroke-width="16"/><rect x="141" y="126" width="378" height="288" fill="url(#sky)"/><path d="M330 126V414M141 270H519" stroke="#5b5146" stroke-width="10"/>
+<path d="M141 360C220 310 290 330 350 290C410 250 470 280 519 245V414H141Z" fill="#78907b" opacity=".7"/>
+<rect x="795" y="145" width="235" height="150" fill="#d6cab9" stroke="#695c4d" stroke-width="12"/><path d="M817 260L875 195L922 230L970 180L1008 260Z" fill="#9f8c72"/>
+<ellipse cx="645" cy="660" rx="470" ry="54" fill="#3e2a1d" opacity=".18"/>
+<path d="M80 590L1160 555M70 650L1170 612M55 720L1180 680" stroke="#c29b70" stroke-width="5" opacity=".55"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">Living room after virtual staging</title><desc id="desc">The same bright living room furnished with a sofa, rug, tables, lamp, art, and plants.</desc>
+<defs><linearGradient id="wall" x2="0" y2="1"><stop stop-color="#eee9e1"/><stop offset="1" stop-color="#d9d0c4"/></linearGradient><linearGradient id="floor" x2="0" y2="1"><stop stop-color="#9d7653"/><stop offset="1" stop-color="#5f422f"/></linearGradient><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#b9d8e2"/><stop offset="1" stop-color="#edf2ed"/></linearGradient></defs>
+<rect width="1200" height="800" fill="url(#wall)"/><path d="M0 555L1200 520V800H0Z" fill="url(#floor)"/><path d="M0 0H1200V50H0Z" fill="#f7f3ec"/><path d="M0 548L1200 513V532L0 568Z" fill="#f6f0e7"/>
+<rect x="120" y="105" width="420" height="330" fill="#f5f1e9" stroke="#5b5146" stroke-width="16"/><rect x="141" y="126" width="378" height="288" fill="url(#sky)"/><path d="M330 126V414M141 270H519" stroke="#5b5146" stroke-width="10"/><path d="M141 360C220 310 290 330 350 290C410 250 470 280 519 245V414H141Z" fill="#78907b" opacity=".7"/>
+<rect x="795" y="145" width="235" height="150" fill="#d6cab9" stroke="#695c4d" stroke-width="12"/><path d="M817 260L875 195L922 230L970 180L1008 260Z" fill="#9f8c72"/>
+<ellipse cx="645" cy="660" rx="470" ry="54" fill="#3e2a1d" opacity=".18"/><path d="M80 590L1160 555M70 650L1170 612M55 720L1180 680" stroke="#c29b70" stroke-width="5" opacity=".55"/>
+<path d="M310 585V500Q310 470 345 470H770Q810 470 810 510V590Z" fill="#c8b9a5" stroke="#55483d" stroke-width="10"/><path d="M350 485H520V565H350ZM535 485H705V565H535ZM720 500H785V565H720Z" fill="#ddd2c2" stroke="#8d7a66" stroke-width="5"/><path d="M335 590V630M785 590V630" stroke="#47392f" stroke-width="14"/>
+<path d="M250 690L900 665L1035 745L365 775Z" fill="#d9c6a6" stroke="#7b654f" stroke-width="8"/><path d="M430 640H655L710 705H385Z" fill="#8c6d52" stroke="#4d392d" stroke-width="9"/><path d="M470 705V742M660 705V735" stroke="#4d392d" stroke-width="12"/>
+<path d="M940 555V300M890 300H990L970 235H910Z" stroke="#4f4338" stroke-width="12" fill="#c7a56f"/><ellipse cx="940" cy="565" rx="55" ry="14" fill="#4f4338"/>
+<path d="M170 615V500M170 520C115 470 115 415 170 450M170 520C225 470 225 415 170 450M170 565C115 525 105 485 165 505M170 565C225 525 235 485 175 505" stroke="#526b52" stroke-width="18" fill="none"/><path d="M115 615H225L205 690H135Z" fill="#8b684e" stroke="#4e3c31" stroke-width="8"/>
+<rect x="620" y="180" width="115" height="165" fill="#f0e7d9" stroke="#6a5847" stroke-width="10"/><circle cx="677" cy="260" r="32" fill="#a88964"/><path d="M645 310Q677 260 710 310" fill="#7d907c"/>
+</svg>
