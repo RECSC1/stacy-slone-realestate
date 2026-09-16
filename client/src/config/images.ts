@@ -43,7 +43,7 @@ export const LOCAL_IMAGES = {
  * value with a local `/images/...` path to use a real photograph.
  */
 export const HERO_IMAGES: Record<string, string | null> = {
-  home: "/images/downtown-durham-skyline-night.webp",
+  home: "/images/bull-city-durham-hero.webp",
   about: null,
   buy: null,
   sell: null,

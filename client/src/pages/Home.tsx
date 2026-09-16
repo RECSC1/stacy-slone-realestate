@@ -41,7 +41,7 @@ export default function Home() {
         keywords="real estate agent Raleigh, Durham real estate, Chapel Hill homes, Triangle NC realtor, Cary real estate"
       />
       <section className="hero-skyline relative overflow-hidden">
-        <img src={HERO_IMAGES.home!} alt="Downtown Durham skyline at night with illuminated buildings and waterfront reflections" width="1280" height="720" fetchPriority="high" className="hero-skyline__image" />
+        <img src={HERO_IMAGES.home!} alt="Bull City sign with the downtown Durham skyline at sunset" width="945" height="529" fetchPriority="high" className="hero-skyline__image" />
         <div className="container hero-skyline__content text-background">
           <p className="section-eyebrow text-accent-light">{SITE.serviceAreas.join(" · ")}</p>
           <h1 className="hero-title mt-3">Choosing The RIGHT Realtor<em>DOES Make A Difference.</em></h1>
