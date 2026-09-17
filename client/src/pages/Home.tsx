@@ -40,18 +40,22 @@ export default function Home() {
         description="Trusted real estate agent serving Raleigh, Durham, Chapel Hill & Triangle NC. Expert buyer & seller guidance."
         keywords="real estate agent Raleigh, Durham real estate, Chapel Hill homes, Triangle NC realtor, Cary real estate"
       />
-      <section className="hero-skyline relative overflow-hidden">
-        <img src={HERO_IMAGES.home!} alt="Bull City sign with pearlescent-blush lettering and the downtown Durham skyline at sunset" width="1676" height="939" fetchPriority="high" className="hero-skyline__image" />
-        <div className="container hero-skyline__content text-background">
-          <p className="section-eyebrow text-accent-light">{SITE.serviceAreas.join(" · ")}</p>
-          <h1 className="hero-title mt-3">Choosing The RIGHT Realtor<em>DOES Make A Difference.</em></h1>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-background/85 sm:text-base">Trusted, people-first real estate guidance for Durham, Hillsborough, and the greater Triangle, rooted in local insight, calm confidence, and genuine care.</p>
-          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-            <Link href="/buyer-inquiry"><button className="btn-primary flex w-full items-center justify-center gap-2 sm:w-auto">Schedule a Consultation <ArrowRight className="h-4 w-4" /></button></Link>
-            <Link href="/ai-home-search"><button className="btn-outline w-full sm:w-auto">Explore Buyer Tools</button></Link>
-          </div>
-          <div className="hero-credentials mt-5 flex flex-wrap gap-x-7 gap-y-2 pt-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-background/80 sm:text-[11px]">
-            <span>Realtor®</span><span>KW Elite Realty</span><span>28 Years of Experience</span><span>Award-Winning</span>
+      <section className="hero-skyline">
+        <div className="hero-skyline__media">
+          <img src={HERO_IMAGES.home!} alt="Sunlit amber Bull City sign with the downtown Durham skyline at sunset" width="945" height="529" fetchPriority="high" className="hero-skyline__image" />
+        </div>
+        <div className="hero-skyline__panel">
+          <div className="hero-skyline__content text-background">
+            <p className="section-eyebrow">{SITE.serviceAreas.join(" · ")}</p>
+            <h1 className="hero-title mt-1">Choosing The RIGHT Realtor<em>DOES Make A Difference.</em></h1>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-background/85 sm:text-base">Trusted, people-first real estate guidance for Durham, Hillsborough, and the greater Triangle, rooted in local insight, calm confidence, and genuine care.</p>
+            <div className="hero-skyline__actions mt-5 flex flex-col gap-3 sm:flex-row">
+              <Link href="/buyer-inquiry"><button className="btn-primary flex w-full items-center justify-center gap-2 sm:w-auto">Schedule a Consultation <ArrowRight className="h-4 w-4" /></button></Link>
+              <Link href="/ai-home-search"><button className="btn-outline w-full sm:w-auto">Explore Buyer Tools</button></Link>
+            </div>
+            <div className="hero-credentials mt-5 flex flex-wrap gap-x-7 gap-y-2 pt-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-background/80 sm:text-[11px]">
+              <span>Realtor®</span><span>KW Elite Realty</span><span>28 Years of Experience</span><span>Award-Winning</span>
+            </div>
           </div>
         </div>
       </section>
