@@ -8,8 +8,8 @@ import { trpc } from "@/lib/trpc";
 import { SITE } from "@/config/site";
 
 export default function CompareNeighborhoods() {
-  const [areaA, setAreaA] = useState("Cary");
-  const [areaB, setAreaB] = useState("Apex");
+  const [areaA, setAreaA] = useState("Durham");
+  const [areaB, setAreaB] = useState("Chapel Hill");
   const [priorities, setPriorities] = useState("");
   const mutation = trpc.ai.compareNeighborhoods.useMutation();
 
@@ -17,7 +17,7 @@ export default function CompareNeighborhoods() {
     <>
       <Seo
         title="Compare Triangle NC Neighborhoods"
-        description="Compare Triangle North Carolina neighborhoods side by side with AI guidance from Stacy Wilson Slone, KW Elite Realty."
+        description="Compare Triangle North Carolina neighborhoods side by side with AI guidance from Stacy Slone, REALTOR®, KW Elite Realty."
       />
       <PageHero
         eyebrow="Make an Informed Move"

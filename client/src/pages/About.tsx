@@ -10,8 +10,8 @@ export default function About() {
   return (
     <>
       <Seo
-        title="About Stacy Wilson Slone | Triangle Real Estate"
-        description="Meet Stacy Wilson Slone, a real estate agent at KW Elite Realty serving the Triangle NC market."
+        title="About Stacy Slone, REALTOR® | Triangle Real Estate"
+        description="Meet Stacy Slone, REALTOR®, a real estate agent at KW Elite Realty serving the Triangle NC market."
       />
 
       <PageHero
@@ -22,14 +22,14 @@ export default function About() {
 
       <Section className="py-16">
         <div className="max-w-4xl mx-auto">
-          {/* Editorial portrait — Stacy recognized as a Top 10% KW Elite Realtor */}
+          {/* Editorial portrait, Stacy recognized as a Top 10% KW Elite Realtor */}
           <figure className="relative mx-auto mb-12 w-full max-w-2xl overflow-hidden border border-primary-dark bg-[#faf8f5] p-2 shadow-[0_10px_30px_rgba(45,45,45,0.12)]">
             <div className="relative border border-accent/40">
               <SmartImage
                 src={ASSETS.aboutPortrait}
                 alt={ASSETS.aboutPortraitAlt}
                 loading="eager"
-                fallbackLabel="Stacy Wilson Slone · KW Elite Realty"
+                fallbackLabel="Stacy Slone, REALTOR® · KW Elite Realty"
                 className="block h-auto min-h-[260px] w-full object-cover"
               />
             </div>
@@ -38,10 +38,10 @@ export default function About() {
           <div className="space-y-6">
             <div>
               <h2 className="text-3xl font-serif font-bold text-foreground mb-2">
-                Stacy Wilson Slone
+                Stacy Slone, REALTOR®
               </h2>
               <p className="text-lg text-foreground/70 leading-relaxed font-medium mb-6">
-                Realtor® | KW Elite Realty
+                REALTOR® | KW Elite Realty
               </p>
             </div>
 
@@ -50,10 +50,10 @@ export default function About() {
                 Her Journey
               </h3>
               <p className="text-foreground/80 leading-relaxed mb-4">
-                Originally from Pennsylvania, Stacy moved to Durham, North Carolina in 1988 when her mother was transferred with Verizon. After nearly a decade working in interior design, she discovered her true passion in real estate. She spent nine years as an Executive Assistant to two top-producing agents in the Triangle, gaining invaluable insights into the market and developing the skills that would define her career.
+                Originally from Pennsylvania, Stacy moved to Durham, North Carolina in 1988 when her mother was transferred with Verizon. After nearly a decade working in interior design, she discovered her true passion in real estate.
               </p>
               <p className="text-foreground/80 leading-relaxed mb-4">
-                For the past nine years, Stacy has worked directly with buyers and sellers, building a reputation for hard work, market expertise, and unwavering commitment to her clients' best interests. She's grown tremendously in this career and loves it more with each passing year, with plans to serve the Triangle real estate community for many years to come.
+                Stacy earned her North Carolina real estate license in 1998 and has spent 28 years helping buyers and sellers across Durham, NC and the Triangle. She works the same way she always has: she listens first, tells the truth, and stays with her clients until the job is done.
               </p>
             </div>
 

@@ -1,20 +1,19 @@
+import { ContactDetails } from "@/components/ContactDetails";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Seo } from "@/components/Seo";
 import { Headshot } from "@/components/Headshot";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section } from "@/components/ui-blocks/Section";
 import { LeadForm } from "@/components/ui-blocks/LeadForm";
-import { trpc } from "@/lib/trpc";
 import { SITE } from "@/config/site";
 
 export default function Contact() {
-  const mutation = trpc.leads.contact.useMutation();
 
   return (
     <>
       <Seo
-        title="Contact Stacy Wilson Slone"
-        description="Get in touch with Stacy Wilson Slone, Triangle North Carolina Realtor with KW Elite Realty. Call (919) 972-1180 or send a message."
+        title="Contact Stacy Slone, REALTOR®"
+        description="Get in touch with Stacy Slone, REALTOR®, Triangle North Carolina Realtor with KW Elite Realty. Call (919) 972-1180 or send a message."
       />
       <PageHero
         eyebrow="Get in Touch"
@@ -34,10 +33,11 @@ export default function Contact() {
             </p>
             <div className="mt-8">
               <LeadForm
+            formName="stacy-contact"
                 submitLabel="Send Message"
-                isSubmitting={mutation.isPending}
-                isSuccess={mutation.isSuccess}
-                isError={mutation.isError}
+
+
+
                 successMessage="Your message has been received. Stacy will be in touch shortly. For anything urgent, call (919) 972-1180."
                 fields={[
                   { name: "name", label: "Full Name", required: true, colSpan: 1 },
@@ -45,14 +45,6 @@ export default function Contact() {
                   { name: "email", label: "Email", type: "email", required: true, colSpan: 2 },
                   { name: "message", label: "How can Stacy help?", type: "textarea", required: true },
                 ]}
-                onSubmit={async (v) => {
-                  await mutation.mutateAsync({
-                    name: v.name,
-                    email: v.email,
-                    phone: v.phone ?? "",
-                    message: v.message,
-                  });
-                }}
               />
             </div>
           </div>
@@ -63,27 +55,11 @@ export default function Contact() {
               <Headshot />
             </div>
             <div className="border border-border bg-card p-7">
-              <p className="font-serif text-2xl text-foreground">
-                {SITE.agentName}
+              <ContactDetails className="text-sm text-foreground [&_p:first-child]:font-serif [&_p:first-child]:text-2xl" />
+              <p className="mt-5 flex items-start gap-3 text-sm text-foreground">
+                <Clock className="mt-0.5 h-5 w-5 text-primary" />
+                <span>Monday to Sunday, 9 AM to 7 PM</span>
               </p>
-              <p className="eyebrow mt-1 text-muted-foreground">
-                {SITE.brokerage}
-              </p>
-              <div className="mt-5 space-y-4 text-sm">
-                <a href={SITE.phoneHref} className="flex items-center gap-3 text-foreground hover:text-primary">
-                  <Phone className="h-5 w-5 text-primary" /> {SITE.phone}
-                </a>
-                <a href={SITE.emailHref} className="flex items-center gap-3 text-foreground hover:text-primary">
-                  <Mail className="h-5 w-5 text-primary" /> {SITE.email}
-                </a>
-                <p className="flex items-center gap-3 text-foreground">
-                  <MapPin className="h-5 w-5 text-primary" /> {SITE.officeAddress}
-                </p>
-                <p className="flex items-start gap-3 text-foreground">
-                  <Clock className="mt-0.5 h-5 w-5 text-primary" />
-                  <span>[Add business hours — e.g., Mon–Sat, by appointment]</span>
-                </p>
-              </div>
             </div>
           </div>
         </div>

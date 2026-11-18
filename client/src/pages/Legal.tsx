@@ -6,7 +6,7 @@ import { SITE } from "@/config/site";
 export function Privacy() {
   return (
     <>
-      <Seo title="Privacy Policy" description="Privacy policy for the Stacy Wilson Slone, KW Elite Realty website." />
+      <Seo title="Privacy Policy" description="Privacy policy for the Stacy Slone, REALTOR®, KW Elite Realty website." />
       <PageHero eyebrow="Legal" title="Privacy Policy" />
       <Section className="bg-background" containerClassName="max-w-3xl">
         <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
@@ -19,8 +19,8 @@ export function Privacy() {
             <strong className="text-foreground">Information we collect.</strong>{" "}
             When you submit a form (such as a home valuation request, property
             alert signup, or contact message), we collect the details you provide
-            — typically your name, email, phone number, and any property or
-            preference information — so that Stacy can respond and assist you.
+           , typically your name, email, phone number, and any property or
+            preference information, so that Stacy can respond and assist you.
           </p>
           <p>
             <strong className="text-foreground">How we use it.</strong> Your
@@ -50,7 +50,7 @@ export function Privacy() {
 export function Terms() {
   return (
     <>
-      <Seo title="Terms of Use" description="Terms of use for the Stacy Wilson Slone, KW Elite Realty website." />
+      <Seo title="Terms of Use" description="Terms of use for the Stacy Slone, REALTOR®, KW Elite Realty website." />
       <PageHero eyebrow="Legal" title="Terms of Use" />
       <Section className="bg-background" containerClassName="max-w-3xl">
         <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">

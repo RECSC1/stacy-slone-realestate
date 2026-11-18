@@ -34,8 +34,8 @@ export default function Concierge() {
   return (
     <>
       <Seo
-        title="AI Concierge — Triangle NC Real Estate Questions"
-        description="Ask the AI Concierge your buyer and seller questions about Triangle North Carolina real estate, available anytime from Stacy Wilson Slone, KW Elite Realty."
+        title="AI Concierge, Triangle NC Real Estate Questions"
+        description="Ask the AI Concierge your buyer and seller questions about Triangle North Carolina real estate, available anytime from Stacy Slone, REALTOR®, KW Elite Realty."
       />
       <PageHero
         eyebrow="Ask Anything"
@@ -63,7 +63,7 @@ export default function Concierge() {
             suggestedPrompts={[
               "What does the home buying process look like?",
               "How should I prepare my home to sell?",
-              "What's the difference between Cary, Apex, and Wake Forest?",
+              "What's the difference between Durham, Hillsborough, and Mebane?",
               "What costs should a first-time buyer expect?",
             ]}
           />

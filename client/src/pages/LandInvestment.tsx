@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { LeadForm } from "@/components/ui-blocks/LeadForm";
@@ -9,13 +8,10 @@ import { Link } from "wouter";
 import { HERO_IMAGES } from "@/config/images";
 
 export default function LandInvestment() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [isError, setIsError] = useState(false);
   return (
     <>
       <Seo
-        title="Land & Investment Properties | Stacy Wilson Slone | Triangle NC Realtor"
+        title="Land & Investment Properties | Stacy Slone, REALTOR® | Triangle NC Realtor"
         description="Explore land, lots, and investment opportunities in the Triangle NC. Get expert guidance on development, investment, and commercial properties."
       />
 
@@ -33,6 +29,7 @@ export default function LandInvestment() {
           </p>
 
           <LeadForm
+            formName="stacy-land-investment-inquiry"
             fields={[
               { name: "name", label: "Full Name", type: "text", required: true },
               { name: "email", label: "Email Address", type: "email", required: true },
@@ -85,27 +82,6 @@ export default function LandInvestment() {
               },
             ]}
             submitLabel="Get Investment Guidance"
-            isSubmitting={isSubmitting}
-            isSuccess={isSuccess}
-            isError={isError}
-            onSubmit={async (values) => {
-              setIsError(false);
-              setIsSubmitting(true);
-              try {
-                const res = await fetch("/api/trpc/leads.landInvestmentInquiry", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(values),
-                });
-                if (!res.ok) throw new Error("Failed to submit inquiry");
-                setIsSuccess(true);
-              } catch (err) {
-                setIsError(true);
-                throw err;
-              } finally {
-                setIsSubmitting(false);
-              }
-            }}
             successMessage="Thank you! Stacy will review your investment goals and reach out with market opportunities and guidance."
           />
         </div>

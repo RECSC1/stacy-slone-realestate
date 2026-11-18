@@ -3,7 +3,6 @@ import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section } from "@/components/ui-blocks/Section";
 import { LeadForm } from "@/components/ui-blocks/LeadForm";
-import { trpc } from "@/lib/trpc";
 import { HERO_IMAGES } from "@/config/images";
 
 const STEPS = [
@@ -13,13 +12,12 @@ const STEPS = [
 ];
 
 export default function HomeValuation() {
-  const mutation = trpc.leads.homeValuation.useMutation();
 
   return (
     <>
       <Seo
-        title="What's My Home Worth? — Free Home Valuation"
-        description="Request a complimentary home valuation from Stacy Wilson Slone, KW Elite Realty, serving the Triangle NC. Find out what your home could be worth."
+        title="What's My Home Worth?, Free Home Valuation"
+        description="Request a complimentary home valuation from Stacy Slone, REALTOR®, KW Elite Realty, serving the Triangle NC. Find out what your home could be worth."
       />
       <PageHero
         image={HERO_IMAGES.homeValuation}
@@ -69,10 +67,11 @@ export default function HomeValuation() {
               </h3>
             </div>
             <LeadForm
+            formName="stacy-home-valuation"
               submitLabel="Get My Home Value"
-              isSubmitting={mutation.isPending}
-              isSuccess={mutation.isSuccess}
-              isError={mutation.isError}
+
+
+
               successTitle="Request received!"
               successMessage="Stacy will prepare your personalized home valuation and be in touch shortly. For anything urgent, call (919) 972-1180."
               fields={[
@@ -83,16 +82,6 @@ export default function HomeValuation() {
                 { name: "timeline", label: "When are you thinking of selling?", type: "select", options: ["Ready now", "1-3 months", "3-6 months", "6-12 months", "Just curious"], colSpan: 2 },
                 { name: "notes", label: "Anything else Stacy should know?", type: "textarea" },
               ]}
-              onSubmit={async (v) => {
-                await mutation.mutateAsync({
-                  name: v.name,
-                  email: v.email,
-                  phone: v.phone ?? "",
-                  propertyAddress: v.propertyAddress,
-                  timeline: v.timeline ?? "",
-                  notes: v.notes ?? "",
-                });
-              }}
             />
           </div>
         </div>

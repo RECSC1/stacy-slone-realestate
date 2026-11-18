@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /buyer-inquiry
+Disallow: /seller-inquiry
+
+Sitemap: https://stacyslonerealty.com/sitemap.xml

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { LeadForm } from "@/components/ui-blocks/LeadForm";
@@ -9,14 +8,11 @@ import { Link } from "wouter";
 import { HERO_IMAGES } from "@/config/images";
 
 export default function RelocationGuide() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [isError, setIsError] = useState(false);
   return (
     <>
       <Seo
-        title="Relocation Guide | Stacy Wilson Slone | Triangle NC Realtor"
-        description="Moving to the Triangle? Get expert relocation guidance, neighborhood insights, and personalized support from Stacy Wilson Slone."
+        title="Relocation Guide | Stacy Slone, REALTOR® | Triangle NC Realtor"
+        description="Moving to the Triangle? Get expert relocation guidance, neighborhood insights, and personalized support from Stacy Slone, REALTOR®."
       />
 
       <PageHero
@@ -33,6 +29,7 @@ export default function RelocationGuide() {
           </p>
 
           <LeadForm
+            formName="stacy-relocation-inquiry"
             fields={[
               { name: "name", label: "Full Name", type: "text", required: true },
               { name: "email", label: "Email Address", type: "email", required: true },
@@ -77,27 +74,6 @@ export default function RelocationGuide() {
               },
             ]}
             submitLabel="Get Relocation Support"
-            isSubmitting={isSubmitting}
-            isSuccess={isSuccess}
-            isError={isError}
-            onSubmit={async (values) => {
-              setIsError(false);
-              setIsSubmitting(true);
-              try {
-                const res = await fetch("/api/trpc/leads.relocationInquiry", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(values),
-                });
-                if (!res.ok) throw new Error("Failed to submit inquiry");
-                setIsSuccess(true);
-              } catch (err) {
-                setIsError(true);
-                throw err;
-              } finally {
-                setIsSubmitting(false);
-              }
-            }}
             successMessage="Thank you! Stacy will reach out with personalized relocation guidance and neighborhood recommendations."
           />
         </div>
@@ -117,7 +93,7 @@ export default function RelocationGuide() {
             </div>
             <div>
               <h3 className="text-xl font-semibold text-charcoal mb-3">Vibrant Communities</h3>
-              <p className="text-charcoal/70">From historic downtown Raleigh to walkable Chapel Hill to planned Cary, each Triangle community offers unique character and lifestyle.</p>
+              <p className="text-charcoal/70">From historic downtown Durham, NC to walkable Chapel Hill to small-town Hillsborough, each Triangle community offers unique character and lifestyle.</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-charcoal mb-3">Affordable Living</h3>
@@ -131,7 +107,7 @@ export default function RelocationGuide() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-serif font-bold text-charcoal mb-4">Explore the Triangle</h2>
           <p className="text-lg text-charcoal/70 mb-8">
-            Learn about neighborhoods, schools, and communities across Raleigh, Durham, Chapel Hill, Cary, and beyond.
+            Learn about neighborhoods, schools, and communities across Durham, NC, Chapel Hill, Raleigh, and beyond.
           </p>
           <Link href="/communities">
             <Button>Browse Communities</Button>

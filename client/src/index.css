@@ -14,7 +14,7 @@
   --color-primary-foreground: #fbf6ef;
   --color-primary-dark: #151310;
 
-  /* Page base — warm ivory, never stark white */
+  /* Page base, warm ivory, never stark white */
   --color-background: #faf6ef;
   --color-foreground: #211c17;
 
@@ -45,7 +45,7 @@
   --color-input: #cdbdb2;
   --color-ring: #9e4f38;
 
-  /* Functional only — restrained terracotta, never KW red */
+  /* Functional only, restrained terracotta, never KW red */
   --color-destructive: #9b3d2c;
 
   --color-text: #3a3a3a;
@@ -437,7 +437,7 @@
 }
 
 @layer utilities {
-  /* Luxury spacing utilities — generous but not empty */
+  /* Luxury spacing utilities, generous but not empty */
   .section-lg {
     padding-top: 4.5rem;
     padding-bottom: 4.5rem;

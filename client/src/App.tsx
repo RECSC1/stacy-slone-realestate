@@ -1,3 +1,4 @@
+import { BLOG_POSTS } from "./config/posts";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -26,6 +27,10 @@ import Tools from "./pages/Tools";
 import Resources from "./pages/Resources";
 import Blog from "./pages/Blog";
 import MovingToDurham from "./pages/MovingToDurham";
+import InheritedHouseDurham from "./pages/InheritedHouseDurham";
+import AssistedLivingHouseDurham from "./pages/AssistedLivingHouseDurham";
+import FirstTimeBuyerDurham from "./pages/FirstTimeBuyerDurham";
+import DownsizingDurham from "./pages/DownsizingDurham";
 import ResourceDetail from "./pages/ResourceDetail";
 import LocalLandmarks from "./pages/LocalLandmarks";
 import { Privacy, Terms } from "./pages/Legal";
@@ -64,7 +69,7 @@ function PublicSite() {
         <Route path="/tools" component={Tools} />
         <Route path="/resources" component={Resources} />
         <Route path="/blog" component={Blog} />
-        <Route path="/blog/moving-to-durham-nc" component={MovingToDurham} />
+        {BLOG_POSTS.map(post => <Route key={post.route} path={post.route} component={{ MovingToDurham, InheritedHouseDurham, AssistedLivingHouseDurham, FirstTimeBuyerDurham, DownsizingDurham }[post.component]} />)}
         <Route path="/resources/:slug" component={ResourceDetail} />
         <Route path="/local-landmarks" component={LocalLandmarks} />
         <Route path="/privacy" component={Privacy} />

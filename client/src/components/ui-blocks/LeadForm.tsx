@@ -1,4 +1,7 @@
-import { useState, ReactNode } from "react";
+import { useState, useRef, ReactNode } from "react";
+import { submitInquiry } from "@/lib/netlify-forms";
+import { FORM_ENDPOINT, type FormName } from "@/config/forms";
+import { NetlifyFields } from "@/components/NetlifyFields";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { SITE } from "@/config/site";
 
@@ -15,10 +18,7 @@ export interface FieldDef {
 interface LeadFormProps {
   fields: FieldDef[];
   submitLabel: string;
-  onSubmit: (values: Record<string, string>) => Promise<void> | void;
-  isSubmitting?: boolean;
-  isSuccess?: boolean;
-  isError?: boolean;
+  formName: FormName;
   errorMessage?: string;
   successTitle?: string;
   successMessage?: string;
@@ -28,10 +28,7 @@ interface LeadFormProps {
 export function LeadForm({
   fields,
   submitLabel,
-  onSubmit,
-  isSubmitting = false,
-  isSuccess = false,
-  isError = false,
+  formName,
   errorMessage = `Something went wrong sending your request. Please try again, or call Stacy directly at ${SITE.phone}.`,
   successTitle = "Thank you!",
   successMessage = "Your message has been received. Stacy will be in touch shortly.",
@@ -39,14 +36,20 @@ export function LeadForm({
 }: LeadFormProps) {
   const [values, setValues] = useState<Record<string, string>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const inFlight = useRef(false);
 
   const setField = (name: string, value: string) => {
     setValues((v) => ({ ...v, [name]: value }));
     if (errors[name]) setErrors((e) => ({ ...e, [name]: "" }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (inFlight.current) return;
+    setIsError(false);
     const nextErrors: Record<string, string> = {};
     for (const f of fields) {
       if (f.required && !values[f.name]?.trim()) {
@@ -65,12 +68,16 @@ export function LeadForm({
       return;
     }
     try {
-      await onSubmit(values);
+      inFlight.current = true;
+      setIsSubmitting(true);
+      const botField = new FormData(e.currentTarget).get('bot-field');
+      await submitInquiry(formName, {...values, 'bot-field': String(botField ?? '')});
+      setIsSuccess(true);
     } catch {
-      // The submission failed. The parent surfaces this via the `isError`
-      // prop (wired to the mutation state), which renders the error banner
-      // with Stacy's correct phone number. Swallow here so the rejection
-      // does not bubble up as an unhandled promise rejection.
+      setIsError(true);
+    } finally {
+      inFlight.current = false;
+      setIsSubmitting(false);
     }
   };
 
@@ -90,20 +97,25 @@ export function LeadForm({
 
   return (
     <form
+      name={formName}
+      method="POST"
+      action={FORM_ENDPOINT}
       onSubmit={handleSubmit}
       className="grid grid-cols-1 gap-5 sm:grid-cols-2"
     >
+      <NetlifyFields name={formName} />
       {fields.map((f) => (
         <div
           key={f.name}
           className={f.colSpan === 2 || f.type === "textarea" ? "sm:col-span-2" : ""}
         >
-          <label className="mb-1.5 block text-sm font-medium text-foreground">
+          <label htmlFor={`${formName}-${f.name}`} className="mb-1.5 block text-sm font-medium text-foreground">
             {f.label}
             {f.required && <span className="text-primary"> *</span>}
           </label>
           {f.type === "textarea" ? (
             <textarea
+              id={`${formName}-${f.name}`} name={f.name} required={f.required}
               value={values[f.name] ?? ""}
               onChange={(e) => setField(f.name, e.target.value)}
               placeholder={f.placeholder}
@@ -112,6 +124,7 @@ export function LeadForm({
             />
           ) : f.type === "select" ? (
             <select
+              id={`${formName}-${f.name}`} name={f.name} required={f.required}
               value={values[f.name] ?? ""}
               onChange={(e) => setField(f.name, e.target.value)}
               className="w-full border border-input bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary"
@@ -125,6 +138,7 @@ export function LeadForm({
             </select>
           ) : (
             <input
+              id={`${formName}-${f.name}`} name={f.name} required={f.required}
               type={f.type ?? "text"}
               value={values[f.name] ?? ""}
               onChange={(e) => setField(f.name, e.target.value)}

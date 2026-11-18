@@ -3,7 +3,7 @@
  * -------------------------------------------------------------------
  * Single source of truth for every photographic / brand asset on the
  * site. Only locally bundled, deploy-safe assets (served from
- * `client/public/images`) are referenced here — there are intentionally
+ * `client/public/images`) are referenced here, there are intentionally
  * NO external CloudFront / CDN URLs, which previously returned HTTP 403
  * and forced repeated monogram fallbacks.
  *
@@ -25,12 +25,12 @@
 export const LOCAL_IMAGES = {
   /** Homepage brand portrait + Contact sidebar portrait. */
   homepagePortrait:
-    "/images/stacy-wilson-slone-triangle-realtor-headshot.jpg",
+    "/images/stacy-slone-triangle-realtor-headshot.jpg",
   contactPortrait:
-    "/images/stacy-wilson-slone-triangle-realtor-headshot.jpg",
-  /** About page editorial portrait — Stacy with her KW "Top 10%" sign. */
+    "/images/stacy-slone-triangle-realtor-headshot.jpg",
+  /** About page editorial portrait, Stacy with her KW "Top 10%" sign. */
   aboutPortrait:
-    "/images/stacy-wilson-slone-top-10-percent-kw-elite.jpg",
+    "/images/stacy-slone-top-10-percent-kw-elite.jpg",
   /** KW Elite Realty logo (currently rendered as styled text in the footer). */
   kwEliteLogo: "/images/kw-elite-realty-logo.jpg",
   /** Local editorial monogram used as a refined fallback mark. */
@@ -73,6 +73,7 @@ export const COMMUNITY_IMAGES: Record<string, string | null> = {
   hillsborough: "/images/historic-downtown-hillsborough-community.webp",
   // Reserved for future community pages
   mebane: null,
+  "person-county": null,
   burlington: null,
   oxford: null,
 };

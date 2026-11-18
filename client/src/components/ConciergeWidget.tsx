@@ -74,7 +74,7 @@ export function ConciergeWidget() {
             suggestedPrompts={[
               "How's the home buying process work?",
               "What should I do to prep my home to sell?",
-              "Tell me about living in Cary vs Apex",
+              "Tell me about living in Durham vs Chapel Hill",
             ]}
           />
         </div>

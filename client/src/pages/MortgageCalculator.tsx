@@ -59,7 +59,7 @@ export default function MortgageCalculator() {
     <>
       <Seo
         title="Triangle NC Mortgage Calculator"
-        description="Estimate your monthly mortgage payment for a Triangle North Carolina home with this simple calculator from Stacy Wilson Slone, KW Elite Realty."
+        description="Estimate your monthly mortgage payment for a Triangle North Carolina home with this simple calculator from Stacy Slone, REALTOR®, KW Elite Realty."
       />
       <PageHero
         eyebrow="Plan Your Purchase"

@@ -10,7 +10,7 @@ export default function Sell() {
     <>
       <Seo
         title="Sell Your Triangle NC Home"
-        description="Sell your Triangle North Carolina home with Stacy Wilson Slone, KW Elite Realty. Strategic pricing, polished marketing, and skilled negotiation."
+        description="Sell your Triangle North Carolina home with Stacy Slone, REALTOR®, KW Elite Realty. Strategic pricing, polished marketing, and skilled negotiation."
       />
       <PageHero
         image={HERO_IMAGES.sell}

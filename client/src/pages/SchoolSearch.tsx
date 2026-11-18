@@ -15,7 +15,7 @@ export default function SchoolSearch() {
     <>
       <Seo
         title="Triangle NC School Search"
-        description="Research schools and family-friendly areas across the Triangle with guidance from Stacy Wilson Slone, KW Elite Realty."
+        description="Research schools and family-friendly areas across the Triangle with guidance from Stacy Slone, REALTOR®, KW Elite Realty."
       />
       <PageHero
         eyebrow="For Families"
@@ -41,7 +41,7 @@ export default function SchoolSearch() {
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="e.g. Family-friendly areas near good schools in Cary"
+              placeholder="e.g. Family-friendly areas near good schools in Durham"
               className="flex-1 border border-input bg-background px-4 py-3 text-sm outline-none focus:border-primary"
             />
             <button
@@ -60,7 +60,7 @@ export default function SchoolSearch() {
 
           <div className="mt-4 flex flex-wrap gap-2">
             {[
-              "Best areas for families in Apex",
+              "Best areas for families in Chapel Hill",
               "What to know about Wake County schools",
               "Neighborhoods near UNC for families",
             ].map((s) => (
@@ -94,7 +94,7 @@ export default function SchoolSearch() {
         <p className="mt-6 text-center text-xs leading-relaxed text-muted-foreground">
           School information is general guidance for research purposes. Always
           verify enrollment, boundaries, and ratings with official school and
-          district sources. Stacy is glad to help — call {SITE.phone}.
+          district sources. Stacy is glad to help, call {SITE.phone}.
         </p>
       </Section>
     </>

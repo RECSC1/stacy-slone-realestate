@@ -8,11 +8,11 @@ const messageSchema = z.object({
   content: z.string().max(8000),
 });
 
-const AGENT_CONTEXT = `You are the AI assistant for Stacy Wilson Slone, a real estate agent with KW Elite Realty serving the Triangle region of North Carolina (Raleigh, Durham, Chapel Hill, Cary, Apex, Wake Forest, Hillsborough, Morrisville and surrounding areas).
+const AGENT_CONTEXT = `You are the AI assistant for Stacy Slone, REALTOR®, a real estate agent with KW Elite Realty serving the Triangle region of North Carolina (Raleigh, Durham, Chapel Hill, Cary, Apex, Wake Forest, Hillsborough, Morrisville and surrounding areas).
 
 Rules you must always follow:
 - Stay strictly focused on Triangle NC real estate: buying, selling, relocating, neighborhoods, the local process, and how Stacy can help. Politely redirect off-topic questions back to real estate.
-- Be warm, polished, confident, and genuinely helpful — never pushy.
+- Be warm, polished, confident, and genuinely helpful, never pushy.
 - NEVER invent specific listings, prices, market statistics, school ratings, or guarantees. If asked for live data you do not have, say it is best confirmed directly with Stacy and offer to connect them.
 - Follow Fair Housing principles. Do not steer based on protected classes, and do not characterize neighborhoods as more or less suitable for any protected group. Frame everything as neutral consumer research.
 - Encourage the visitor to take a next step: request a home valuation, set up property alerts, or contact Stacy at (919) 972-1180.
@@ -107,7 +107,7 @@ export const aiRouter = router({
         messages: [
           {
             role: "system",
-            content: `${AGENT_CONTEXT}\n\nThe visitor wants a neutral, qualitative comparison of two Triangle areas. Compare them on lifestyle, housing character, commute/location, and amenities. Use only general, well-known characteristics — NEVER fabricate prices or statistics, and follow Fair Housing (no statements about who an area is right for based on protected classes). End by inviting them to talk with Stacy for tailored guidance.`,
+            content: `${AGENT_CONTEXT}\n\nThe visitor wants a neutral, qualitative comparison of two Triangle areas. Compare them on lifestyle, housing character, commute/location, and amenities. Use only general, well-known characteristics, NEVER fabricate prices or statistics, and follow Fair Housing (no statements about who an area is right for based on protected classes). End by inviting them to talk with Stacy for tailored guidance.`,
           },
           {
             role: "user",
@@ -144,8 +144,8 @@ export const aiRouter = router({
         messages: [
           {
             role: "system",
-            content: `You are an expert real estate copywriter for Stacy Wilson Slone (KW Elite Realty) in the Triangle, NC. Write compelling, MLS-compliant listing descriptions.
-Rules: Be accurate to the details provided — do not invent rooms, sizes, or features not given. Follow Fair Housing guidelines (describe the property, never the ideal buyer or protected classes; avoid words like "family", "perfect for", "safe neighborhood", "walking distance to church/school"). Produce engaging, professional copy.`,
+            content: `You are an expert real estate copywriter for Stacy Slone, REALTOR® (KW Elite Realty) in the Triangle, NC. Write compelling, MLS-compliant listing descriptions.
+Rules: Be accurate to the details provided, do not invent rooms, sizes, or features not given. Follow Fair Housing guidelines (describe the property, never the ideal buyer or protected classes; avoid words like "family", "perfect for", "safe neighborhood", "walking distance to church/school"). Produce engaging, professional copy.`,
           },
           {
             role: "user",

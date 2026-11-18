@@ -13,7 +13,7 @@ export default function Communities() {
     <>
       <Seo
         title="Triangle NC Communities"
-        description="Explore Triangle North Carolina communities with Stacy Wilson Slone, KW Elite Realty — Raleigh, Durham, Chapel Hill, Cary, Apex, Wake Forest, and Hillsborough."
+        description="Explore Triangle North Carolina communities with Stacy Slone, REALTOR®, KW Elite Realty, Durham, NC, Hillsborough, Chapel Hill, Raleigh, Wake Forest, Mebane, and Person County."
       />
       <PageHero
         image={HERO_IMAGES.communities}
@@ -25,7 +25,7 @@ export default function Communities() {
 
       <Section className="bg-background">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {COMMUNITIES.map((c, i) => (
+          {[...COMMUNITIES.filter(c => c.slug === "durham"), ...COMMUNITIES.filter(c => c.slug === "hillsborough"), ...COMMUNITIES.filter(c => !["durham", "hillsborough"].includes(c.slug))].map((c) => (
             <Link
               key={c.slug}
               href={`/communities/${c.slug}`}
@@ -35,7 +35,7 @@ export default function Communities() {
                 {c.image ? (
                   <SmartImage
                     src={c.image}
-                    alt={`${c.name}, North Carolina — Triangle real estate with Stacy Wilson Slone, KW Elite Realty`}
+                    alt={`${c.name}, North Carolina, Triangle real estate with Stacy Slone, REALTOR®, KW Elite Realty`}
                     loading="lazy"
                     fallbackLabel={`${c.name}, NC`}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -43,7 +43,7 @@ export default function Communities() {
                 ) : (
                   <CommunityPlate
                     name={c.name}
-                    index={i}
+                    index={COMMUNITIES.indexOf(c)}
                     className="transition-transform duration-500 group-hover:scale-105"
                   />
                 )}

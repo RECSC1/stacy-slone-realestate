@@ -6,9 +6,9 @@ import { HERO_IMAGES } from "@/config/images";
 
 const LANDMARKS = [
   { t: "Research Triangle Park", b: "One of the largest research parks in the country and a major regional employment hub anchoring the Triangle economy." },
-  { t: "NC State, Duke & UNC", b: "Three major universities give the region its energy, culture, healthcare, and sports — a defining feature of Triangle life." },
+  { t: "NC State, Duke & UNC", b: "Three major universities give the region its energy, culture, healthcare, and sports, a defining feature of Triangle life." },
   { t: "William B. Umstead State Park", b: "Thousands of acres of forest, trails, and lakes between Raleigh, Cary, and Durham for hiking and the outdoors." },
-  { t: "Downtown Cary Park", b: "A signature new public park that has become a centerpiece of life in Cary." },
+  { t: "Historic Downtown Hillsborough", b: "A walkable historic town center along the Eno River, with galleries, local restaurants, and a riverwalk." },
   { t: "American Tobacco District", b: "Durham's celebrated adaptive-reuse district blending history, dining, and the Durham Performing Arts Center." },
   { t: "Franklin Street, Chapel Hill", b: "The lively heart of this classic college town, lined with shops, restaurants, and UNC tradition." },
   { t: "RDU International Airport", b: "Centrally located and well-connected, making travel easy from anywhere in the Triangle." },
@@ -20,7 +20,7 @@ export default function LocalLandmarks() {
     <>
       <Seo
         title="Triangle NC Local Landmarks & Highlights"
-        description="Get to know the Triangle North Carolina — landmarks, parks, universities, and culture — with Stacy Wilson Slone, KW Elite Realty."
+        description="Get to know the Triangle North Carolina, landmarks, parks, universities, and culture, with Stacy Slone, REALTOR®, KW Elite Realty."
       />
       <PageHero
         image={HERO_IMAGES.localLandmarks}

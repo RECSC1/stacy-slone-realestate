@@ -11,7 +11,7 @@ const INSIGHTS: Record<Dir, { title: string; body: string }> = {
   NE: { title: "Northeast-facing front", body: "Gentle morning light at the front, with warmer afternoon exposure toward the rear southwest. A balanced option many buyers like." },
   E: { title: "East-facing front", body: "Bright, pleasant morning sun at the front; cooler, shaded afternoons. Great for early risers and morning coffee on a front porch." },
   SE: { title: "Southeast-facing front", body: "Strong morning sun and good daytime brightness. Front rooms stay cheerful much of the day." },
-  S: { title: "South-facing front", body: "Maximum daylight across the front of the home through the day. Bright and warm — often desirable in cooler months, with shade strategy helpful in summer." },
+  S: { title: "South-facing front", body: "Maximum daylight across the front of the home through the day. Bright and warm, often desirable in cooler months, with shade strategy helpful in summer." },
   SW: { title: "Southwest-facing front", body: "Warm, sunny afternoons and evenings at the front. Beautiful golden-hour light; consider window treatments for summer heat." },
   W: { title: "West-facing front", body: "Cooler mornings and bright, warm afternoons/evenings at the front. Lovely sunsets; afternoon glare worth planning for." },
   NW: { title: "Northwest-facing front", body: "Softer mornings with warm late-day sun toward the front. Rear southeast spaces enjoy bright mornings." },
@@ -25,7 +25,7 @@ export default function HouseDirectionFinder() {
     <>
       <Seo
         title="House Direction & Sun Orientation Finder"
-        description="Understand how a home's orientation affects natural light before you buy in the Triangle NC, with Stacy Wilson Slone, KW Elite Realty."
+        description="Understand how a home's orientation affects natural light before you buy in the Triangle NC, with Stacy Slone, REALTOR®, KW Elite Realty."
       />
       <PageHero
         eyebrow="Buy Smarter"
@@ -72,7 +72,7 @@ export default function HouseDirectionFinder() {
           )}
         </div>
         <p className="mt-6 text-center text-xs leading-relaxed text-muted-foreground">
-          General guidance only — actual light depends on lot, trees, windows,
+          General guidance only, actual light depends on lot, trees, windows,
           and floor plan. Stacy can help you evaluate any specific home.
         </p>
       </Section>
