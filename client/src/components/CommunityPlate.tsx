@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
  * tonal glow) so a grid of them reads as an intentional, varied set of area
  * cards rather than a wall of identical fallback states.
  *
- * No photography is implied — this is purely a typographic + linework
+ * No photography is implied, this is purely a typographic + linework
  * treatment in the site's Charleston-inspired palette.
  */
 
@@ -21,7 +21,7 @@ const ACCENTS: Accent[] = ["topRule", "sideRule", "framed", "glow"];
 
 interface CommunityPlateProps {
   name: string;
-  /** Position in the grid — drives the per-card accent variation. */
+  /** Position in the grid, drives the per-card accent variation. */
   index: number;
   className?: string;
 }
@@ -34,7 +34,7 @@ export function CommunityPlate({ name, index, className }: CommunityPlateProps) 
   return (
     <div
       role="img"
-      aria-label={`${name}, North Carolina — Triangle area`}
+      aria-label={`${name}, North Carolina, Triangle area`}
       className={cn(
         "relative isolate aspect-[4/3] overflow-hidden",
         accent === "glow"

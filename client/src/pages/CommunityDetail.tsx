@@ -17,11 +17,11 @@ export default function CommunityDetail() {
     <>
       <Seo
         title={`${community.name}, NC Real Estate`}
-        description={`${community.name}, North Carolina real estate guidance from Stacy Wilson Slone, KW Elite Realty. ${community.tagline}.`}
+        description={`${community.name}, North Carolina real estate guidance from Stacy Slone, REALTOR®, KW Elite Realty. ${community.tagline}.`}
       />
       <PageHero
         image={community.image}
-        imageAlt={`${community.name}, North Carolina — Triangle real estate with Stacy Wilson Slone`}
+        imageAlt={`${community.name}, North Carolina, Triangle real estate with Stacy Slone, REALTOR®`}
         eyebrow="Triangle Community"
         title={community.name}
         description={community.tagline}

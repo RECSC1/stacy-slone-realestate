@@ -86,7 +86,7 @@ export function FeaturedListings() {
             ))}
           </div>
         ) : (
-          // Honest empty state — no fabricated listings
+          // Honest empty state, no fabricated listings
           <div className="border border-dashed border-border bg-secondary/40 px-8 py-16 text-center">
             <p className="font-serif text-2xl text-foreground">
               New listings on the way

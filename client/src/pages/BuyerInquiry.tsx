@@ -4,8 +4,10 @@ import { Section, SectionHeading } from "@/components/ui-blocks/Section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "wouter";
-import { useState } from "react";
-import { trpc } from "@/lib/trpc";
+import { useState, useRef } from "react";
+import { submitInquiry } from "@/lib/netlify-forms";
+import { NetlifyFields } from "@/components/NetlifyFields";
+import { FORM_ENDPOINT } from "@/config/forms";
 import { HERO_IMAGES } from "@/config/images";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
@@ -16,11 +18,16 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 function BuyerInquiryForm() {
   const [loading, setLoading] = useState(false);
-  const buyerInquiry = trpc.leads.buyerInquiry.useMutation();
+  const inFlight = useRef(false);
+  const [sent, setSent] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (inFlight.current) return;
+    inFlight.current = true;
     setLoading(true);
+    setFailed(false);
 
     const formData = new FormData(e.currentTarget);
     const values = {
@@ -31,21 +38,25 @@ function BuyerInquiryForm() {
       priceRange: formData.get("priceRange") as string,
       interests: formData.get("interests") as string,
       message: formData.get("message") as string,
+      "bot-field": String(formData.get("bot-field") ?? ""),
     };
 
     try {
-      await buyerInquiry.mutateAsync(values);
+      await submitInquiry("stacy-buyer-inquiry", values);
       toast.success("Thank you! Stacy will review your inquiry and reach out soon.");
-      e.currentTarget.reset();
+      setSent(true);
     } catch (error) {
-      toast.error("Failed to submit inquiry. Please try again.");
+      setFailed(true);
     } finally {
+      inFlight.current = false;
       setLoading(false);
     }
   };
 
+  if (sent) return <div role="status" className="border border-border bg-card p-8">Thank you! Your inquiry has been received. Stacy will be in touch soon.</div>;
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form name="stacy-buyer-inquiry" method="POST" action={FORM_ENDPOINT} onSubmit={handleSubmit} className="space-y-6">
+      <NetlifyFields name="stacy-buyer-inquiry" />
       <div>
         <Label htmlFor="name">Full Name *</Label>
         <Input id="name" name="name" type="text" required />
@@ -92,7 +103,7 @@ function BuyerInquiryForm() {
         <Textarea
           id="interests"
           name="interests"
-          placeholder="e.g., Raleigh downtown, Cary schools, Durham walkability..."
+          placeholder="e.g., Durham walkability, Hillsborough acreage, Chapel Hill schools..."
         />
       </div>
       <div>
@@ -103,6 +114,7 @@ function BuyerInquiryForm() {
           placeholder="Home style, must-haves, lifestyle priorities, relocating details..."
         />
       </div>
+      {failed && <p role="alert" className="text-destructive">We could not confirm your inquiry. Please try again, or call Stacy at (919) 972-1180.</p>}
       <UIButton type="submit" disabled={loading}>
         {loading ? "Sending..." : "Send My Buyer Inquiry"}
       </UIButton>
@@ -114,8 +126,8 @@ export default function BuyerInquiry() {
   return (
     <>
       <Seo
-        title="Buyer Inquiry | Stacy Wilson Slone | Triangle NC Realtor"
-        description="Start your Triangle NC home search with Stacy Wilson Slone. Get personalized buyer guidance, neighborhood insights, and expert market knowledge."
+        title="Buyer Inquiry | Stacy Slone, REALTOR® | Triangle NC Realtor"
+        description="Start your Triangle NC home search with Stacy Slone, REALTOR®. Get personalized buyer guidance, neighborhood insights, and expert market knowledge."
       />
 
       <PageHero

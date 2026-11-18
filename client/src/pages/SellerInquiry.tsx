@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { LeadForm } from "@/components/ui-blocks/LeadForm";
@@ -9,14 +8,11 @@ import { Link } from "wouter";
 import { HERO_IMAGES } from "@/config/images";
 
 export default function SellerInquiry() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [isError, setIsError] = useState(false);
   return (
     <>
       <Seo
-        title="Seller Inquiry | Stacy Wilson Slone | Triangle NC Realtor"
-        description="Ready to sell your Triangle NC home? Get a personalized market analysis and expert guidance from Stacy Wilson Slone."
+        title="Seller Inquiry | Stacy Slone, REALTOR® | Triangle NC Realtor"
+        description="Ready to sell your Triangle NC home? Get a personalized market analysis and expert guidance from Stacy Slone, REALTOR®."
       />
 
       <PageHero
@@ -33,6 +29,7 @@ export default function SellerInquiry() {
           </p>
 
           <LeadForm
+            formName="stacy-seller-inquiry"
             fields={[
               { name: "name", label: "Full Name", type: "text", required: true },
               { name: "email", label: "Email Address", type: "email", required: true },
@@ -77,27 +74,6 @@ export default function SellerInquiry() {
               },
             ]}
             submitLabel="Send My Seller Inquiry"
-            isSubmitting={isSubmitting}
-            isSuccess={isSuccess}
-            isError={isError}
-            onSubmit={async (values) => {
-              setIsError(false);
-              setIsSubmitting(true);
-              try {
-                const res = await fetch("/api/trpc/leads.sellerInquiry", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(values),
-                });
-                if (!res.ok) throw new Error("Failed to submit inquiry");
-                setIsSuccess(true);
-              } catch (err) {
-                setIsError(true);
-                throw err;
-              } finally {
-                setIsSubmitting(false);
-              }
-            }}
             successMessage="Thank you! Stacy will review your property and reach out with a personalized market analysis."
           />
         </div>

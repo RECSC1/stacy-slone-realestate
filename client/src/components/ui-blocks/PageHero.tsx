@@ -14,7 +14,7 @@ interface PageHeroProps {
  * Always renders as a dark espresso band with warm ivory typography and a tan
  * eyebrow accent, so contrast is guaranteed whether or not a background image
  * is present. A failed image gracefully falls back to a layered espresso
- * gradient instead of a broken image — the band never collapses or loses its
+ * gradient instead of a broken image, the band never collapses or loses its
  * readable text.
  */
 export function PageHero({

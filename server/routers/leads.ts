@@ -25,7 +25,7 @@ function formatDetails(details: Record<string, unknown>): string {
 }
 
 export const leadsRouter = router({
-  // Home valuation — form name: stacy-home-valuation
+  // Home valuation, form name: stacy-home-valuation
   homeValuation: publicProcedure
     .input(
       z.object({
@@ -64,7 +64,7 @@ export const leadsRouter = router({
       return { success: true };
     }),
 
-  // Contact — form name: contact
+  // Contact, form name: contact
   contact: publicProcedure
     .input(
       z.object({
@@ -92,7 +92,7 @@ export const leadsRouter = router({
       return { success: true };
     }),
 
-  // Property alerts — form name: stacy-property-alerts
+  // Property alerts, form name: stacy-property-alerts
   propertyAlerts: publicProcedure
     .input(
       z.object({
@@ -140,7 +140,7 @@ export const leadsRouter = router({
       return { success: true };
     }),
 
-  // Mortgage calculator lead — form name: mortgage-results
+  // Mortgage calculator lead, form name: mortgage-results
   mortgageResults: publicProcedure
     .input(
       z.object({
@@ -176,7 +176,7 @@ export const leadsRouter = router({
       return { success: true };
     }),
 
-  // Resource download — form name: resource-download
+  // Resource download, form name: resource-download
   resourceDownload: publicProcedure
     .input(
       z.object({
@@ -228,7 +228,7 @@ export const leadsRouter = router({
       return { success: true };
     }),
 
-  // Dedicated buyer inquiry — form name: stacy-buyer-inquiry
+  // Dedicated buyer inquiry, form name: stacy-buyer-inquiry
   buyerInquiry: publicProcedure
     .input(
       z.object({
@@ -267,7 +267,7 @@ export const leadsRouter = router({
       return { success: true };
     }),
 
-  // Dedicated seller inquiry — form name: stacy-seller-inquiry
+  // Dedicated seller inquiry, form name: stacy-seller-inquiry
   sellerInquiry: publicProcedure
     .input(
       z.object({
@@ -306,7 +306,7 @@ export const leadsRouter = router({
       return { success: true };
     }),
 
-  // Relocation inquiry — form name: stacy-relocation-inquiry
+  // Relocation inquiry, form name: stacy-relocation-inquiry
   relocationInquiry: publicProcedure
     .input(
       z.object({
@@ -345,7 +345,7 @@ export const leadsRouter = router({
       return { success: true };
     }),
 
-  // Land/Investment inquiry — form name: stacy-land-investment-inquiry
+  // Land/Investment inquiry, form name: stacy-land-investment-inquiry
   landInvestmentInquiry: publicProcedure
     .input(
       z.object({

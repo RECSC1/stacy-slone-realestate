@@ -26,7 +26,7 @@ const VALUE_PROPS = [
     number: "03",
     icon: Sparkles,
     title: "AI-Powered Tools",
-    body: "Describe your dream home in plain language and explore the Triangle with smart, modern tools.",
+    body: "Describe the home you want in plain language and explore the Triangle with smart, modern tools.",
     href: "/ai-home-search",
     cta: "Try AI Home Search",
   },
@@ -38,7 +38,7 @@ export default function Home() {
       <Seo
         title="Real Estate Agent Raleigh, Durham, Chapel Hill"
         description="Trusted real estate agent serving Raleigh, Durham, Chapel Hill & Triangle NC. Expert buyer & seller guidance."
-        keywords="real estate agent Raleigh, Durham real estate, Chapel Hill homes, Triangle NC realtor, Cary real estate"
+        keywords="Durham NC real estate agent, Durham real estate, Hillsborough homes, Chapel Hill homes, Triangle NC realtor"
       />
       <section className="hero-skyline">
         <div className="hero-skyline__media">
@@ -48,13 +48,13 @@ export default function Home() {
           <div className="hero-skyline__content text-background">
             <p className="section-eyebrow">{SITE.serviceAreas.join(" · ")}</p>
             <h1 className="hero-title mt-1">Choosing The RIGHT Realtor<em>DOES Make A Difference.</em></h1>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-background/85 sm:text-base">Trusted, people-first real estate guidance for Durham, Hillsborough, and the greater Triangle, rooted in local insight, calm confidence, and genuine care.</p>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-background/85 sm:text-base">Trusted, people-first real estate guidance for Durham, NC, Hillsborough, and the greater Triangle, rooted in local insight, calm confidence, and genuine care.</p>
             <div className="hero-skyline__actions mt-5 flex flex-col gap-3 sm:flex-row">
               <Link href="/buyer-inquiry"><button className="btn-primary flex w-full items-center justify-center gap-2 sm:w-auto">Schedule a Consultation <ArrowRight className="h-4 w-4" /></button></Link>
               <Link href="/ai-home-search"><button className="btn-outline w-full sm:w-auto">Explore Buyer Tools</button></Link>
             </div>
             <div className="hero-credentials mt-5 flex flex-wrap gap-x-7 gap-y-2 pt-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-background/80 sm:text-[11px]">
-              <span>Realtor®</span><span>KW Elite Realty</span><span>28 Years of Experience</span><span>Award-Winning</span>
+              <span>REALTOR®</span><span>KW Elite Realty</span><span>28 Years of Experience</span><span>Award-Winning</span>
             </div>
           </div>
         </div>
@@ -69,10 +69,10 @@ export default function Home() {
               Your trusted guide through every step of the Triangle real estate journey.
             </h2>
             <p className="text-lg text-text-light leading-relaxed mb-8">
-              With 28 years of experience, Stacy Wilson Slone is a consistent, award-winning Realtor® in the greater Durham area and across the Triangle. At KW Elite Realty, she specializes in helping buyers, sellers, and investors navigate Durham, Hillsborough, Mebane, Burlington, Oxford, and surrounding markets with confidence and clarity.
+              With 28 years of experience, Stacy Slone, REALTOR® is a consistent, award-winning REALTOR® in Durham, NC and across the Triangle. At KW Elite Realty, she specializes in helping buyers, sellers, and investors navigate Durham, Hillsborough, Chapel Hill, Raleigh, Wake Forest, Mebane, and Person County with confidence and clarity.
             </p>
             <p className="text-lg text-text-light leading-relaxed mb-8">
-              With a people-first approach and deep local knowledge, she combines strategic market expertise with genuine care for her clients' goals — whether you're buying your first home, selling a property, or building wealth through real estate investment.
+              With a people-first approach and deep local knowledge, she combines strategic market expertise with genuine care for her clients' goals, whether you're buying your first home, selling a property, or building wealth through real estate investment.
             </p>
             <p className="text-lg text-text-light leading-relaxed">
               The result is a trusted partnership rooted in transparency, local insight, and a commitment to getting you the best outcome.
@@ -178,7 +178,7 @@ export default function Home() {
             <p className="section-eyebrow mb-6">Service Areas</p>
             <h2 className="mb-6">Local expertise across the Triangle</h2>
             <p className="text-background/70 max-w-2xl">
-              From the historic streets of Chapel Hill to Cary's family neighborhoods, Stacy represents buyers and sellers across North Carolina's most loved communities.
+              From downtown Durham, NC to historic Hillsborough and the open land of Person County, Stacy represents buyers and sellers across the communities she knows best.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -203,7 +203,7 @@ export default function Home() {
             <p className="section-eyebrow mb-6">Exclusive Tools</p>
             <h2 className="text-primary-dark mb-6">Interactive buyer tools, designed for Triangle buyers</h2>
             <p className="text-text-light max-w-2xl">
-              Search schools, study commutes, compare neighborhoods, and run financial scenarios — all in one calm, polished workspace.
+              Search schools, study commutes, compare neighborhoods, and run financial scenarios, all in one calm, polished workspace.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -213,7 +213,7 @@ export default function Home() {
                 <h3 className="text-primary-dark mb-3 group-hover:text-accent transition-colors">
                   AI Home Search
                 </h3>
-                <p className="text-sm text-text-light">Describe your dream home and explore Triangle properties with AI guidance.</p>
+                <p className="text-sm text-text-light">Describe the home you want and explore Triangle properties with AI guidance.</p>
               </div>
             </Link>
             <Link href="/school-search">

@@ -12,7 +12,7 @@ interface HeadshotProps {
  * Editorial brand portrait panel.
  *
  * Renders Stacy's real headshot inside a refined cream/ivory frame with thin
- * taupe + black hairline framing — luxury, Charleston-inspired. If no photo is
+ * taupe + black hairline framing, luxury, Charleston-inspired. If no photo is
  * configured (or the asset ever fails to load), it gracefully falls back to a
  * monogram treatment so a broken-image state is never shown. The portrait is
  * displayed with object-cover anchored toward the top so the face is never
@@ -53,7 +53,7 @@ export function Headshot({ className, withPanel = false }: HeadshotProps) {
               {SITE.agentName}
             </p>
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-accent">
-              Realtor® · {SITE.brokerage}
+              REALTOR® · {SITE.brokerage}
             </p>
           </div>
           {/* visually-hidden, screen-reader-friendly description */}

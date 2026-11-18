@@ -10,7 +10,7 @@ import { trpc } from "@/lib/trpc";
 const GUIDES = [
   { t: "First-Time Buyer's Guide", b: "What to expect from pre-approval to closing in the Triangle.", href: "/ai-home-search" },
   { t: "Seller's Prep Checklist", b: "Simple steps to help your Triangle home show its best.", href: "/home-valuation" },
-  { t: "Relocation to the Triangle", b: "Getting to know Raleigh, Durham, Chapel Hill, Cary and beyond.", href: "/communities" },
+  { t: "Relocation to the Triangle", b: "Getting to know Durham, NC, Hillsborough, Chapel Hill, Raleigh, and beyond.", href: "/communities" },
 ];
 
 const DOWNLOADABLE_GUIDES = [
@@ -28,7 +28,7 @@ const DOWNLOADABLE_GUIDES = [
   },
   {
     title: "Relocation Guide",
-    description: "Everything you need to know about relocating to Raleigh, Durham, Chapel Hill, Cary, and beyond.",
+    description: "Everything you need to know about relocating to Durham, NC, Chapel Hill, Raleigh, and beyond.",
     cta: "Get Relocation Guide",
     href: "/relocation-guide",
   },
@@ -47,12 +47,12 @@ export default function Resources() {
     <>
       <Seo
         title="Triangle NC Real Estate Resources & Guides"
-        description="Real estate guides, tips, and resources for buying and selling in the Triangle NC from Stacy Wilson Slone, KW Elite Realty."
+        description="Real estate guides, tips, and resources for buying and selling in the Triangle NC from Stacy Slone, REALTOR®, KW Elite Realty."
       />
       <PageHero
         eyebrow="Learn & Plan"
         title="Resources & guides"
-        description="Helpful guidance for buying, selling, and relocating in the Triangle — plus articles from Stacy as they're published."
+        description="Helpful guidance for buying, selling, and relocating in the Triangle, plus articles from Stacy as they're published."
       />
 
       {/* Evergreen guide entry points */}

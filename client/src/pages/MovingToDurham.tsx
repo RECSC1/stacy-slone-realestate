@@ -19,24 +19,16 @@ const CHECKLIST = [
   "Choose preferred housing types and realistic maintenance tolerance.",
   "Separate must-haves from preferences for location, lot, parking, and layout.",
   "Decide how much renovation disruption and uncertainty you can accept.",
-  "List HOA rules or amenities that would be helpful—or unacceptable.",
+  "List HOA rules or amenities that would be helpful, or unacceptable.",
   "Secure a current pre-approval and understand cash needed beyond the down payment.",
   "Identify inspection priorities and specialists a property type may require.",
   "Verify jurisdiction, utilities, taxes, insurance, and flood information by address.",
   "Use the home-search tools only to focus choices, then verify each listing.",
 ];
 
-const structuredData = {
-  "@context": "https://schema.org", "@type": "BlogPosting", headline: DURHAM_POST.title,
-  description: "Moving to Durham, North Carolina? Compare Durham areas, housing styles, commutes, lifestyle considerations, and practical home-buying tips from local Realtor Stacy Slone.",
-  image: "https://stacyslonerealty.com/images/downtown-durham-skyline-night.webp", datePublished: "2026-09-14",
-  author: { "@type": "Person", name: "Stacy Wilson Slone" }, mainEntityOfPage: "https://stacyslonerealty.com/blog/moving-to-durham-nc",
-};
-
 export default function MovingToDurham() {
   return <>
-    <Seo title="Moving to Durham NC: Local Buyer’s Guide | Stacy Slone" absoluteTitle canonicalPath="/blog/moving-to-durham-nc" description={structuredData.description} image="https://stacyslonerealty.com/images/downtown-durham-skyline-night.webp" type="article" />
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+    <Seo />
     <article className="bg-background">
       <header className="relative isolate overflow-hidden bg-primary-dark text-[#fbf6ef]">
         <img src={DURHAM_POST.image} alt={DURHAM_POST.imageAlt} className="absolute inset-0 -z-20 h-full w-full object-cover" />
@@ -44,7 +36,7 @@ export default function MovingToDurham() {
         <div className="container py-14 md:py-20 lg:py-24">
           <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-medium text-accent-light hover:text-[#fbf6ef]"><ArrowLeft className="h-4 w-4" /> All blog posts</Link>
           <p className="eyebrow mt-9 text-accent-light">{DURHAM_POST.category}</p><h1 className="mt-4 max-w-5xl text-[#fbf6ef]">{DURHAM_POST.title}</h1>
-          <p className="mt-6 text-sm text-[#fbf6ef]/75">By Stacy Wilson Slone · Published <time dateTime="2026-09-14">{DURHAM_POST.publishedLabel}</time></p>
+          <p className="mt-6 text-sm text-[#fbf6ef]/75">By Stacy Slone, REALTOR® · Published <time dateTime="2026-09-14">{DURHAM_POST.publishedLabel}</time></p>
         </div>
       </header>
       <Section containerClassName="max-w-4xl"><div className="space-y-6 text-foreground [&_a]:font-medium [&_a]:underline [&_a]:decoration-accent/60 [&_a]:underline-offset-4 [&_h2]:mt-14 [&_h2]:text-3xl [&_h3]:mt-9 [&_li]:leading-relaxed [&_p]:text-[1.05rem] [&_p]:leading-8">
@@ -58,7 +50,7 @@ export default function MovingToDurham() {
         <p>Downtown and the Warehouse District concentrate adaptive-reuse buildings, newer multifamily construction, entertainment venues, restaurants, and services. Condos and townhomes can reduce exterior maintenance, while nearby blocks also include older detached houses. Walkability is property-specific: map the grocery trip, parking location, workplace, and destinations that matter to you rather than relying on a broad downtown label.</p>
         <p>For a condo, review far more than the monthly association fee. Ask for the declaration, bylaws, rules, current budget, reserve information, insurance responsibilities, recent meeting minutes, pending assessments, rental restrictions, pet rules, and the exact parking and storage rights conveyed. Visit at the times you expect to be home. Event activity, loading areas, trains, construction, and nightlife can feel different at noon and late evening.</p>
         <h2>Duke-adjacent and central Durham: established homes near major destinations</h2>
-        <p>Central Durham includes a varied collection of bungalows, cottages, brick ranches, duplexes, condos, and infill around Duke University and the urban core. Access can change quickly from one street to the next, so compare the actual route to the part of Duke, downtown, or the hospital complex you need—not simply the distance shown on a listing.</p>
+        <p>Central Durham includes a varied collection of bungalows, cottages, brick ranches, duplexes, condos, and infill around Duke University and the urban core. Access can change quickly from one street to the next, so compare the actual route to the part of Duke, downtown, or the hospital complex you need, not simply the distance shown on a listing.</p>
         <p>Older houses deserve an inspection strategy matched to their age and alterations. The roof, drainage, foundation or crawlspace, electrical service, plumbing materials, HVAC, windows, insulation, sewer connection, and tree conditions can affect both near-term work and long-term ownership cost. Renovated does not automatically mean fully updated. Request permits when relevant and let qualified inspectors evaluate the specific property.</p>
         <p>Some central properties are locally designated landmarks or lie in local historic districts. Durham Planning explains that exterior or site work on a locally designated historic property may require a <a href="https://www.durhamnc.gov/392/Historic-Preservation">Certificate of Appropriateness</a>. Verify status through official mapping and speak with planning staff before assuming a porch, window, addition, fence, or other exterior project is allowed.</p>
         <h2>North Durham: broader lot and housing choices</h2>
@@ -75,7 +67,7 @@ export default function MovingToDurham() {
         <p>Housing positioned for RTP includes apartments, townhomes, condos, detached subdivisions, and new construction. Compare garage and guest parking, road noise, association obligations, construction phases, and access to the services you use outside work. If remote or hybrid work may change, consider whether the home and location still function when commute frequency changes.</p>
         <h2>How commute patterns should shape your Durham home search</h2>
         <p>Distance is only a starting point. Test a candidate property-to-work route at the time and day you normally travel. Include school or care stops, parking, campus circulation, airport trips, and the return journey. Compare at least one alternate route and note whether a bridge, interchange, or single arterial is doing most of the work.</p>
-        <p>If transit matters, use current <a href="https://godurhamtransit.org/maps-schedules/godurham">GoDurham maps and schedules</a> for the exact stop, route, direction, span of service, and transfer. A route shown nearby may not operate when you need it. Walking and cycling decisions also deserve an on-the-ground check of crossings, lighting, slope, sidewalk continuity, and the entire trip—not a citywide score.</p>
+        <p>If transit matters, use current <a href="https://godurhamtransit.org/maps-schedules/godurham">GoDurham maps and schedules</a> for the exact stop, route, direction, span of service, and transfer. A route shown nearby may not operate when you need it. Walking and cycling decisions also deserve an on-the-ground check of crossings, lighting, slope, sidewalk continuity, and the entire trip, not a citywide score.</p>
         <h2>What Durham buyers often underestimate</h2>
         <ul className="space-y-4 pl-0">
           <li><strong>Mailing address versus jurisdiction.</strong> “Durham” in an address can refer to the city or a broader postal area. Use <a href="https://www.durhamnc.gov/1455/GoMaps">Durham Maps</a> and confirm city limits, parcel details, service providers, and jurisdiction with the appropriate agency.</li>
@@ -98,7 +90,7 @@ export default function MovingToDurham() {
         <h3>Are there historic homes in Durham?</h3><p>Yes. Durham has older homes and locally designated historic properties and districts. Age alone does not establish designation. Confirm a specific parcel through Durham Maps and Planning. If local designation applies, some exterior or site changes may need a Certificate of Appropriateness in addition to any other required permit.</p>
         <h3>What is the difference between North Durham and South Durham?</h3><p>North Durham generally includes more lower-density areas, established subdivisions, and some larger-lot properties, while South Durham includes many planned communities and strong road connections toward I-40, Southpoint, RTP, and Chapel Hill. Both contain substantial variety. Compare individual property type, jurisdiction, HOA, utilities, and commute rather than relying on the directional label.</p>
         <h3>How early should I contact a Realtor before relocating?</h3><p>Contact a local buyer’s agent when your move becomes likely and before compressing the search into a tour weekend. Early planning creates time to clarify financing, agency, property types, commute tests, and due-diligence needs. You do not need a final neighborhood choice before starting that conversation.</p>
-        <h3>Can a local Realtor help me compare Durham with Raleigh or Chapel Hill?</h3><p>Yes. A local agent can help translate your budget, commute, housing preferences, and maintenance tolerance into comparable search options across Durham, Raleigh, and Chapel Hill. The goal should be an objective tradeoff discussion and property-level research—not steering you toward or away from an area based on protected characteristics.</p>
+        <h3>Can a local Realtor help me compare Durham with Raleigh or Chapel Hill?</h3><p>Yes. A local agent can help translate your budget, commute, housing preferences, and maintenance tolerance into comparable search options across Durham, Raleigh, and Chapel Hill. The goal should be an objective tradeoff discussion and property-level research, not steering you toward or away from an area based on protected characteristics.</p>
         <h2>Build a focused Durham search plan</h2>
         <p>A productive Durham search begins with decisions, not dozens of saved listings. Stacy can help you compare area access, housing types, ownership obligations, and property-condition tradeoffs, then turn those priorities into a focused tour plan. When you are ready, <Link href="/contact">contact Stacy for a grounded relocation conversation</Link> about the homes and locations that fit your next move.</p>
         <aside className="mt-14 border-t border-border pt-8" aria-labelledby="sources-heading"><h2 id="sources-heading" className="!mt-0 !text-2xl">Research sources</h2><p className="text-sm text-muted-foreground">Reviewed September 14, 2026: City of Durham <a href="https://www.durhamnc.gov/1455/GoMaps">Durham Maps</a>, City-County <a href="https://www.durhamnc.gov/338/Planning-Development">Planning and Development</a>, Durham <a href="https://www.durhamnc.gov/392/Historic-Preservation">historic preservation guidance</a>, Durham County <a href="https://www.dconc.gov/county-departments/departments-f-z/tax-administration">Tax Administration</a>, <a href="https://godurhamtransit.org/maps-schedules/godurham">GoDurham maps and schedules</a>, and the official <a href="https://www.rtp.org/">Research Triangle Park</a> site. Property, transportation, tax, and planning information can change; verify current details for a specific address.</p></aside>

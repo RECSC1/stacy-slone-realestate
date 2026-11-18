@@ -12,7 +12,7 @@ export default function VirtualStaging() {
     <>
       <Seo
         title="Virtual Staging for Triangle NC Home Sellers"
-        description="See how virtual staging helps Triangle North Carolina homes sell. Presentation guidance from Stacy Wilson Slone, KW Elite Realty."
+        description="See how virtual staging helps Triangle North Carolina homes sell. Presentation guidance from Stacy Slone, REALTOR®, KW Elite Realty."
       />
       <PageHero
         eyebrow="For Sellers"

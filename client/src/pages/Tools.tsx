@@ -15,7 +15,7 @@ import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section } from "@/components/ui-blocks/Section";
 
 const TOOLS = [
-  { icon: Sparkles, t: "AI Home Search", b: "Describe your dream home in plain language and get Triangle-specific guidance.", href: "/ai-home-search" },
+  { icon: Sparkles, t: "AI Home Search", b: "Describe the home you want in plain language and get Triangle-specific guidance.", href: "/ai-home-search" },
   { icon: MessageCircle, t: "AI Concierge", b: "Ask any buyer or seller question about the Triangle market, anytime.", href: "/concierge" },
   { icon: Calculator, t: "Mortgage Calculator", b: "Estimate your monthly payment to plan your home search.", href: "/mortgage-calculator" },
   { icon: Bell, t: "Property Alerts", b: "Be first to know when matching homes hit the market.", href: "/property-alerts" },
@@ -30,7 +30,7 @@ export default function Tools() {
     <>
       <Seo
         title="Triangle NC Real Estate Tools"
-        description="Smart real estate tools for the Triangle NC from Stacy Wilson Slone, KW Elite Realty — AI Home Search, AI Concierge, mortgage calculator, property alerts, and more."
+        description="Smart real estate tools for the Triangle NC from Stacy Slone, REALTOR®, KW Elite Realty, AI Home Search, AI Concierge, mortgage calculator, property alerts, and more."
       />
       <PageHero
         eyebrow="Smarter Real Estate"

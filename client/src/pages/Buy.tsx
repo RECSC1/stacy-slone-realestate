@@ -5,24 +5,22 @@ import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section } from "@/components/ui-blocks/Section";
 import { LeadForm } from "@/components/ui-blocks/LeadForm";
 import { FeaturedListings } from "@/components/ui-blocks/FeaturedListings";
-import { trpc } from "@/lib/trpc";
 import { HERO_IMAGES } from "@/config/images";
 
 export default function Buy() {
-  const mutation = trpc.leads.searchCriteria.useMutation();
 
   return (
     <>
       <Seo
         title="Search Triangle NC Homes for Sale"
-        description="Search for homes across the Triangle with Stacy Wilson Slone, KW Elite Realty. Share your criteria and get personalized listings in Raleigh, Durham, Chapel Hill, and Cary."
+        description="Search for homes across the Triangle with Stacy Slone, REALTOR®, KW Elite Realty. Share your criteria and get personalized listings in Durham, NC, Hillsborough, Chapel Hill, and Raleigh."
       />
       <PageHero
         image={HERO_IMAGES.buy}
         imageAlt="Triangle NC home for sale"
         eyebrow="For Buyers"
         title="Find your place in the Triangle"
-        description="Tell Stacy what you're looking for and she'll curate homes that match — or explore AI Home Search to describe your dream home in your own words."
+        description="Tell Stacy what you're looking for and she'll curate homes that match, or explore AI Home Search to describe the home you want in your own words."
       />
 
       {/* Quick entry points */}
@@ -63,10 +61,11 @@ export default function Buy() {
           </p>
           <div className="mt-8">
             <LeadForm
+            formName="stacy-buyer-inquiry"
               submitLabel="Send My Criteria"
-              isSubmitting={mutation.isPending}
-              isSuccess={mutation.isSuccess}
-              isError={mutation.isError}
+
+
+
               successTitle="Got it!"
               successMessage="Stacy will review your criteria and send matching Triangle homes your way. For anything urgent, call (919) 972-1180."
               fields={[
@@ -75,14 +74,6 @@ export default function Buy() {
                 { name: "email", label: "Email", type: "email", required: true, colSpan: 2 },
                 { name: "criteria", label: "What are you looking for?", type: "textarea", required: true, placeholder: "Areas, price range, beds/baths, must-haves, timeline..." },
               ]}
-              onSubmit={async (v) => {
-                await mutation.mutateAsync({
-                  name: v.name,
-                  email: v.email,
-                  phone: v.phone ?? "",
-                  criteria: v.criteria,
-                });
-              }}
             />
           </div>
         </div>

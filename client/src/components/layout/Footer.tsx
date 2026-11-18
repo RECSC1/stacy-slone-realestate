@@ -1,5 +1,5 @@
+import { ContactDetails } from "@/components/ContactDetails";
 import { Link } from "wouter";
-import { Phone, Mail, MapPin } from "lucide-react";
 import { SITE, COMPLIANCE } from "@/config/site";
 
 const EXPLORE = [
@@ -48,8 +48,8 @@ export function Footer() {
             {SITE.brokerage}
           </p>
           <p className="mt-5 max-w-xs text-sm font-light leading-relaxed text-[#fbf6ef]/60">
-            Trusted real estate guidance across Durham, Hillsborough, Mebane,
-            Burlington, Oxford, and the greater Triangle.
+            Trusted real estate guidance across Durham, NC, Hillsborough, Chapel
+            Hill, Raleigh, Wake Forest, Mebane, and Person County.
           </p>
         </div>
 
@@ -80,32 +80,17 @@ export function Footer() {
         {/* Connect */}
         <div>
           <Heading>Connect</Heading>
-          <div className="flex flex-col gap-4 text-sm font-light text-[#fbf6ef]/70">
-            <a
-              href={SITE.phoneHref}
-              className="flex items-center gap-2.5 hover:text-accent-light"
-            >
-              <Phone className="h-4 w-4 text-accent" /> {SITE.phone}
-            </a>
-            <a
-              href={SITE.emailHref}
-              className="flex items-center gap-2.5 hover:text-accent-light"
-            >
-              <Mail className="h-4 w-4 text-accent" /> {SITE.email}
-            </a>
-            <span className="flex items-start gap-2.5">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />{" "}
-              {SITE.officeAddress}
-            </span>
-          </div>
+          <ContactDetails className="text-sm font-light text-[#fbf6ef]/70 [&_a]:hover:text-accent-light" />
         </div>
       </div>
 
       {/* Legal / compliance */}
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-[1280px] space-y-3 px-5 py-8 text-xs font-light leading-relaxed text-[#fbf6ef]/55 sm:px-6 lg:px-8">
+          <img src="/images/equal-housing.svg" alt="Equal Housing Opportunity" width="40" height="40" />
           <p>{COMPLIANCE.equalHousing}</p>
-          <p>{COMPLIANCE.idxDisclaimer}</p>
+          <div id="brokerage-disclosure"></div>
+          {/* MLS/IDX disclaimer pending KW approval: render COMPLIANCE.idxDisclaimer here once supplied. */}
           <p>{SITE.brokerageDisclaimer}</p>
           <p className="border-t border-white/10 pt-4 text-[#fbf6ef]/70">
             &copy; {year} {SITE.agentName}. All rights reserved. &middot;{" "}

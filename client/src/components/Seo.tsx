@@ -1,71 +1,34 @@
-import { useEffect } from "react";
-import { SITE } from "@/config/site";
+import { useEffect } from 'react';
+import { useLocation } from 'wouter';
+import { headValues } from '@/config/seo';
 
-interface SeoProps {
-  title?: string;
-  description?: string;
-  keywords?: string;
-  absoluteTitle?: boolean;
-  canonicalPath?: string;
-  image?: string;
-  type?: "website" | "article";
-}
-
-/**
- * Lightweight SEO helper: updates document title and meta description
- * on route change. Keeps page titles consistent and keyword-aware.
- */
-export function Seo({ title, description, keywords, absoluteTitle = false, canonicalPath, image, type = "website" }: SeoProps) {
+// Both the static renderer and client navigation use the same metadata registry.
+// Legacy props remain accepted for existing page components, with route data authoritative.
+interface SeoProps { title?: string; description?: string; keywords?: string; absoluteTitle?: boolean; canonicalPath?: string; image?: string; type?: 'website' | 'article'; }
+export function Seo(_props: SeoProps) {
+  const [path] = useLocation();
   useEffect(() => {
-    const fullTitle = title
-      ? absoluteTitle ? title : `${title} | ${SITE.agentName}, ${SITE.brokerage}`
-      : SITE.seoTitle;
-    document.title = fullTitle;
-
-    const desc = description ?? SITE.seoDescription;
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement("meta");
-      metaDesc.setAttribute("name", "description");
-      document.head.appendChild(metaDesc);
+    const h = headValues(path);
+    document.title = h.title;
+    function setMeta(attribute: 'name' | 'property', key: string, value: string) {
+      const matches = Array.from(document.head.querySelectorAll<HTMLMetaElement>(`meta[${attribute}="${key}"]`));
+      const element = matches.shift() ?? document.createElement('meta');
+      matches.forEach(extra => extra.remove());
+      element.setAttribute(attribute, key); element.content = value;
+      if (!element.isConnected) document.head.appendChild(element);
     }
-    metaDesc.setAttribute("content", desc);
-
-    if (keywords) {
-      let metaKeywords = document.querySelector('meta[name="keywords"]');
-      if (!metaKeywords) {
-        metaKeywords = document.createElement("meta");
-        metaKeywords.setAttribute("name", "keywords");
-        document.head.appendChild(metaKeywords);
-      }
-      metaKeywords.setAttribute("content", keywords);
-    }
-
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute("content", fullTitle);
-
-    const canonicalUrl = canonicalPath ? `${SITE.baseUrl}${canonicalPath}` : SITE.baseUrl;
-    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.rel = "canonical";
-      document.head.appendChild(canonical);
-    }
-    canonical.href = canonicalUrl;
-
-    const setProperty = (property: string, content: string) => {
-      let element = document.querySelector<HTMLMetaElement>(`meta[property="${property}"]`);
-      if (!element) {
-        element = document.createElement("meta");
-        element.setAttribute("property", property);
-        document.head.appendChild(element);
-      }
-      element.content = content;
-    };
-    setProperty("og:type", type);
-    setProperty("og:url", canonicalUrl);
-    if (image) setProperty("og:image", image);
-  }, [title, description, keywords, absoluteTitle, canonicalPath, image, type]);
-
+    Object.entries(h.names).forEach(([key,value]) => setMeta('name',key,value));
+    Object.entries(h.properties).forEach(([key,value]) => setMeta('property',key,value));
+    document.head.querySelectorAll('meta[name="keywords"]').forEach(node => node.remove());
+    const canonicals = Array.from(document.head.querySelectorAll<HTMLLinkElement>('link[rel="canonical"]'));
+    const canonical = canonicals.shift() ?? document.createElement('link');
+    canonicals.forEach(extra => extra.remove());
+    canonical.rel = 'canonical'; canonical.href = h.canonical;
+    if (!canonical.isConnected) document.head.appendChild(canonical);
+    const schema = document.getElementById('site-schema') ?? document.createElement('script');
+    schema.id = 'site-schema'; schema.setAttribute('type','application/ld+json');
+    schema.textContent = JSON.stringify(h.schema).replace(/</g,'\\u003c');
+    if (!schema.isConnected) document.head.appendChild(schema);
+  }, [path]);
   return null;
 }

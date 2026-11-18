@@ -3,17 +3,15 @@ import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui-blocks/PageHero";
 import { Section } from "@/components/ui-blocks/Section";
 import { LeadForm } from "@/components/ui-blocks/LeadForm";
-import { trpc } from "@/lib/trpc";
 import { SITE } from "@/config/site";
 
 export default function PropertyAlerts() {
-  const mutation = trpc.leads.propertyAlerts.useMutation();
 
   return (
     <>
       <Seo
         title="Triangle NC Property Alerts"
-        description="Set up custom Triangle North Carolina property alerts with Stacy Wilson Slone, KW Elite Realty. Be first to know when matching homes hit the market."
+        description="Set up custom Triangle North Carolina property alerts with Stacy Slone, REALTOR®, KW Elite Realty. Be first to know when matching homes hit the market."
       />
       <PageHero
         eyebrow="Never Miss a Match"
@@ -30,17 +28,18 @@ export default function PropertyAlerts() {
             </h2>
           </div>
           <LeadForm
+            formName="stacy-property-alerts"
             submitLabel="Create My Alerts"
-            isSubmitting={mutation.isPending}
-            isSuccess={mutation.isSuccess}
-            isError={mutation.isError}
+
+
+
             successTitle="You're all set!"
             successMessage="Stacy will set up your custom property alerts and reach out with matching Triangle homes. For anything urgent, call (919) 972-1180."
             fields={[
               { name: "name", label: "Full Name", required: true, colSpan: 1 },
               { name: "phone", label: "Phone", type: "tel", colSpan: 1 },
               { name: "email", label: "Email", type: "email", required: true, colSpan: 2 },
-              { name: "area", label: "Preferred Area(s)", placeholder: "Raleigh, Cary, Apex...", colSpan: 2 },
+              { name: "area", label: "Preferred Area(s)", placeholder: "Durham, Hillsborough, Chapel Hill...", colSpan: 2 },
               { name: "priceRange", label: "Price Range", placeholder: "e.g. $400k - $600k", colSpan: 1 },
               { name: "propertyType", label: "Property Type", type: "select", options: ["Single-family", "Townhome", "Condo", "Land", "No preference"], colSpan: 1 },
               { name: "beds", label: "Min Beds", type: "select", options: ["1+", "2+", "3+", "4+", "5+"], colSpan: 1 },
@@ -48,20 +47,6 @@ export default function PropertyAlerts() {
               { name: "timeline", label: "Timeline", type: "select", options: ["ASAP", "1-3 months", "3-6 months", "6-12 months", "Just browsing"], colSpan: 2 },
               { name: "notes", label: "Anything else?", type: "textarea" },
             ]}
-            onSubmit={async (v) => {
-              await mutation.mutateAsync({
-                name: v.name,
-                email: v.email,
-                phone: v.phone ?? "",
-                area: v.area ?? "",
-                priceRange: v.priceRange ?? "",
-                propertyType: v.propertyType ?? "",
-                beds: v.beds ?? "",
-                baths: v.baths ?? "",
-                timeline: v.timeline ?? "",
-                notes: v.notes ?? "",
-              });
-            }}
           />
         </div>
       </Section>

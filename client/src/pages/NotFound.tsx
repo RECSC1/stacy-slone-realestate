@@ -1,9 +1,10 @@
+import { Seo } from "@/components/Seo";
 import { Home } from "lucide-react";
 import { Link } from "wouter";
 
 export default function NotFound() {
   return (
-    <div className="section-dark flex min-h-[70vh] w-full items-center justify-center px-5 py-20">
+    <><Seo /><div className="section-dark flex min-h-[70vh] w-full items-center justify-center px-5 py-20">
       <div className="w-full max-w-lg text-center">
         <p className="eyebrow text-accent-light">Page Not Found</p>
         <h1 className="mt-4 font-serif text-6xl text-[#fbf6ef]">404</h1>
@@ -20,11 +21,13 @@ export default function NotFound() {
               Back Home
             </button>
           </Link>
+          <Link href="/buy" className="btn-outline-light">Buy</Link>
+          <Link href="/sell" className="btn-outline-light">Sell</Link>
           <Link href="/contact">
             <button className="btn-outline-light">Contact Stacy</button>
           </Link>
         </div>
       </div>
-    </div>
+    </div></>
   );
 }

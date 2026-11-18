@@ -37,13 +37,13 @@ export default function AIHomeSearch() {
   return (
     <>
       <Seo
-        title="AI Home Search — Describe Your Dream Triangle Home"
-        description="Use AI Home Search to describe your ideal Triangle NC home in plain language and get personalized guidance from Stacy Wilson Slone, KW Elite Realty."
+        title="AI Home Search, Describe Your Dream Triangle Home"
+        description="Use AI Home Search to describe your ideal Triangle NC home in plain language and get personalized guidance from Stacy Slone, REALTOR®, KW Elite Realty."
       />
       <PageHero
         eyebrow="AI-Powered"
-        title="Describe your dream home"
-        description="Tell the AI what you're looking for in plain language — neighborhood feel, must-haves, lifestyle — and get thoughtful, Triangle-specific guidance."
+        title="Describe the home you want"
+        description="Tell the AI what you're looking for in plain language, neighborhood feel, must-haves, lifestyle, and get thoughtful, Triangle-specific guidance."
       />
 
       <Section className="bg-background" containerClassName="max-w-4xl">
@@ -62,12 +62,12 @@ export default function AIHomeSearch() {
             onSendMessage={handleSend}
             isLoading={chat.isPending}
             height="560px"
-            placeholder="e.g. A 3-bed near good parks in Cary with a home office..."
+            placeholder="e.g. A 3-bed near good parks in Durham with a home office..."
             emptyStateMessage="Describe your ideal Triangle home and lifestyle to get started."
             suggestedPrompts={[
               "I want a walkable neighborhood near downtown Durham under a tight budget",
-              "Looking for a quiet family-friendly area in Cary or Apex with parks",
-              "First-time buyer wanting a starter home near Raleigh — where should I look?",
+              "Looking for a quiet family-friendly area in Durham or Hillsborough with parks",
+              "First-time buyer wanting a starter home near Raleigh, where should I look?",
             ]}
           />
         </div>
